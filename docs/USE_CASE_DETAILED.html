@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Cleva Investment - Use Case Detailed Documentation</title>
+    <style>
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            margin: 1in;
+            max-width: 8.5in;
+        }
+        h1 {
+            font-size: 24pt;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 24pt;
+            margin-bottom: 12pt;
+            color: #2E5090;
+            border-bottom: 3px solid #2E5090;
+            padding-bottom: 6pt;
+        }
+        h2 {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-top: 18pt;
+            margin-bottom: 10pt;
+            color: #2E5090;
+            border-bottom: 2px solid #CCCCCC;
+            padding-bottom: 4pt;
+        }
+        h3 {
+            font-size: 13pt;
+            font-weight: bold;
+            margin-top: 14pt;
+            margin-bottom: 8pt;
+            color: #1F3864;
+        }
+        h4 {
+            font-size: 11pt;
+            font-weight: bold;
+            margin-top: 12pt;
+            margin-bottom: 6pt;
+            color: #1F3864;
+        }
+        p {
+            margin-top: 6pt;
+            margin-bottom: 6pt;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-top: 6pt;
+            margin-bottom: 6pt;
+        }
+        li {
+            margin-bottom: 4pt;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 12pt;
+            margin-bottom: 12pt;
+            font-size: 10pt;
+        }
+        th {
+            background-color: #2E5090;
+            color: white;
+            padding: 8pt;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #2E5090;
+        }
+        td {
+            padding: 6pt;
+            border: 1px solid #CCCCCC;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background-color: #F5F5F5;
+        }
+        .cover-page {
+            text-align: center;
+            page-break-after: always;
+            margin-top: 200pt;
+        }
+        .cover-title {
+            font-size: 36pt;
+            font-weight: bold;
+            color: #2E5090;
+            margin-bottom: 24pt;
+        }
+        .cover-subtitle {
+            font-size: 18pt;
+            color: #1F3864;
+            margin-bottom: 12pt;
+        }
+        .cover-info {
+            font-size: 12pt;
+            margin-top: 48pt;
+        }
+        .section-break {
+            page-break-before: always;
+        }
+        .diagram-box {
+            font-family: 'Courier New', monospace;
+            background-color: #F5F5F5;
+            padding: 20pt;
+            border: 2px solid #2E5090;
+            margin: 12pt 0;
+            font-size: 9pt;
+            line-height: 1.3;
+        }
+        .mockup-box {
+            font-family: 'Courier New', monospace;
+            background-color: #FAFAFA;
+            padding: 15pt;
+            border: 1px solid #CCCCCC;
+            margin: 12pt 0;
+            font-size: 8pt;
+            line-height: 1.2;
+        }
+        .highlight {
+            background-color: #FFFFCC;
+            padding: 2pt 4pt;
+        }
+        .success-box {
+            background-color: #D4EDDA;
+            border: 1px solid #C3E6CB;
+            padding: 12pt;
+            margin: 12pt 0;
+            border-radius: 4pt;
+        }
+        .warning-box {
+            background-color: #FFF3CD;
+            border: 1px solid #FFE69C;
+            padding: 12pt;
+            margin: 12pt 0;
+            border-radius: 4pt;
+        }
+        .error-box {
+            background-color: #F8D7DA;
+            border: 1px solid #F5C6CB;
+            padding: 12pt;
+            margin: 12pt 0;
+            border-radius: 4pt;
+        }
+        .step-number {
+            background-color: #2E5090;
+            color: white;
+            padding: 2pt 8pt;
+            border-radius: 3pt;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover-page">
+    <div class="cover-title">USE CASE</div>
+    <div class="cover-title">DETAILED DOCUMENTATION</div>
+    <div class="cover-subtitle">Cleva Investment Platform</div>
+    <div class="cover-subtitle" style="font-size: 14pt; margin-top: 30pt;">View AI Investment Recommendations for Financial Goal</div>
+
+    <div class="cover-info">
+        <p><strong>Project:</strong> Cleva Investment - AI-Powered Investment Advisory Platform</p>
+        <p><strong>Use Case ID:</strong> UC-004</p>
+        <p><strong>Primary Actor:</strong> Investor</p>
+        <p><strong>Date:</strong> January 15, 2026</p>
+        <p><strong>Version:</strong> 1.0</p>
+        <p><strong>Status:</strong> Approved for Implementation</p>
+    </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="section-break">
+<h1>TABLE OF CONTENTS</h1>
+<ol>
+    <li>Use Case Overview</li>
+    <li>Use Case Diagram</li>
+    <li>Use Case Specification</li>
+    <li>Main Success Scenario</li>
+    <li>Alternative Flows</li>
+    <li>Sequence Diagram</li>
+    <li>User Interface Mockup</li>
+    <li>Business Rules</li>
+    <li>Non-Functional Requirements</li>
+    <li>Acceptance Criteria</li>
+    <li>Testing Scenarios</li>
+</ol>
+</div>
+
+<!-- SECTION 1: OVERVIEW -->
+<div class="section-break">
+<h1>1. USE CASE OVERVIEW</h1>
+
+<p>This document provides a comprehensive description of the <strong>"View AI Investment Recommendations for Financial Goal"</strong> use case within the Cleva Investment platform. This use case is a critical component of the system's value proposition, enabling users to receive personalized, AI-powered investment advice based on their specific financial goals, risk tolerance, and investment experience.</p>
+
+<h2>1.1 Purpose</h2>
+<p>The purpose of this use case is to demonstrate how individual investors interact with the Cleva Investment system to obtain personalized investment recommendations generated by artificial intelligence (Cohere AI). The use case covers the complete user journey from login to viewing and saving AI-generated recommendations.</p>
+
+<h2>1.2 Scope</h2>
+<p>This use case is scoped to the following:</p>
+<ul>
+    <li>User authentication and session management</li>
+    <li>Navigation to financial goal details</li>
+    <li>Requesting AI-generated investment recommendations</li>
+    <li>Viewing personalized recommendations with risk-adjusted asset allocations</li>
+    <li>Saving recommendations for future reference</li>
+    <li>Error handling and alternative scenarios</li>
+</ul>
+
+<p><strong>Out of Scope:</strong></p>
+<ul>
+    <li>Actual execution of investment transactions</li>
+    <li>Brokerage account integration</li>
+    <li>Real-time stock trading</li>
+    <li>Tax calculations and reporting</li>
+</ul>
+
+<h2>1.3 Benefits to User</h2>
+<table>
+    <tr>
+        <th style="width: 30%;">Benefit</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><strong>Personalized Guidance</strong></td>
+        <td>User receives investment recommendations tailored to their specific goal, risk tolerance, and timeline</td>
+    </tr>
+    <tr>
+        <td><strong>Time Savings</strong></td>
+        <td>Eliminates hours of research by providing curated recommendations in under 10 seconds</td>
+    </tr>
+    <tr>
+        <td><strong>Cost Savings</strong></td>
+        <td>Free AI advice replaces traditional financial advisors charging 1-2% annual fees</td>
+    </tr>
+    <tr>
+        <td><strong>Educational Value</strong></td>
+        <td>Explanations help users understand why specific investments are recommended</td>
+    </tr>
+    <tr>
+        <td><strong>Confidence Building</strong></td>
+        <td>AI-backed recommendations reduce anxiety about investment decisions</td>
+    </tr>
+</table>
+</div>
+
+<!-- SECTION 2: USE CASE DIAGRAM -->
+<div class="section-break">
+<h1>2. USE CASE DIAGRAM</h1>
+
+<p>The following diagram illustrates the high-level interactions between the Investor (primary actor) and the Cleva Investment System.</p>
+
+<div class="diagram-box">
+<pre>
+                    +------------------+
+                    |                  |
+                    |   Cleva System   |
+                    |                  |
+                    +------------------+
+                            |
+                            |
+         +------------------+------------------+
+         |                  |                  |
+         |                  |                  |
+    +----v----+      +------v------+    +------v------+
+    | Login   |      |   View      |    | Request AI  |
+    | System  |      |   Goals     |    | Recommend.  |
+    +---------+      +-------------+    +-------------+
+         |                  |                  |
+         |                  |                  |
+    [Investor]         [Investor]         [Investor]
+         |                  |                  |
+         |                  |                  |
+         +------------------+------------------+
+                            |
+                            |
+                     +------v------+
+                     |   Display   |
+                     | Recommend.  |
+                     +-------------+
+                            |
+                       [Investor]
+
+
+Legend:
+-------
+[Actor]         = Primary Actor (Investor)
++----------+    = Use Case
+    |           = Association/Interaction
+</pre>
+</div>
+
+<h2>2.1 Actors</h2>
+<table>
+    <tr>
+        <th style="width: 25%;">Actor</th>
+        <th style="width: 20%;">Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><strong>Investor</strong></td>
+        <td>Primary Actor</td>
+        <td>Individual user seeking personalized investment advice for their financial goals</td>
+    </tr>
+    <tr>
+        <td><strong>Cleva System</strong></td>
+        <td>System</td>
+        <td>Web application providing authentication, goal management, and AI recommendations</td>
+    </tr>
+</table>
+
+<h2>2.2 Use Cases Involved</h2>
+<table>
+    <tr>
+        <th style="width: 30%;">Use Case</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><strong>Login System</strong></td>
+        <td>User authenticates with email and password to access protected features</td>
+    </tr>
+    <tr>
+        <td><strong>View Goals</strong></td>
+        <td>User navigates to dashboard and views list of financial goals</td>
+    </tr>
+    <tr>
+        <td><strong>Request AI Recommendations</strong></td>
+        <td>User triggers AI analysis to generate personalized investment recommendations</td>
+    </tr>
+    <tr>
+        <td><strong>Display Recommendations</strong></td>
+        <td>System presents AI-generated recommendations with allocations and analysis</td>
+    </tr>
+</table>
+</div>
+
+<!-- SECTION 3: USE CASE SPECIFICATION -->
+<div class="section-break">
+<h1>3. USE CASE SPECIFICATION</h1>
+
+<table>
+    <tr>
+        <th style="width: 30%;">Element</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><strong>Use Case ID</strong></td>
+        <td>UC-004</td>
+    </tr>
+    <tr>
+        <td><strong>Use Case Name</strong></td>
+        <td>View AI Investment Recommendations for Financial Goal</td>
+    </tr>
+    <tr>
+        <td><strong>Primary Actor</strong></td>
+        <td>Investor (Individual User)</td>
+    </tr>
+    <tr>
+        <td><strong>Stakeholders and Interests</strong></td>
+        <td>
+            • <strong>Investor:</strong> Wants personalized, trustworthy investment recommendations<br/>
+            • <strong>Cleva Platform:</strong> Wants to provide value and retain users<br/>
+            • <strong>Regulatory Authorities:</strong> Ensure compliance with financial regulations
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Goal in Context</strong></td>
+        <td>User wants to view AI-generated investment recommendations for their specific financial goal to make informed investment decisions</td>
+    </tr>
+    <tr>
+        <td><strong>Scope</strong></td>
+        <td>Cleva Investment Web Application</td>
+    </tr>
+    <tr>
+        <td><strong>Level</strong></td>
+        <td>User-goal level (primary use case)</td>
+    </tr>
+    <tr>
+        <td><strong>Preconditions</strong></td>
+        <td>
+            1. User is registered in the system<br/>
+            2. User has successfully logged in (valid JWT token)<br/>
+            3. User has created at least one financial goal<br/>
+            4. AI service (Cohere API) is operational<br/>
+            5. User has internet connectivity<br/>
+            6. PostgreSQL database is accessible<br/>
+            7. Neo4j graph database is running
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Success End Condition</strong></td>
+        <td>User successfully views personalized AI-generated investment recommendations tailored to their goal, including asset allocations, expected returns, and monthly contribution requirements</td>
+    </tr>
+    <tr>
+        <td><strong>Failed End Condition</strong></td>
+        <td>User does not receive recommendations due to system error, unavailable AI service, expired session, or network connectivity issues</td>
+    </tr>
+    <tr>
+        <td><strong>Trigger</strong></td>
+        <td>User clicks on "View AI Recommendations" button on a financial goal detail page</td>
+    </tr>
+    <tr>
+        <td><strong>Frequency of Use</strong></td>
+        <td>2-3 times per user per goal (initial creation, quarterly reviews, goal updates)</td>
+    </tr>
+    <tr>
+        <td><strong>Priority</strong></td>
+        <td>High (Core feature of platform)</td>
+    </tr>
+    <tr>
+        <td><strong>Channel to Actor</strong></td>
+        <td>Web Browser (Desktop, Tablet, Mobile)</td>
+    </tr>
+</table>
+</div>
+
+<!-- SECTION 4: MAIN SUCCESS SCENARIO -->
+<div class="section-break">
+<h1>4. MAIN SUCCESS SCENARIO (PRIMARY FLOW)</h1>
+
+<p>This section describes the normal, successful flow of the use case from beginning to end, focusing on <strong>user actions</strong> and <strong>system interactions</strong> (not internal computations).</p>
+
+<table>
+    <tr>
+        <th style="width: 8%;">Step</th>
+        <th style="width: 42%;">Actor Action</th>
+        <th style="width: 50%;">System Response</th>
+    </tr>
+    <tr>
+        <td><span class="step-number">1</span></td>
+        <td>User opens the Cleva Investment web application in browser (e.g., http://localhost:5173)</td>
+        <td>
+            <strong>System displays login page</strong> with:<br/>
+            • Email input field<br/>
+            • Password input field<br/>
+            • "Login" button<br/>
+            • "Forgot Password?" link<br/>
+            • "Don't have an account? Register" link
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">2</span></td>
+        <td>User enters email address (e.g., thabo@example.com)<br/>
+            User enters password<br/>
+            User clicks "Login" button
+        </td>
+        <td>
+            <strong>System validates credentials:</strong><br/>
+            • Checks email exists in database<br/>
+            • Verifies password hash matches<br/>
+            <br/>
+            <strong>System generates JWT token</strong> with 7-day expiration<br/>
+            <br/>
+            <strong>System stores token in browser localStorage</strong><br/>
+            <br/>
+            <strong>System redirects to Dashboard</strong>
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">3</span></td>
+        <td>User views Dashboard</td>
+        <td>
+            <strong>System displays Dashboard page</strong> showing:<br/>
+            • Welcome message: "Welcome back, Thabo!"<br/>
+            • Summary statistics (Total goals, Total saved, Progress)<br/>
+            • List of all user's financial goals in card format<br/>
+            • Each card shows:<br/>
+            &nbsp;&nbsp;- Goal title<br/>
+            &nbsp;&nbsp;- Target amount<br/>
+            &nbsp;&nbsp;- Progress bar<br/>
+            &nbsp;&nbsp;- Status badge<br/>
+            • Navigation menu (Dashboard, Goals, Portfolio, Chat, Settings)
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">4</span></td>
+        <td>User clicks on a specific goal card (e.g., "Retirement Fund")</td>
+        <td>
+            <strong>System retrieves goal details from PostgreSQL database</strong><br/>
+            <br/>
+            <strong>System displays goal detail page</strong> showing:<br/>
+            • Goal title: "Retirement Fund"<br/>
+            • Description: "Save for comfortable retirement"<br/>
+            • Target amount: R5,000,000<br/>
+            • Target date: December 31, 2045<br/>
+            • Current amount: R150,000<br/>
+            • Progress: 3% (progress bar)<br/>
+            • Time remaining: 20 years<br/>
+            • Risk tolerance: Conservative<br/>
+            • Investment experience: Beginner<br/>
+            • Monthly contribution: R10,000<br/>
+            • Status: In Progress<br/>
+            • Priority: High<br/>
+            • <strong>"View AI Recommendations" button</strong> (prominent, blue)
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">5</span></td>
+        <td>User clicks "View AI Recommendations" button</td>
+        <td>
+            <strong>System shows loading indicator:</strong><br/>
+            • Spinner animation<br/>
+            • Text: "Generating personalized recommendations..."<br/>
+            • Progress message: "Analyzing your goal and market data..."
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">6</span></td>
+        <td><em>(System processes request)</em></td>
+        <td>
+            <strong>System retrieves user profile</strong> from PostgreSQL:<br/>
+            • Risk tolerance: Conservative<br/>
+            • Investment experience: Beginner<br/>
+            • Age: 28 years<br/>
+            <br/>
+            <strong>System queries Neo4j</strong> for:<br/>
+            • Similar users (same risk tolerance + experience)<br/>
+            • Popular investments among similar users<br/>
+            • User's previous investment interests<br/>
+            <br/>
+            <strong>System constructs AI prompt</strong> with:<br/>
+            • Goal details (amount, timeline, type)<br/>
+            • User profile (risk, experience)<br/>
+            • Market context<br/>
+            • South African investment options
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">7</span></td>
+        <td><em>(System processes request)</em></td>
+        <td>
+            <strong>System sends request to Cohere AI API</strong> with context-rich prompt<br/>
+            <br/>
+            <strong>Update loading message:</strong> "AI is analyzing your profile..."
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">8</span></td>
+        <td><em>(External AI service processes)</em></td>
+        <td>
+            <strong>Cohere AI analyzes data</strong> and generates personalized recommendations based on:<br/>
+            • Goal parameters<br/>
+            • Risk tolerance<br/>
+            • Time horizon<br/>
+            • Investment experience level<br/>
+            <br/>
+            <strong>Cohere AI returns structured recommendations</strong>
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">9</span></td>
+        <td><em>(System processes response)</em></td>
+        <td>
+            <strong>System receives AI response</strong> containing:<br/>
+            • List of recommended investments<br/>
+            • Allocation percentages<br/>
+            • Risk levels<br/>
+            • Expected returns<br/>
+            • Rationale for each recommendation
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">10</span></td>
+        <td><em>(System processes response)</em></td>
+        <td>
+            <strong>System saves recommendations</strong> to PostgreSQL:<br/>
+            • Updates goal's recommendedInvestments JSONB field<br/>
+            • Records timestamp of recommendation generation<br/>
+            <br/>
+            <strong>System creates/updates relationships in Neo4j:</strong><br/>
+            • Links user to recommended investments<br/>
+            • Creates INTERESTED_IN relationships<br/>
+            • Updates similarity scores
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">11</span></td>
+        <td><em>(System processes response)</em></td>
+        <td>
+            <strong>System hides loading indicator</strong><br/>
+            <br/>
+            <strong>System displays recommendations panel</strong> showing:<br/>
+            <br/>
+            <strong>💡 AI Investment Recommendations</strong><br/>
+            <br/>
+            <strong>Recommended Portfolio Allocation:</strong><br/>
+            <br/>
+            <strong>1. Satrix 40 ETF (STX40) - 40%</strong><br/>
+            &nbsp;&nbsp;&nbsp;• Risk: Low<br/>
+            &nbsp;&nbsp;&nbsp;• Expected Return: 8-10% p.a.<br/>
+            &nbsp;&nbsp;&nbsp;• 📈 Diversified SA equity exposure<br/>
+            &nbsp;&nbsp;&nbsp;• [View Details] [Add to Portfolio] buttons<br/>
+            <br/>
+            <strong>2. Satrix Bond Index (STXGOV) - 30%</strong><br/>
+            &nbsp;&nbsp;&nbsp;• Risk: Very Low<br/>
+            &nbsp;&nbsp;&nbsp;• Expected Return: 6-8% p.a.<br/>
+            &nbsp;&nbsp;&nbsp;• 📊 Stable income for conservative profile<br/>
+            &nbsp;&nbsp;&nbsp;• [View Details] [Add to Portfolio] buttons<br/>
+            <br/>
+            <strong>3. Satrix MSCI World ETF (STXWDM) - 20%</strong><br/>
+            &nbsp;&nbsp;&nbsp;• Risk: Medium<br/>
+            &nbsp;&nbsp;&nbsp;• Expected Return: 10-12% p.a.<br/>
+            &nbsp;&nbsp;&nbsp;• 🌍 International diversification<br/>
+            &nbsp;&nbsp;&nbsp;• [View Details] [Add to Portfolio] buttons<br/>
+            <br/>
+            <strong>4. Money Market Fund - 10%</strong><br/>
+            &nbsp;&nbsp;&nbsp;• Risk: Minimal<br/>
+            &nbsp;&nbsp;&nbsp;• Expected Return: 5-6% p.a.<br/>
+            &nbsp;&nbsp;&nbsp;• 💰 Emergency fund and liquidity<br/>
+            &nbsp;&nbsp;&nbsp;• [View Details] [Add to Portfolio] buttons<br/>
+            <br/>
+            <strong>📝 AI Analysis:</strong><br/>
+            "Based on your conservative risk tolerance and 20-year timeline, I recommend a balanced portfolio weighted toward stable, low-risk investments. The 40/30/20/10 allocation provides growth potential while protecting your capital."<br/>
+            <br/>
+            <strong>💵 Monthly Contribution Needed: R18,500</strong><br/>
+            <strong>📊 Projected Final Amount: R5,200,000</strong>
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">12</span></td>
+        <td>User reads recommendations and AI analysis</td>
+        <td>
+            <strong>System displays disclaimer</strong> at bottom of recommendations panel:<br/>
+            <br/>
+            <div class="warning-box">
+            ⚠️ <strong>DISCLAIMER:</strong> This is AI-generated educational information, not financial advice. Please consult a licensed financial advisor before making investment decisions.
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">13</span></td>
+        <td>User clicks "Save Recommendations" button</td>
+        <td>
+            <strong>System confirms save operation</strong><br/>
+            <br/>
+            <strong>System displays success message:</strong><br/>
+            <div class="success-box">
+            ✅ "Recommendations saved to your goal!"
+            </div>
+            <br/>
+            <strong>System updates lastRecommendationDate field</strong> in database
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">14</span></td>
+        <td>User clicks "Back to Dashboard" button or navigates using menu</td>
+        <td>
+            <strong>System returns to Dashboard</strong><br/>
+            <br/>
+            <strong>System displays updated goal card</strong> showing:<br/>
+            • Badge: "Recommendations Available"<br/>
+            • Last updated: "Today"
+        </td>
+    </tr>
+</table>
+
+<h2>4.1 Postconditions</h2>
+
+<h3>Success Postconditions:</h3>
+<div class="success-box">
+<ol>
+    <li>User has viewed AI-generated investment recommendations</li>
+    <li>Recommendations are saved in PostgreSQL database (goals.recommendedInvestments JSONB field)</li>
+    <li>Neo4j graph database contains relationships between user and recommended investments</li>
+    <li>User is informed about next steps for implementing recommendations</li>
+    <li>Recommendation timestamp is recorded for cache validation</li>
+    <li>User can access recommendations again without regenerating (cached for 7 days)</li>
+</ol>
+</div>
+
+<h3>Failure Postconditions:</h3>
+<div class="error-box">
+<ol>
+    <li>User remains on goal detail page</li>
+    <li>Error message is displayed explaining the issue</li>
+    <li>No new data is saved to database</li>
+    <li>User has option to retry or contact support</li>
+    <li>System logs error for troubleshooting</li>
+</ol>
+</div>
+</div>
+
+<!-- SECTION 5: ALTERNATIVE FLOWS -->
+<div class="section-break">
+<h1>5. ALTERNATIVE FLOWS (EXCEPTION SCENARIOS)</h1>
+
+<p>Alternative flows describe deviations from the main success scenario, including error conditions, edge cases, and user choices.</p>
+
+<h2>5.1 Alternative Flow 1: Invalid Login Credentials</h2>
+
+<table>
+    <tr>
+        <th style="width: 8%;">Step</th>
+        <th style="width: 42%;">Actor Action</th>
+        <th style="width: 50%;">System Response</th>
+    </tr>
+    <tr>
+        <td><span class="step-number">2a</span></td>
+        <td>User enters incorrect email (e.g., wrong@email.com) or incorrect password</td>
+        <td>
+            <strong>System validates credentials</strong><br/>
+            <strong>System detects mismatch</strong><br/>
+            <br/>
+            <strong>System displays error message:</strong><br/>
+            <div class="error-box">
+            ❌ "Invalid email or password. Please try again."
+            </div>
+            <br/>
+            <strong>System keeps user on login page</strong><br/>
+            <strong>System clears password field</strong> (for security)<br/>
+            <strong>System maintains email field</strong> (for convenience)
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">2b</span></td>
+        <td>User clicks "Forgot Password?" link</td>
+        <td>
+            <strong>System navigates to password reset page</strong><br/>
+            <strong>System displays email input</strong> for reset link<br/>
+            <br/>
+            <strong>Return to Step 2</strong> after password reset
+        </td>
+    </tr>
+</table>
+
+<h2>5.2 Alternative Flow 2: No Financial Goals Exist</h2>
+
+<table>
+    <tr>
+        <th style="width: 8%;">Step</th>
+        <th style="width: 42%;">Actor Action</th>
+        <th style="width: 50%;">System Response</th>
+    </tr>
+    <tr>
+        <td><span class="step-number">3a</span></td>
+        <td>User views Dashboard</td>
+        <td>
+            <strong>System checks for existing goals</strong><br/>
+            <strong>System finds no goals (count = 0)</strong><br/>
+            <br/>
+            <strong>System displays empty state message:</strong><br/>
+            <div class="warning-box">
+            📋 "You haven't created any financial goals yet. Let's get started!"
+            </div>
+            <br/>
+            <strong>System shows "Create Your First Goal" button</strong> (prominent, green)<br/>
+            <strong>System displays onboarding tips</strong> about goal creation
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">3b</span></td>
+        <td>User clicks "Create Your First Goal" button</td>
+        <td>
+            <strong>System navigates to goal creation form</strong><br/>
+            <br/>
+            <strong>Flow ends - switches to Use Case UC-001: Create Financial Goal</strong>
+        </td>
+    </tr>
+</table>
+
+<h2>5.3 Alternative Flow 3: AI Service Unavailable</h2>
+
+<table>
+    <tr>
+        <th style="width: 8%;">Step</th>
+        <th style="width: 42%;">Actor Action</th>
+        <th style="width: 50%;">System Response</th>
+    </tr>
+    <tr>
+        <td><span class="step-number">7a</span></td>
+        <td><em>(System processes request)</em></td>
+        <td>
+            <strong>System sends request to Cohere AI API</strong><br/>
+            <strong>API returns timeout error (503 Service Unavailable) or connection timeout</strong><br/>
+            <br/>
+            <strong>System catches error</strong>
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">7b</span></td>
+        <td><em>(System handles error)</em></td>
+        <td>
+            <strong>System hides loading indicator</strong><br/>
+            <br/>
+            <strong>System displays error message:</strong><br/>
+            <div class="error-box">
+            ⚠️ "AI service is temporarily unavailable. Please try again in a few minutes."
+            </div>
+            <br/>
+            <strong>System shows "Retry" button</strong><br/>
+            <strong>System shows "Back" button</strong><br/>
+            <br/>
+            <strong>System logs error</strong> to backend for monitoring
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">7c</span></td>
+        <td>User clicks "Retry" button</td>
+        <td>
+            <strong>Return to Step 6</strong> (retry recommendation generation)
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">7d</span></td>
+        <td>User clicks "Back" button</td>
+        <td>
+            <strong>System returns to goal detail page</strong> without recommendations<br/>
+            <strong>Flow ends</strong>
+        </td>
+    </tr>
+</table>
+
+<h2>5.4 Alternative Flow 4: Network Connection Lost</h2>
+
+<table>
+    <tr>
+        <th style="width: 8%;">Step</th>
+        <th style="width: 42%;">Actor Action</th>
+        <th style="width: 50%;">System Response</th>
+    </tr>
+    <tr>
+        <td><span class="step-number">Any</span></td>
+        <td>User loses internet connection during any step</td>
+        <td>
+            <strong>System detects network error</strong> (e.g., fetch() fails)<br/>
+            <br/>
+            <strong>System displays toast notification:</strong><br/>
+            <div class="error-box">
+            🔌 "Connection lost. Please check your internet connection."
+            </div>
+            <br/>
+            <strong>System disables all action buttons</strong><br/>
+            <strong>System shows reconnection indicator</strong> (animated icon)
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">-</span></td>
+        <td>User's internet connection is restored</td>
+        <td>
+            <strong>System detects connection restored</strong> (using window.online event)<br/>
+            <br/>
+            <strong>System displays toast notification:</strong><br/>
+            <div class="success-box">
+            ✅ "Connection restored!"
+            </div>
+            <br/>
+            <strong>System re-enables action buttons</strong><br/>
+            <strong>System allows user to retry action</strong>
+        </td>
+    </tr>
+</table>
+
+<h2>5.5 Alternative Flow 5: Session Timeout (JWT Expired)</h2>
+
+<table>
+    <tr>
+        <th style="width: 8%;">Step</th>
+        <th style="width: 42%;">Actor Action</th>
+        <th style="width: 50%;">System Response</th>
+    </tr>
+    <tr>
+        <td><span class="step-number">5a</span></td>
+        <td>User clicks "View AI Recommendations" button after 7+ days of inactivity</td>
+        <td>
+            <strong>System extracts JWT token from localStorage</strong><br/>
+            <strong>System validates token</strong><br/>
+            <strong>System detects token expiration</strong> (issued more than 7 days ago)<br/>
+            <br/>
+            <strong>System displays modal dialog:</strong><br/>
+            <div class="warning-box">
+            ⏰ "Your session has expired for security reasons. Please log in again to continue."
+            </div>
+            <br/>
+            <strong>System shows "Login Again" button</strong><br/>
+            <strong>System clears localStorage</strong> (removes expired token)
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">5b</span></td>
+        <td>User clicks "Login Again" button</td>
+        <td>
+            <strong>System redirects to login page</strong><br/>
+            <strong>System preserves return URL</strong> (to redirect back after login)<br/>
+            <br/>
+            <strong>Return to Step 2</strong>
+        </td>
+    </tr>
+</table>
+
+<h2>5.6 Alternative Flow 6: Recommendations Already Generated (Cache Hit)</h2>
+
+<table>
+    <tr>
+        <th style="width: 8%;">Step</th>
+        <th style="width: 42%;">Actor Action</th>
+        <th style="width: 50%;">System Response</th>
+    </tr>
+    <tr>
+        <td><span class="step-number">5a</span></td>
+        <td>User clicks "View AI Recommendations" button</td>
+        <td>
+            <strong>System checks if recommendations already exist</strong> in database<br/>
+            <strong>System finds existing recommendations</strong> (lastRecommendationDate < 7 days ago)<br/>
+            <br/>
+            <strong>System displays dialog:</strong><br/>
+            <div class="warning-box">
+            <strong>📋 Existing Recommendations Found</strong><br/><br/>
+            You already have recommendations generated on <strong>[January 10, 2026]</strong>.<br/><br/>
+            Would you like to:<br/>
+            • <strong>View existing recommendations</strong> (instant)<br/>
+            • <strong>Generate new recommendations</strong> (this will replace current ones)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">5b</span></td>
+        <td>User selects "View existing recommendations" option</td>
+        <td>
+            <strong>System retrieves cached recommendations</strong> from PostgreSQL JSONB field<br/>
+            <strong>System displays recommendations immediately</strong> (no AI call needed)<br/>
+            <br/>
+            <strong>Skip to Step 12</strong>
+        </td>
+    </tr>
+    <tr>
+        <td><span class="step-number">5c</span></td>
+        <td>User selects "Generate new recommendations" option</td>
+        <td>
+            <strong>System proceeds with AI generation</strong><br/>
+            <strong>System marks old recommendations as replaced</strong><br/>
+            <br/>
+            <strong>Continue from Step 6</strong>
+        </td>
+    </tr>
+</table>
+</div>
+
+<!-- SECTION 6: SEQUENCE DIAGRAM -->
+<div class="section-break">
+<h1>6. SEQUENCE DIAGRAM</h1>
+
+<p>The following sequence diagram illustrates the interactions between the user (Investor), system components (Frontend, Backend API), databases (PostgreSQL, Neo4j), and external services (Cohere AI) during the successful execution of this use case.</p>
+
+<div class="diagram-box">
+<pre>
+Investor       Frontend        Backend API      PostgreSQL      Neo4j       Cohere AI
+   |               |                |                |             |              |
+   |--1. Click "View Recommendations"-->              |             |              |
+   |               |                |                |             |              |
+   |               |--2. GET /api/goals/:id/recommendations-->     |              |
+   |               |                |                |             |              |
+   |               |                |--3. Fetch goal details------>|              |
+   |               |                |<---------Goal data-----------|              |
+   |               |                |                |             |              |
+   |               |                |--4. Query similar users--------------------->|
+   |               |                |<------User relationships---------------------|
+   |               |                |                |             |              |
+   |               |                |--5. Send AI prompt (with context)---------->|
+   |               |                |                |             |              |
+   |               |                |<--6. AI recommendations-------------------   |
+   |               |                |                |             |              |
+   |               |                |--7. Save recommendations---->|              |
+   |               |                |<--------Success--------------|              |
+   |               |                |                |             |              |
+   |               |                |--8. Update graph relationships------------>|
+   |               |                |<--------Success-----------------------------|
+   |               |                |                |             |              |
+   |               |<--9. Return recommendations + analysis----    |              |
+   |               |                |                |             |              |
+   |<--10. Display recommendations panel-----------  |             |              |
+   |               |                |                |             |              |
+   |--11. Read recommendations      |                |             |              |
+   |               |                |                |             |              |
+   |--12. Click "Save"------------->|                |             |              |
+   |               |                |                |             |              |
+   |               |--13. POST /api/goals/:id/save-recommendations->              |
+   |               |                |                |             |              |
+   |               |                |--14. Update lastRecommendationDate-->       |
+   |               |                |<--------Success--------------|              |
+   |               |                |                |             |              |
+   |               |<--15. Success message----------  |             |              |
+   |               |                |                |             |              |
+   |<--16. Display "Saved!" toast-- |                |             |              |
+   |               |                |                |             |              |
+
+
+Legend:
+-------
+---->   : Synchronous request
+<----   : Synchronous response
+|       : Lifeline
+</pre>
+</div>
+
+<h2>6.1 Sequence Steps Explained</h2>
+
+<table>
+    <tr>
+        <th style="width: 10%;">Step</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><strong>1</strong></td>
+        <td>User clicks "View AI Recommendations" button, triggering the use case</td>
+    </tr>
+    <tr>
+        <td><strong>2</strong></td>
+        <td>Frontend sends HTTP GET request to backend API endpoint with goal ID and JWT token</td>
+    </tr>
+    <tr>
+        <td><strong>3</strong></td>
+        <td>Backend queries PostgreSQL to retrieve goal details (target amount, date, risk, etc.)</td>
+    </tr>
+    <tr>
+        <td><strong>4</strong></td>
+        <td>Backend queries Neo4j graph database to find similar users and popular investments</td>
+    </tr>
+    <tr>
+        <td><strong>5</strong></td>
+        <td>Backend constructs context-rich prompt and sends to Cohere AI API</td>
+    </tr>
+    <tr>
+        <td><strong>6</strong></td>
+        <td>Cohere AI processes prompt and returns structured recommendations</td>
+    </tr>
+    <tr>
+        <td><strong>7</strong></td>
+        <td>Backend saves recommendations to PostgreSQL in goal's JSONB field</td>
+    </tr>
+    <tr>
+        <td><strong>8</strong></td>
+        <td>Backend creates/updates relationships in Neo4j linking user to investments</td>
+    </tr>
+    <tr>
+        <td><strong>9</strong></td>
+        <td>Backend returns JSON response to frontend with recommendations and analysis</td>
+    </tr>
+    <tr>
+        <td><strong>10</strong></td>
+        <td>Frontend renders recommendations panel with allocations, risks, and returns</td>
+    </tr>
+    <tr>
+        <td><strong>11</strong></td>
+        <td>User reads and reviews AI-generated recommendations</td>
+    </tr>
+    <tr>
+        <td><strong>12</strong></td>
+        <td>User clicks "Save Recommendations" button (optional)</td>
+    </tr>
+    <tr>
+        <td><strong>13</strong></td>
+        <td>Frontend sends POST request to save recommendations timestamp</td>
+    </tr>
+    <tr>
+        <td><strong>14</strong></td>
+        <td>Backend updates lastRecommendationDate field in database</td>
+    </tr>
+    <tr>
+        <td><strong>15</strong></td>
+        <td>Backend returns success response</td>
+    </tr>
+    <tr>
+        <td><strong>16</strong></td>
+        <td>Frontend displays success toast notification to user</td>
+    </tr>
+</table>
+</div>
+
+<!-- SECTION 7: USER INTERFACE MOCKUP -->
+<div class="section-break">
+<h1>7. USER INTERFACE MOCKUP</h1>
+
+<p>This section provides a text-based representation of the user interface for the goal detail page with AI recommendations displayed.</p>
+
+<div class="mockup-box">
+<pre>
++--------------------------------------------------------------------+
+|  [<- Back to Dashboard]                      [User: Thabo ▼]      |
++--------------------------------------------------------------------+
+|                                                                    |
+|  Retirement Fund Goal                              [Edit Goal]    |
+|  Status: In Progress  |  Priority: High                            |
+|                                                                    |
+|  +--------------------------------------------------------------+  |
+|  |  Progress: 3% (R150,000 of R5,000,000)                       |  |
+|  |  [▓▓░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░]    |  |
+|  +--------------------------------------------------------------+  |
+|                                                                    |
+|  Goal Details:                                                     |
+|  • Target Amount:         R5,000,000                               |
+|  • Target Date:           December 31, 2045 (20 years)             |
+|  • Current Amount:        R150,000                                 |
+|  • Monthly Contribution:  R10,000                                  |
+|  • Risk Tolerance:        Conservative                             |
+|  • Investment Experience: Beginner                                 |
+|                                                                    |
+|  +--------------------------------------------------------------+  |
+|  |              [📊 View AI Recommendations]                     |  |
+|  +--------------------------------------------------------------+  |
+|                                                                    |
+|  ┌────────────────────────────────────────────────────────────┐   |
+|  │  💡 AI Investment Recommendations                          │   |
+|  ├────────────────────────────────────────────────────────────┤   |
+|  │                                                            │   |
+|  │  Recommended Portfolio Allocation:                        │   |
+|  │                                                            │   |
+|  │  ┌──────────────────────────────────────────────────┐    │   |
+|  │  │ 1. Satrix 40 ETF (STX40)                    40%  │    │   |
+|  │  │    Risk: Low | Expected Return: 8-10% p.a.      │    │   |
+|  │  │    📈 Diversified SA equity exposure            │    │   |
+|  │  │    [View Details] [Add to Portfolio]            │    │   |
+|  │  └──────────────────────────────────────────────────┘    │   |
+|  │                                                            │   |
+|  │  ┌──────────────────────────────────────────────────┐    │   |
+|  │  │ 2. Satrix Bond Index (STXGOV)               30%  │    │   |
+|  │  │    Risk: Very Low | Expected Return: 6-8% p.a.  │    │   |
+|  │  │    📊 Stable income for conservative profile    │    │   |
+|  │  │    [View Details] [Add to Portfolio]            │    │   |
+|  │  └──────────────────────────────────────────────────┘    │   |
+|  │                                                            │   |
+|  │  ┌──────────────────────────────────────────────────┐    │   |
+|  │  │ 3. Satrix MSCI World ETF (STXWDM)           20%  │    │   |
+|  │  │    Risk: Medium | Expected Return: 10-12% p.a.  │    │   |
+|  │  │    🌍 International diversification             │    │   |
+|  │  │    [View Details] [Add to Portfolio]            │    │   |
+|  │  └──────────────────────────────────────────────────┘    │   |
+|  │                                                            │   |
+|  │  ┌──────────────────────────────────────────────────┐    │   |
+|  │  │ 4. Money Market Fund                        10%  │    │   |
+|  │  │    Risk: Minimal | Expected Return: 5-6% p.a.   │    │   |
+|  │  │    💰 Emergency fund and liquidity              │    │   |
+|  │  │    [View Details] [Add to Portfolio]            │    │   |
+|  │  └──────────────────────────────────────────────────┘    │   |
+|  │                                                            │   |
+|  │  ──────────────────────────────────────────────────────  │   |
+|  │                                                            │   |
+|  │  📝 AI Analysis:                                           │   |
+|  │  "Based on your conservative risk tolerance and 20-year   │   |
+|  │  timeline, I recommend a balanced portfolio weighted      │   |
+|  │  toward stable, low-risk investments. The 40/30/20/10    │   |
+|  │  allocation provides growth potential while protecting    │   |
+|  │  your capital. This mix of SA equities, bonds,            │   |
+|  │  international exposure, and cash ensures diversification │   |
+|  │  while maintaining the stability you need as a beginner   │   |
+|  │  investor."                                                │   |
+|  │                                                            │   |
+|  │  💵 Monthly Contribution Needed: R18,500                  │   |
+|  │  📊 Projected Final Amount: R5,200,000                    │   |
+|  │  📅 Last Updated: January 15, 2026                        │   |
+|  │                                                            │   |
+|  │  ⚠️ DISCLAIMER: This is AI-generated educational         │   |
+|  │  information, not financial advice. Please consult a      │   |
+|  │  licensed financial advisor before making investment      │   |
+|  │  decisions.                                                │   |
+|  │                                                            │   |
+|  │  [💾 Save Recommendations] [🔄 Regenerate] [💬 Chat]     │   |
+|  └────────────────────────────────────────────────────────────┘   |
+|                                                                    |
++--------------------------------------------------------------------+
+</pre>
+</div>
+
+<h2>7.1 UI Elements Explained</h2>
+
+<table>
+    <tr>
+        <th style="width: 30%;">Element</th>
+        <th>Purpose</th>
+    </tr>
+    <tr>
+        <td><strong>Back to Dashboard</strong></td>
+        <td>Navigation link to return to main dashboard</td>
+    </tr>
+    <tr>
+        <td><strong>User Dropdown (Thabo ▼)</strong></td>
+        <td>User menu for profile, settings, logout</td>
+    </tr>
+    <tr>
+        <td><strong>Goal Title & Status</strong></td>
+        <td>Displays goal name, current status, and priority level</td>
+    </tr>
+    <tr>
+        <td><strong>Progress Bar</strong></td>
+        <td>Visual representation of progress toward goal (3% = barely filled)</td>
+    </tr>
+    <tr>
+        <td><strong>Goal Details Section</strong></td>
+        <td>Summary of goal parameters (amount, date, risk, experience)</td>
+    </tr>
+    <tr>
+        <td><strong>View AI Recommendations Button</strong></td>
+        <td>Primary call-to-action to trigger AI recommendation generation</td>
+    </tr>
+    <tr>
+        <td><strong>Recommendations Panel</strong></td>
+        <td>Container showing AI-generated investment recommendations</td>
+    </tr>
+    <tr>
+        <td><strong>Investment Cards (1-4)</strong></td>
+        <td>Individual recommendation cards with ticker, allocation %, risk, return, and action buttons</td>
+    </tr>
+    <tr>
+        <td><strong>AI Analysis Text</strong></td>
+        <td>Natural language explanation from Cohere AI explaining the rationale</td>
+    </tr>
+    <tr>
+        <td><strong>Monthly Contribution</strong></td>
+        <td>Calculated required monthly savings to reach goal</td>
+    </tr>
+    <tr>
+        <td><strong>Projected Final Amount</strong></td>
+        <td>Estimated final portfolio value based on expected returns</td>
+    </tr>
+    <tr>
+        <td><strong>Disclaimer</strong></td>
+        <td>Legal disclaimer about AI-generated advice (regulatory compliance)</td>
+    </tr>
+    <tr>
+        <td><strong>Action Buttons</strong></td>
+        <td>Save (persist), Regenerate (new AI call), Chat (discuss with chatbot)</td>
+    </tr>
+</table>
+</div>
+
+<!-- SECTION 8: BUSINESS RULES -->
+<div class="section-break">
+<h1>8. BUSINESS RULES</h1>
+
+<p>Business rules govern the behavior and constraints of the system when generating and displaying AI recommendations.</p>
+
+<table>
+    <tr>
+        <th style="width: 15%;">Rule ID</th>
+        <th>Business Rule</th>
+    </tr>
+    <tr>
+        <td><strong>BR-1</strong></td>
+        <td><strong>Risk Alignment:</strong> Recommendations must align with user's stated risk tolerance (conservative, moderate, aggressive)</td>
+    </tr>
+    <tr>
+        <td><strong>BR-2</strong></td>
+        <td><strong>Conservative Equity Cap:</strong> Users with conservative risk tolerance shall have maximum 40% equity allocation</td>
+    </tr>
+    <tr>
+        <td><strong>BR-3</strong></td>
+        <td><strong>Moderate Equity Cap:</strong> Users with moderate risk tolerance shall have maximum 70% equity allocation</td>
+    </tr>
+    <tr>
+        <td><strong>BR-4</strong></td>
+        <td><strong>Aggressive Equity Cap:</strong> Users with aggressive risk tolerance shall have maximum 90% equity allocation</td>
+    </tr>
+    <tr>
+        <td><strong>BR-5</strong></td>
+        <td><strong>100% Allocation Rule:</strong> Total allocation percentages across all recommended investments must sum to exactly 100%</td>
+    </tr>
+    <tr>
+        <td><strong>BR-6</strong></td>
+        <td><strong>Beginner Simplicity:</strong> Beginner users must receive simpler recommendations (ETFs and index funds, not individual stocks)</td>
+    </tr>
+    <tr>
+        <td><strong>BR-7</strong></td>
+        <td><strong>Time Horizon Alignment:</strong> Recommendations must consider time horizon:<br/>
+            • Short-term (&lt;3 years): Focus on low-risk, liquid instruments (bonds, money market)<br/>
+            • Medium-term (3-10 years): Balanced allocation between growth and stability<br/>
+            • Long-term (&gt;10 years): Higher growth potential allowed (more equity exposure)
+        </td>
+    </tr>
+    <tr>
+        <td><strong>BR-8</strong></td>
+        <td><strong>Disclaimer Requirement:</strong> All recommendations must include disclaimer: "This is AI-generated educational information, not financial advice. Please consult a licensed financial advisor before making investment decisions."</td>
+    </tr>
+    <tr>
+        <td><strong>BR-9</strong></td>
+        <td><strong>Recommendation Expiry:</strong> Recommendations expire after 30 days. System should prompt user to regenerate fresh recommendations.</td>
+    </tr>
+    <tr>
+        <td><strong>BR-10</strong></td>
+        <td><strong>Recommendation Count:</strong> System must recommend minimum 3 and maximum 8 different investments per goal (for diversification without overwhelming user)</td>
+    </tr>
+    <tr>
+        <td><strong>BR-11</strong></td>
+        <td><strong>South African Focus:</strong> At least 50% of recommendations should be South African investments (JSE-listed) for local users</td>
+    </tr>
+    <tr>
+        <td><strong>BR-12</strong></td>
+        <td><strong>Currency Consistency:</strong> All amounts must be displayed in South African Rands (R) for consistency</td>
+    </tr>
+    <tr>
+        <td><strong>BR-13</strong></td>
+        <td><strong>Monthly Contribution Realism:</strong> Calculated monthly contribution should not exceed 50% of projected monthly income (if available)</td>
+    </tr>
+    <tr>
+        <td><strong>BR-14</strong></td>
+        <td><strong>Emergency Fund Priority:</strong> All recommendations should include 5-10% in liquid, low-risk instruments (money market) for emergency funds</td>
+    </tr>
+</table>
+</div>
+
+<!-- SECTION 9: NON-FUNCTIONAL REQUIREMENTS -->
+<div class="section-break">
+<h1>9. NON-FUNCTIONAL REQUIREMENTS</h1>
+
+<h2>9.1 Performance Requirements</h2>
+<table>
+    <tr>
+        <th style="width: 15%;">NFR ID</th>
+        <th>Requirement</th>
+    </tr>
+    <tr>
+        <td><strong>NFR-P1</strong></td>
+        <td>Goal detail page must load within 2 seconds on standard broadband (5 Mbps)</td>
+    </tr>
+    <tr>
+        <td><strong>NFR-P2</strong></td>
+        <td>AI recommendations must be generated and displayed within 10 seconds for 95% of requests</td>
+    </tr>
+    <tr>
+        <td><strong>NFR-P3</strong></td>
+        <td>UI must show loading indicators for all operations exceeding 1 second</td>
+    </tr>
+    <tr>
+        <td><strong>NFR-P4</strong></td>
+        <td>Cached recommendations (less than 7 days old) must display within 500ms</td>
+    </tr>
+</table>
+
+<h2>9.2 Availability Requirements</h2>
+<table>
+    <tr>
+        <th style="width: 15%;">NFR ID</th>
+        <th>Requirement</th>
+    </tr>
+    <tr>
+        <td><strong>NFR-A1</strong></td>
+        <td>System must maintain 99.5% uptime (maximum 3.6 hours downtime per month)</td>
+    </tr>
+    <tr>
+        <td><strong>NFR-A2</strong></td>
+        <td>AI service failures must not crash the application; graceful error handling required</td>
+    </tr>
+    <tr>
+        <td><strong>NFR-A3</strong></td>
+        <td>System must gracefully degrade when external APIs (Cohere, market data) are unavailable</td>
+    </tr>
+</table>
+
+<h2>9.3 Security Requirements</h2>
+<table>
+    <tr>
+        <th style="width: 15%;">NFR ID</th>
+        <th>Requirement</th>
+    </tr>
+    <tr>
+        <td><strong>NFR-S1</strong></td>
+        <td>JWT token must be validated on every API request; expired tokens rejected with 401 Unauthorized</td>
+    </tr>
+    <tr>
+        <td><strong>NFR-S2</strong></td>
+        <td>User can only access recommendations for their own goals (userId validation required)</td>
+    </tr>
+    <tr>
+        <td><strong>NFR-S3</strong></td>
+        <td>All communications must use HTTPS in production environment</td>
+    </tr>
+    <tr>
+        <td><strong>NFR-S4</strong></td>
+        <td>Rate limiting: Maximum 10 recommendation generation requests per hour per user (prevent API abuse)</td>
+    </tr>
+    <tr>
+        <td><strong>NFR-S5</strong></td>
+        <td>Sensitive data (user profiles, goals) must never be logged in plain text</td>
+    </tr>
+</table>
+
+<h2>9.4 Usability Requirements</h2>
+<table>
+    <tr>
+        <th style="width: 15%;">NFR ID</th>
+        <th>Requirement</th>
+    </tr>
+    <tr>
+        <td><strong>NFR-U1</strong></td>
+        <td>Recommendations must use language appropriate for user's investment experience level (simple for beginners, technical for advanced)</td>
+    </tr>
+    <tr>
+        <td><strong>NFR-U2</strong></td>
+        <td>Visual hierarchy: Most important/highest allocation recommendations shown first</td>
+    </tr>
+    <tr>
+        <td><strong>NFR-U3</strong></td>
+        <td>Color coding for risk levels: Green (low risk), Yellow (medium risk), Red (high risk)</td>
+    </tr>
+    <tr>
+        <td><strong>NFR-U4</strong></td>
+        <td>Mobile-responsive design: All UI elements must be accessible on screens 320px+ wide</td>
+    </tr>
+    <tr>
+        <td><strong>NFR-U5</strong></td>
+        <td>Loading indicators must be visible and animated to indicate progress</td>
+    </tr>
+</table>
+
+<h2>9.5 Scalability Requirements</h2>
+<table>
+    <tr>
+        <th style="width: 15%;">NFR ID</th>
+        <th>Requirement</th>
+    </tr>
+    <tr>
+        <td><strong>NFR-SC1</strong></td>
+        <td>System must handle 100+ concurrent users viewing recommendations simultaneously</td>
+    </tr>
+    <tr>
+        <td><strong>NFR-SC2</strong></td>
+        <td>Database queries (PostgreSQL, Neo4j) must execute in &lt;50ms for 95% of operations</td>
+    </tr>
+    <tr>
+        <td><strong>NFR-SC3</strong></td>
+        <td>Recommendation caching: Store recommendations for 7 days to reduce AI API costs and improve response time</td>
+    </tr>
+</table>
+</div>
+
+<!-- SECTION 10: ACCEPTANCE CRITERIA -->
+<div class="section-break">
+<h1>10. ACCEPTANCE CRITERIA</h1>
+
+<p>The following acceptance criteria must be met for this use case to be considered successfully implemented:</p>
+
+<table>
+    <tr>
+        <th style="width: 12%;">AC ID</th>
+        <th style="width: 48%;">Acceptance Criterion</th>
+        <th style="width: 40%;">Verification Method</th>
+    </tr>
+    <tr>
+        <td><strong>AC-1</strong></td>
+        <td>User can view AI recommendations for any goal they created</td>
+        <td>Manual testing: Create goal, click "View Recommendations", verify display</td>
+    </tr>
+    <tr>
+        <td><strong>AC-2</strong></td>
+        <td>Recommendations include at least 3 investment options with allocation percentages</td>
+        <td>Automated test: Count recommendation items, verify ≥ 3</td>
+    </tr>
+    <tr>
+        <td><strong>AC-3</strong></td>
+        <td>Total allocation percentages sum to exactly 100%</td>
+        <td>Automated test: Sum all allocation percentages, assert === 100</td>
+    </tr>
+    <tr>
+        <td><strong>AC-4</strong></td>
+        <td>Recommendations align with user's stated risk tolerance (conservative → max 40% equity)</td>
+        <td>Automated test: Parse recommendations, verify equity % ≤ risk limit</td>
+    </tr>
+    <tr>
+        <td><strong>AC-5</strong></td>
+        <td>System displays expected returns for each recommended investment</td>
+        <td>Manual inspection: Verify each recommendation card shows return range</td>
+    </tr>
+    <tr>
+        <td><strong>AC-6</strong></td>
+        <td>System shows disclaimer about consulting licensed financial advisors</td>
+        <td>Automated test: Search DOM for disclaimer text, assert exists</td>
+    </tr>
+    <tr>
+        <td><strong>AC-7</strong></td>
+        <td>User can save recommendations to goal (persisted in database)</td>
+        <td>Automated test: Click save, verify database update, reload page, verify persistence</td>
+    </tr>
+    <tr>
+        <td><strong>AC-8</strong></td>
+        <td>User can regenerate new recommendations (replaces old ones)</td>
+        <td>Manual testing: Generate, note recommendations, regenerate, verify different results</td>
+    </tr>
+    <tr>
+        <td><strong>AC-9</strong></td>
+        <td>System displays appropriate error messages when AI service fails</td>
+        <td>Integration test: Mock Cohere API failure, verify error message displayed</td>
+    </tr>
+    <tr>
+        <td><strong>AC-10</strong></td>
+        <td>Monthly contribution calculation is accurate and realistic (within 50% of target ÷ months)</td>
+        <td>Automated test: Calculate expected contribution, compare with AI output, verify ≤ 50% variance</td>
+    </tr>
+    <tr>
+        <td><strong>AC-11</strong></td>
+        <td>Recommendations load within 10 seconds for 95% of requests</td>
+        <td>Performance test: 100 requests, measure response time, verify 95th percentile &lt; 10s</td>
+    </tr>
+    <tr>
+        <td><strong>AC-12</strong></td>
+        <td>Session timeout redirects to login page with appropriate message</td>
+        <td>Manual test: Wait 7+ days, attempt action, verify redirect and message</td>
+    </tr>
+</table>
+</div>
+
+<!-- SECTION 11: TESTING SCENARIOS -->
+<div class="section-break">
+<h1>11. TESTING SCENARIOS</h1>
+
+<h2>11.1 Test Case 1: Happy Path (Successful Recommendation Generation)</h2>
+
+<table>
+    <tr>
+        <th style="width: 20%;">Element</th>
+        <th>Details</th>
+    </tr>
+    <tr>
+        <td><strong>Test Case ID</strong></td>
+        <td>TC-UC004-001</td>
+    </tr>
+    <tr>
+        <td><strong>Test Objective</strong></td>
+        <td>Verify user can successfully view AI-generated recommendations for a financial goal</td>
+    </tr>
+    <tr>
+        <td><strong>Preconditions</strong></td>
+        <td>
+            • User "Thabo" (thabo@example.com) is registered<br/>
+            • Goal "Retirement Fund" exists (Target: R5M, Risk: Conservative, Experience: Beginner)<br/>
+            • All systems operational (Backend, PostgreSQL, Neo4j, Cohere AI)
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Test Steps</strong></td>
+        <td>
+            1. Navigate to http://localhost:5173<br/>
+            2. Enter email: thabo@example.com, password: Test@1234<br/>
+            3. Click "Login"<br/>
+            4. Click on "Retirement Fund" goal card<br/>
+            5. Click "View AI Recommendations" button<br/>
+            6. Wait for recommendations to load
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Expected Results</strong></td>
+        <td>
+            ✅ User is redirected to dashboard after login<br/>
+            ✅ Goal detail page displays with correct goal information<br/>
+            ✅ Loading indicator appears ("Generating recommendations...")<br/>
+            ✅ Recommendations panel displays within 10 seconds<br/>
+            ✅ Panel shows 4 investment options:<br/>
+            &nbsp;&nbsp;&nbsp;• Satrix 40 ETF: 40%<br/>
+            &nbsp;&nbsp;&nbsp;• Satrix Bond Index: 30%<br/>
+            &nbsp;&nbsp;&nbsp;• Satrix MSCI World: 20%<br/>
+            &nbsp;&nbsp;&nbsp;• Money Market: 10%<br/>
+            ✅ Total allocation = 100%<br/>
+            ✅ AI analysis text displayed<br/>
+            ✅ Monthly contribution shown: R18,500<br/>
+            ✅ Disclaimer visible at bottom
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Test Data</strong></td>
+        <td>Email: thabo@example.com | Password: Test@1234 | Goal ID: 123e4567-e89b-12d3-a456-426614174000</td>
+    </tr>
+    <tr>
+        <td><strong>Status</strong></td>
+        <td><span style="background-color: #D4EDDA; padding: 4pt 8pt;">PASSED</span></td>
+    </tr>
+</table>
+
+<h2>11.2 Test Case 2: AI Service Failure (Error Handling)</h2>
+
+<table>
+    <tr>
+        <th style="width: 20%;">Element</th>
+        <th>Details</th>
+    </tr>
+    <tr>
+        <td><strong>Test Case ID</strong></td>
+        <td>TC-UC004-002</td>
+    </tr>
+    <tr>
+        <td><strong>Test Objective</strong></td>
+        <td>Verify system handles Cohere AI service unavailability gracefully</td>
+    </tr>
+    <tr>
+        <td><strong>Preconditions</strong></td>
+        <td>
+            • User is logged in<br/>
+            • Goal exists<br/>
+            • Cohere AI API is down or returning 503 errors
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Test Steps</strong></td>
+        <td>
+            1. Mock Cohere API to return 503 Service Unavailable<br/>
+            2. Navigate to goal detail page<br/>
+            3. Click "View AI Recommendations"<br/>
+            4. Observe system behavior
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Expected Results</strong></td>
+        <td>
+            ✅ Loading indicator appears initially<br/>
+            ✅ After timeout, loading indicator disappears<br/>
+            ✅ Error message displayed: "AI service is temporarily unavailable. Please try again in a few minutes."<br/>
+            ✅ "Retry" button shown<br/>
+            ✅ "Back" button shown<br/>
+            ✅ Application does not crash<br/>
+            ✅ User can retry or navigate back<br/>
+            ✅ Error logged to backend for monitoring
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Status</strong></td>
+        <td><span style="background-color: #FFF3CD; padding: 4pt 8pt;">PENDING</span></td>
+    </tr>
+</table>
+
+<h2>11.3 Test Case 3: Unauthorized Access (Security)</h2>
+
+<table>
+    <tr>
+        <th style="width: 20%;">Element</th>
+        <th>Details</th>
+    </tr>
+    <tr>
+        <td><strong>Test Case ID</strong></td>
+        <td>TC-UC004-003</td>
+    </tr>
+    <tr>
+        <td><strong>Test Objective</strong></td>
+        <td>Verify user cannot access another user's goal recommendations</td>
+    </tr>
+    <tr>
+        <td><strong>Preconditions</strong></td>
+        <td>
+            • User "Sarah" (sarah@example.com) is logged in<br/>
+            • User "Thabo" has a goal with ID: thabo-goal-123<br/>
+            • Sarah attempts to access Thabo's goal
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Test Steps</strong></td>
+        <td>
+            1. Login as Sarah<br/>
+            2. Manually navigate to /goals/thabo-goal-123/recommendations<br/>
+            3. Observe system response
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Expected Results</strong></td>
+        <td>
+            ✅ System validates JWT token and extracts Sarah's userId<br/>
+            ✅ System checks if goal thabo-goal-123 belongs to Sarah<br/>
+            ✅ System detects mismatch (goal belongs to Thabo, not Sarah)<br/>
+            ✅ System returns 403 Forbidden error<br/>
+            ✅ Error message: "You do not have permission to access this goal"<br/>
+            ✅ User redirected to their own dashboard<br/>
+            ✅ No recommendations displayed<br/>
+            ✅ Security event logged
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Status</strong></td>
+        <td><span style="background-color: #D4EDDA; padding: 4pt 8pt;">PASSED</span></td>
+    </tr>
+</table>
+
+<h2>11.4 Test Case 4: Expired Session (Session Management)</h2>
+
+<table>
+    <tr>
+        <th style="width: 20%;">Element</th>
+        <th>Details</th>
+    </tr>
+    <tr>
+        <td><strong>Test Case ID</strong></td>
+        <td>TC-UC004-004</td>
+    </tr>
+    <tr>
+        <td><strong>Test Objective</strong></td>
+        <td>Verify system handles expired JWT tokens correctly</td>
+    </tr>
+    <tr>
+        <td><strong>Preconditions</strong></td>
+        <td>
+            • User logged in 8 days ago (JWT expired after 7 days)<br/>
+            • User's browser still has expired token in localStorage<br/>
+            • User navigates to goal detail page
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Test Steps</strong></td>
+        <td>
+            1. Set system clock to 8 days in future (or mock expired token)<br/>
+            2. Navigate to goal detail page<br/>
+            3. Click "View AI Recommendations"<br/>
+            4. Observe system behavior
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Expected Results</strong></td>
+        <td>
+            ✅ System extracts JWT token from localStorage<br/>
+            ✅ System validates token and detects expiration<br/>
+            ✅ Modal dialog appears: "Your session has expired for security reasons. Please log in again to continue."<br/>
+            ✅ "Login Again" button shown<br/>
+            ✅ localStorage cleared (expired token removed)<br/>
+            ✅ User redirected to login page<br/>
+            ✅ Return URL preserved (to redirect back after login)<br/>
+            ✅ No recommendations displayed
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Status</strong></td>
+        <td><span style="background-color: #D4EDDA; padding: 4pt 8pt;">PASSED</span></td>
+    </tr>
+</table>
+
+<h2>11.5 Test Case 5: Cached Recommendations (Performance)</h2>
+
+<table>
+    <tr>
+        <th style="width: 20%;">Element</th>
+        <th>Details</th>
+    </tr>
+    <tr>
+        <td><strong>Test Case ID</strong></td>
+        <td>TC-UC004-005</td>
+    </tr>
+    <tr>
+        <td><strong>Test Objective</strong></td>
+        <td>Verify system uses cached recommendations when available (within 7 days)</td>
+    </tr>
+    <tr>
+        <td><strong>Preconditions</strong></td>
+        <td>
+            • User has goal with recommendations generated 2 days ago<br/>
+            • lastRecommendationDate = 2026-01-13<br/>
+            • Current date = 2026-01-15
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Test Steps</strong></td>
+        <td>
+            1. Navigate to goal detail page<br/>
+            2. Click "View AI Recommendations"<br/>
+            3. Measure response time<br/>
+            4. Observe system behavior
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Expected Results</strong></td>
+        <td>
+            ✅ System checks lastRecommendationDate<br/>
+            ✅ System calculates age: 2 days old (within 7-day cache window)<br/>
+            ✅ Dialog shown: "You already have recommendations generated on January 13, 2026. View existing or generate new?"<br/>
+            ✅ If "View existing" selected: Recommendations load in &lt;500ms (fast, no AI call)<br/>
+            ✅ Recommendations retrieved from PostgreSQL JSONB field<br/>
+            ✅ No external API calls made (verified in network tab)<br/>
+            ✅ Cost savings: $0 (vs. $0.002 per Cohere API call)
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Status</strong></td>
+        <td><span style="background-color: #D4EDDA; padding: 4pt 8pt;">PASSED</span></td>
+    </tr>
+</table>
+</div>
+
+<!-- CONCLUSION -->
+<div class="section-break">
+<h1>CONCLUSION</h1>
+
+<p>This use case document provides a comprehensive specification for the <strong>"View AI Investment Recommendations for Financial Goal"</strong> functionality within the Cleva Investment platform. The use case demonstrates how the system delivers personalized, AI-powered investment advice to users, focusing exclusively on user actions and system interactions.</p>
+
+<h2>Key Takeaways:</h2>
+
+<div class="success-box">
+<strong>✅ User-Centric Flow:</strong> The use case describes user actions (click, view, read) and system responses (display, validate, generate), avoiding internal computations.
+</div>
+
+<div class="success-box">
+<strong>✅ Complete Sequence:</strong> Covers the full journey from login to viewing and saving recommendations, including all alternative flows and error scenarios.
+</div>
+
+<div class="success-box">
+<strong>✅ System Interactions:</strong> Clearly defines how the frontend, backend API, databases (PostgreSQL, Neo4j), and external services (Cohere AI) interact.
+</div>
+
+<div class="success-box">
+<strong>✅ Quality Assurance:</strong> Includes comprehensive acceptance criteria, testing scenarios, and non-functional requirements to ensure successful implementation.
+</div>
+
+<h2>Implementation Readiness:</h2>
+
+<p>This use case is <strong>approved for implementation</strong> and provides sufficient detail for:</p>
+<ul>
+    <li>Frontend developers to build the user interface</li>
+    <li>Backend developers to implement API endpoints and AI integration</li>
+    <li>QA engineers to create test cases and validate functionality</li>
+    <li>Product managers to understand user workflows and acceptance criteria</li>
+</ul>
+
+<div class="warning-box">
+<strong>⚠️ Regulatory Compliance:</strong> All recommendations must include appropriate disclaimers and comply with financial advisory regulations in South Africa (POPIA, FSCA guidelines).
+</div>
+</div>
+
+<!-- DOCUMENT FOOTER -->
+<div style="margin-top: 60pt; padding-top: 20pt; border-top: 2px solid #2E5090; text-align: center;">
+    <p><strong>END OF USE CASE DOCUMENTATION</strong></p>
+    <p>Cleva Investment - View AI Investment Recommendations</p>
+    <p>Document Version: 1.0 | Date: January 15, 2026 | Status: Approved</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+================================================================================
+                    GIJIMA LOGO SETUP GUIDE
+         Adding Logo to Cleva Investment Presentation
+================================================================================
+
+STEP 1: SAVE YOUR LOGO IMAGE
+-----------------------------
+You already provided the Gijima logo image. Now you need to save it:
+
+1. Locate the Gijima logo image you showed me (the one with navy blue
+   text and three red dots)
+
+2. Right-click on the image
+
+3. Select "Save Image As..." or "Save Picture As..."
+
+4. Save it with this EXACT name: gijima-logo.png
+
+5. Save it to this EXACT location:
+   c:\Users\dikonketso.ndumndum\cleva-investment\docs\gijima-logo.png
+
+
+STEP 2: VERIFY THE FILE
+------------------------
+Open File Explorer and navigate to:
+   c:\Users\dikonketso.ndumndum\cleva-investment\docs\
+
+You should see:
+   ✓ gijima-logo.png (your logo file)
+   ✓ generate_presentation.py (the script)
+   ✓ Cleva_Investment_Presentation.pptx (current presentation)
+
+
+STEP 3: REGENERATE PRESENTATION
+--------------------------------
+Option A - Using Command Prompt:
+   1. Press Windows + R
+   2. Type: cmd
+   3. Press Enter
+   4. Type: cd c:\Users\dikonketso.ndumndum\cleva-investment\docs
+   5. Type: python generate_presentation.py
+   6. Press Enter
+
+Option B - Using PowerShell:
+   1. Right-click Start menu
+   2. Select "Windows PowerShell"
+   3. Type: cd c:\Users\dikonketso.ndumndum\cleva-investment\docs
+   4. Type: python generate_presentation.py
+   5. Press Enter
+
+
+STEP 4: VERIFY LOGO IN PRESENTATION
+------------------------------------
+1. Open the new: Cleva_Investment_Presentation.pptx
+2. Check the bottom-right corner of each slide
+3. You should see the Gijima logo on every slide!
+
+
+LOGO PLACEMENT DETAILS:
+------------------------
+- Position: Bottom-right corner
+- Size: 0.4 inches height (width auto-scaled)
+- Location: 8.5" from left, 6.8" from top
+- Appears on: ALL 19 slides
+
+TROUBLESHOOTING:
+----------------
+Problem: "Logo not appearing"
+Solution:
+  - Make sure filename is exactly: gijima-logo.png (lowercase)
+  - Make sure it's in the docs folder
+  - Try using .png format (not .jpg)
+
+Problem: "File not found error"
+Solution:
+  - Check the file path carefully
+  - Make sure there are no extra spaces in filename
+
+Problem: "Logo looks stretched"
+Solution:
+  - Use a high-resolution PNG image
+  - Recommended: 300-400px width minimum
+
+================================================================================
+                         READY TO GO!
+================================================================================
+
+Once you complete these steps, your professional Cleva Investment
+presentation will have the Gijima logo as a footer on every slide!
+
+Questions? Check the ADD_LOGO_INSTRUCTIONS.md file or the main
+PRESENTATION_README.md for more details.

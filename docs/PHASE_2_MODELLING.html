@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleva Investment - Phase 2: Modelling with Classes</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 15mm;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background: white;
+            }
+            .no-print { display: none !important; }
+            .page-break {
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+            .diagram-page {
+                page-break-after: always;
+                page-break-inside: avoid;
+                min-height: 100vh;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1f2937;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .title-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px;
+            page-break-after: always;
+        }
+
+        .title-page h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title-page .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .title-page .version {
+            font-size: 1.2rem;
+            margin-top: 30px;
+            opacity: 0.9;
+        }
+
+        .title-page .phase-badge {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            border-radius: 25px;
+            font-size: 1.5rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            margin: 30px 0;
+        }
+
+        .diagram-page {
+            background: white;
+            min-height: 100vh;
+            padding: 40px;
+            page-break-after: always;
+        }
+
+        .diagram-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .diagram-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .diagram-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .mermaid {
+            background: #f9fafb;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 2px solid #e5e7eb;
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border-left: 5px solid #3b82f6;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .info-box h3 {
+            color: #1e40af;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-box li {
+            padding: 8px 0;
+            font-size: 1.1rem;
+        }
+
+        .info-box li:before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .warning-box h3 {
+            color: #92400e;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: transform 0.2s;
+        }
+
+        .print-button:hover {
+            transform: scale(1.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 1rem;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            text-align: center;
+            color: #6b7280;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button no-print" onclick="window.print()">📥 Save as PDF</button>
+
+    <!-- TITLE PAGE -->
+    <div class="title-page">
+        <h1>🏦 Cleva Investment</h1>
+        <div class="subtitle">AI-Powered Investment Advisory Platform</div>
+        <div class="phase-badge">Phase 2: Modelling with Classes</div>
+        <div class="subtitle">System Design & UML Diagrams</div>
+        <div class="version">Version 2.0 | January 2026</div>
+    </div>
+
+    <!-- PAGE 1: USE CASE DIAGRAM -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>🎭 Use Case Diagram - System Actors & Interactions</h2>
+            <p>Complete overview of actors and their interactions with the Cleva Investment platform</p>
+        </div>
+
+        <div class="mermaid">
+graph TB
+    subgraph "Cleva Investment System"
+        subgraph "Authentication & User Management"
+            UC1((Register Account))
+            UC2((Login))
+            UC3((Logout))
+            UC4((Reset Password))
+            UC5((Verify Email))
+            UC6((Enable 2FA))
+        end
+
+        subgraph "Financial Goals"
+            UC7((Create Goal))
+            UC8((View Goals))
+            UC9((Update Goal))
+            UC10((Delete Goal))
+            UC11((Track Progress))
+            UC12((Get AI Recommendations))
+        end
+
+        subgraph "Portfolio Management"
+            UC13((Create Portfolio))
+            UC14((View Portfolio))
+            UC15((Add Transaction))
+            UC16((View Holdings))
+            UC17((View Performance))
+            UC18((Export Report))
+        end
+
+        subgraph "AI Chat Assistant"
+            UC19((Chat with AI))
+            UC20((Get Investment Advice))
+            UC21((View Chat History))
+            UC22((Ask Questions))
+        end
+
+        subgraph "Market Data"
+            UC23((Search Stocks))
+            UC24((View Stock Quote))
+            UC25((View Market Trends))
+            UC26((View News Articles))
+        end
+
+        subgraph "Profile & Settings"
+            UC27((Update Profile))
+            UC28((Change Password))
+            UC29((Manage Preferences))
+            UC30((View Notifications))
+        end
+    end
+
+    %% Primary Actor - User/Investor
+    User[👤 User/Investor]
+
+    %% Secondary Actors
+    AI[🤖 Cohere AI<br/>Assistant]
+    Market[📊 FMP API<br/>Market Data]
+    Email[📧 Email<br/>Service]
+    Neo4j[🔗 Neo4j<br/>Recommendation<br/>Engine]
+
+    %% User Interactions - Authentication
+    User --> UC1
+    User --> UC2
+    User --> UC3
+    User --> UC4
+    User --> UC5
+    User --> UC6
+
+    %% User Interactions - Goals
+    User --> UC7
+    User --> UC8
+    User --> UC9
+    User --> UC10
+    User --> UC11
+    User --> UC12
+
+    %% User Interactions - Portfolio
+    User --> UC13
+    User --> UC14
+    User --> UC15
+    User --> UC16
+    User --> UC17
+    User --> UC18
+
+    %% User Interactions - Chat
+    User --> UC19
+    User --> UC20
+    User --> UC21
+    User --> UC22
+
+    %% User Interactions - Market
+    User --> UC23
+    User --> UC24
+    User --> UC25
+    User --> UC26
+
+    %% User Interactions - Profile
+    User --> UC27
+    User --> UC28
+    User --> UC29
+    User --> UC30
+
+    %% System Actor Interactions
+    UC1 -.-> Email
+    UC4 -.-> Email
+    UC5 -.-> Email
+
+    UC7 -.-> AI
+    UC12 -.-> AI
+    UC12 -.-> Neo4j
+    UC12 -.-> Market
+
+    UC19 -.-> AI
+    UC20 -.-> AI
+    UC20 -.-> Neo4j
+    UC22 -.-> AI
+
+    UC23 -.-> Market
+    UC24 -.-> Market
+    UC25 -.-> Market
+    UC26 -.-> Market
+
+    UC16 -.-> Market
+    UC17 -.-> Market
+
+    %% Styling
+    style User fill:#61dafb,stroke:#1e3a8a,stroke-width:3px
+    style AI fill:#ff6b6b,stroke:#991b1b,stroke-width:2px
+    style Market fill:#fcd34d,stroke:#92400e,stroke-width:2px
+    style Email fill:#ea4335,stroke:#7f1d1d,stroke-width:2px
+    style Neo4j fill:#008cc1,stroke:#164e63,stroke-width:2px
+
+    classDef usecase fill:#e0f2fe,stroke:#0284c7,stroke-width:2px
+    class UC1,UC2,UC3,UC4,UC5,UC6,UC7,UC8,UC9,UC10,UC11,UC12,UC13,UC14,UC15,UC16,UC17,UC18,UC19,UC20,UC21,UC22,UC23,UC24,UC25,UC26,UC27,UC28,UC29,UC30 usecase
+        </div>
+
+        <div class="info-box">
+            <h3>👥 Primary Actor</h3>
+            <ul>
+                <li><strong>User/Investor:</strong> Individual using the platform to manage investments, create goals, and get AI-powered recommendations</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>🤖 Secondary Actors (External Systems)</h3>
+            <ul>
+                <li><strong>Cohere AI Assistant:</strong> Provides natural language processing for chatbot and investment recommendations</li>
+                <li><strong>FMP API (Market Data Provider):</strong> Supplies real-time stock quotes, market trends, and financial data</li>
+                <li><strong>Email Service:</strong> Sends verification emails, password resets, and notifications</li>
+                <li><strong>Neo4j Recommendation Engine:</strong> Graph database providing collaborative filtering recommendations</li>
+            </ul>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Use Case Category</th>
+                    <th>Count</th>
+                    <th>Key Features</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Authentication & User Management</strong></td>
+                    <td>6 use cases</td>
+                    <td>Register, Login, 2FA, Password Management, Email Verification</td>
+                </tr>
+                <tr>
+                    <td><strong>Financial Goals</strong></td>
+                    <td>6 use cases</td>
+                    <td>CRUD operations, Progress tracking, AI recommendations</td>
+                </tr>
+                <tr>
+                    <td><strong>Portfolio Management</strong></td>
+                    <td>6 use cases</td>
+                    <td>Portfolio CRUD, Transactions, Holdings, Performance, Reports</td>
+                </tr>
+                <tr>
+                    <td><strong>AI Chat Assistant</strong></td>
+                    <td>4 use cases</td>
+                    <td>Real-time chat, Investment advice, History, Q&A</td>
+                </tr>
+                <tr>
+                    <td><strong>Market Data</strong></td>
+                    <td>4 use cases</td>
+                    <td>Stock search, Quotes, Trends, News articles</td>
+                </tr>
+                <tr>
+                    <td><strong>Profile & Settings</strong></td>
+                    <td>4 use cases</td>
+                    <td>Profile management, Password change, Preferences, Notifications</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning-box">
+            <h3>🔗 System Relationships</h3>
+            <ul>
+                <li><strong>Solid lines (→):</strong> Direct user interaction with use case</li>
+                <li><strong>Dashed lines (-.→):</strong> Use case extends or includes another system/actor</li>
+                <li><strong>Grouping:</strong> Use cases organized by functional area for clarity</li>
+                <li><strong>Total Use Cases:</strong> 30 primary use cases across 6 functional areas</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 2: CLASS DIAGRAM - POSTGRESQL ENTITIES -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>📦 Class Diagram - PostgreSQL Entities</h2>
+            <p>Relational database entities with attributes, methods, and relationships</p>
+        </div>
+
+        <div class="mermaid">
+classDiagram
+    class User {
+        +UUID id
+        +String email
+        +String password
+        +String firstName
+        +String lastName
+        +String phoneNumber
+        +String country
+        +String currency
+        +Date dateOfBirth
+        +Enum riskTolerance
+        +Enum investmentExperience
+        +Boolean isActive
+        +Date lastLogin
+        +Boolean emailVerified
+        +String emailVerificationToken
+        +Date emailVerificationExpires
+        +String resetPasswordToken
+        +Date resetPasswordExpires
+        +String twoFactorSecret
+        +Boolean twoFactorEnabled
+        +validatePassword(password) Boolean
+        +toJSON() Object
+        +hashPassword() void
+    }
+
+    class Portfolio {
+        +UUID id
+        +UUID userId
+        +String name
+        +String description
+        +Decimal totalValue
+        +Decimal totalCost
+        +Decimal totalGainLoss
+        +Decimal totalGainLossPercent
+        +Boolean isActive
+        +calculateTotalValue() Decimal
+        +calculateGainLoss() Decimal
+        +updatePortfolioMetrics() void
+    }
+
+    class PortfolioHolding {
+        +UUID id
+        +UUID portfolioId
+        +String symbol
+        +String name
+        +Decimal quantity
+        +Decimal averageCost
+        +Decimal totalCost
+        +Decimal currentPrice
+        +Decimal currentValue
+        +Decimal gainLoss
+        +Decimal gainLossPercent
+        +String originalCurrency
+        +Decimal averageCostConverted
+        +Decimal currentPriceConverted
+        +String sector
+        +Date lastUpdated
+        +updateCurrentPrice(price) void
+        +calculateGainLoss() Decimal
+        +convertCurrency(rate) void
+    }
+
+    class Transaction {
+        +UUID id
+        +UUID userId
+        +UUID portfolioId
+        +String symbol
+        +String name
+        +Enum type
+        +Decimal quantity
+        +Decimal price
+        +Decimal totalAmount
+        +Decimal fees
+        +String currency
+        +Decimal exchangeRate
+        +String notes
+        +Date transactionDate
+        +calculateTotalAmount() Decimal
+        +updatePortfolioHolding() void
+        +recordInNeo4j() void
+    }
+
+    class Goal {
+        +UUID id
+        +UUID userId
+        +String title
+        +String description
+        +Decimal targetAmount
+        +Decimal currentAmount
+        +Date targetDate
+        +Enum timeHorizon
+        +Enum goalType
+        +Enum priority
+        +Enum status
+        +Decimal monthlyContribution
+        +Enum riskTolerance
+        +JSONB recommendedInvestments
+        +calculateProgress() Decimal
+        +generateRecommendations() Array
+        +updateStatus() void
+        +checkCompletion() Boolean
+    }
+
+    User "1" --> "*" Portfolio : owns
+    User "1" --> "*" Goal : has
+    User "1" --> "*" Transaction : makes
+    Portfolio "1" --> "*" PortfolioHolding : contains
+    Portfolio "1" --> "*" Transaction : includes
+        </div>
+
+        <div class="info-box">
+            <h3>🔑 Key Relationships</h3>
+            <ul>
+                <li>User has one-to-many relationship with Portfolios</li>
+                <li>User has one-to-many relationship with Goals</li>
+                <li>User has one-to-many relationship with Transactions</li>
+                <li>Portfolio contains many PortfolioHoldings</li>
+                <li>Portfolio includes many Transactions</li>
+                <li>All foreign keys cascade on delete for data integrity</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 2: CLASS DIAGRAM - MONGODB & NEO4J -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>📦 Class Diagram - MongoDB & Neo4j</h2>
+            <p>Document-based and graph database models</p>
+        </div>
+
+        <div class="mermaid">
+classDiagram
+    class ChatHistory {
+        +ObjectId _id
+        +String userId
+        +String sessionId
+        +Array~Message~ messages
+        +Date startedAt
+        +Date lastMessageAt
+        +Boolean isActive
+        +String summary
+        +addMessage(message) void
+        +getSummary() String
+        +markInactive() void
+        +getInvestmentsMentioned() Array
+    }
+
+    class Message {
+        +Enum role
+        +String content
+        +Enum type
+        +Date timestamp
+        +Object metadata
+    }
+
+    class Article {
+        +ObjectId _id
+        +String symbol
+        +String title
+        +String url
+        +String source
+        +Date publishedDate
+        +String summary
+        +Array~String~ tags
+    }
+
+    class MarketData {
+        +ObjectId _id
+        +String symbol
+        +Decimal price
+        +Decimal change
+        +Decimal changePercent
+        +Number volume
+        +Date lastUpdated
+    }
+
+    class GraphService {
+        -Driver neo4jDriver
+        +createUserNode(userId, userData) Object
+        +createInvestmentNode(symbol, data) Object
+        +recordUserInterest(userId, symbol, type, strength) void
+        +recordInvestmentAction(userId, symbol, action, amount) void
+        +getRecommendations(userId, limit) Array
+        +getPopularInvestments(type, limit) Array
+        +getUserInvestmentProfile(userId) Array
+        +findSimilarUsers(userId, limit) Array
+        +clearAllData() void
+    }
+
+    class UserNode {
+        +String id
+        +String riskTolerance
+        +String investmentExperience
+        +DateTime updatedAt
+    }
+
+    class InvestmentNode {
+        +String symbol
+        +String name
+        +String type
+        +String sector
+        +String riskLevel
+        +DateTime updatedAt
+    }
+
+    ChatHistory "1" *-- "*" Message : contains
+    GraphService --> UserNode : manages
+    GraphService --> InvestmentNode : manages
+    UserNode --> InvestmentNode : INTERESTED_IN
+    UserNode --> InvestmentNode : INVESTED_IN
+    UserNode --> InvestmentNode : RESEARCHED
+        </div>
+
+        <div class="info-box">
+            <h3>🔗 Graph Database Relationships</h3>
+            <ul>
+                <li>INTERESTED_IN: User viewed or researched an investment</li>
+                <li>INVESTED_IN: User purchased an investment</li>
+                <li>RESEARCHED: User actively researched an investment</li>
+                <li>Relationships have properties: strength, count, timestamps</li>
+                <li>Used for collaborative filtering recommendations</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 3: SEQUENCE DIAGRAM - USER AUTHENTICATION -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>🔐 Sequence Diagram - User Authentication</h2>
+            <p>Complete authentication flow with JWT token generation</p>
+        </div>
+
+        <div class="mermaid">
+sequenceDiagram
+    participant User as 👤 User
+    participant Frontend as ⚛️ React Frontend
+    participant Backend as 🚀 Express Backend
+    participant Auth as 🛡️ Auth Middleware
+    participant DB as 🐘 PostgreSQL
+    participant JWT as 🔑 JWT Service
+
+    User->>Frontend: Enter email & password
+    Frontend->>Backend: POST /api/auth/login
+    Backend->>DB: SELECT * FROM users WHERE email = ?
+    DB-->>Backend: User record (with hashed password)
+
+    alt User not found
+        Backend-->>Frontend: 401 Unauthorized - User not found
+        Frontend-->>User: Show error message
+    else User found
+        Backend->>Backend: bcrypt.compare(password, hashedPassword)
+
+        alt Invalid password
+            Backend-->>Frontend: 401 Unauthorized - Invalid password
+            Frontend-->>User: Show error message
+        else Valid password
+            Backend->>JWT: Generate token (userId, email)
+            JWT-->>Backend: JWT token (7d expiry)
+            Backend->>DB: UPDATE users SET lastLogin = NOW()
+            Backend-->>Frontend: 200 OK {token, user}
+            Frontend->>Frontend: localStorage.setItem('token', token)
+            Frontend-->>User: Redirect to Dashboard ✅
+        end
+    end
+        </div>
+
+        <div class="info-box">
+            <h3>🛡️ Security Features</h3>
+            <ul>
+                <li>bcrypt password hashing with 10 salt rounds</li>
+                <li>JWT tokens with 7-day expiration</li>
+                <li>HTTP-only cookies option for token storage</li>
+                <li>Rate limiting: 100 requests per 15 minutes</li>
+                <li>Failed login attempt tracking</li>
+                <li>Email verification required before full access</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 4: SEQUENCE DIAGRAM - CREATE GOAL -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>🎯 Sequence Diagram - Create Financial Goal</h2>
+            <p>Goal creation with AI-powered investment recommendations</p>
+        </div>
+
+        <div class="mermaid">
+sequenceDiagram
+    participant User as 👤 User
+    participant Frontend as ⚛️ Frontend
+    participant Backend as 🚀 Backend
+    participant Auth as 🔑 JWT Auth
+    participant PG as 🐘 PostgreSQL
+    participant Neo4j as 🔗 Neo4j
+    participant AI as 🤖 Cohere AI
+    participant Market as 📊 FMP API
+
+    User->>Frontend: Fill goal form (title, amount, date, type)
+    Frontend->>Backend: POST /api/goals (+ JWT token)
+    Backend->>Auth: Verify JWT token
+    Auth-->>Backend: User ID extracted
+
+    Backend->>PG: INSERT INTO goals (userId, title, targetAmount...)
+    PG-->>Backend: Goal created (ID: abc-123)
+
+    par Parallel Processing
+        Backend->>Neo4j: CREATE (g:Goal {goalId, type, amount})
+        Neo4j-->>Backend: Goal node created
+    and
+        Backend->>PG: SELECT * FROM users WHERE id = userId
+        PG-->>Backend: User profile (risk, experience)
+    and
+        Backend->>Neo4j: MATCH similar users & investments
+        Neo4j-->>Backend: Recommended investments based on graph
+    and
+        Backend->>Market: GET /quote/{symbols}
+        Market-->>Backend: Current market prices
+    end
+
+    Backend->>AI: Generate recommendations (goal + profile + market)
+    AI-->>Backend: Personalized investment advice
+
+    Backend->>PG: UPDATE goals SET recommendedInvestments = ?
+    Backend->>Neo4j: CREATE (u)-[:INTERESTED_IN]->(i) relationships
+
+    Backend-->>Frontend: 201 Created {goal with recommendations}
+    Frontend-->>User: Display goal card with AI suggestions ✅
+        </div>
+
+        <div class="info-box">
+            <h3>🤖 AI Recommendation Engine</h3>
+            <ul>
+                <li>Analyzes user risk tolerance and investment experience</li>
+                <li>Uses collaborative filtering from Neo4j graph</li>
+                <li>Incorporates real-time market data</li>
+                <li>Provides personalized advice via Cohere AI</li>
+                <li>Recommends 5-10 investment options per goal</li>
+                <li>Updates recommendations weekly based on market changes</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 5: SEQUENCE DIAGRAM - AI CHATBOT -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>💬 Sequence Diagram - AI Chatbot Interaction</h2>
+            <p>Real-time chat with investment recommendations using Socket.IO</p>
+        </div>
+
+        <div class="mermaid">
+sequenceDiagram
+    participant User as 👤 User
+    participant Frontend as ⚛️ Frontend
+    participant Socket as 💬 Socket.IO
+    participant Backend as 🚀 Backend
+    participant MongoDB as 🍃 MongoDB
+    participant PG as 🐘 PostgreSQL
+    participant Neo4j as 🔗 Neo4j
+    participant AI as 🤖 Cohere AI
+
+    User->>Frontend: Type message: "What stocks should I buy?"
+    Frontend->>Socket: emit('send_message', {message, userId})
+    Socket->>Backend: Receive message event
+
+    Backend->>MongoDB: Find chat history by userId
+    MongoDB-->>Backend: Previous 10 messages
+
+    Backend->>PG: Get user goals and portfolios
+    PG-->>Backend: User financial context
+
+    Backend->>Neo4j: Get user investment interests
+    Neo4j-->>Backend: User investment profile
+
+    Backend->>AI: POST /v1/chat (message + context + history)
+    Note over AI: Cohere processes with:<br/>- Chat history<br/>- User goals<br/>- Current holdings<br/>- Investment interests
+    AI-->>Backend: AI response with recommendations
+
+    Backend->>MongoDB: Save user message
+    Backend->>MongoDB: Save assistant response
+
+    alt Investments mentioned in response
+        Backend->>Neo4j: CREATE (u)-[:INTERESTED_IN]->(i) for each stock
+        Backend->>Neo4j: Record interaction timestamp
+    end
+
+    Backend->>Socket: emit('message_response', {message, recommendations})
+    Socket->>Frontend: Display response
+    Frontend-->>User: Show AI message + investment cards ✅
+        </div>
+
+        <div class="info-box">
+            <h3>💡 Context-Aware Responses</h3>
+            <ul>
+                <li>Maintains conversation history in MongoDB</li>
+                <li>Accesses user goals from PostgreSQL</li>
+                <li>Retrieves investment preferences from Neo4j</li>
+                <li>Provides personalized advice based on risk profile</li>
+                <li>Tracks mentioned stocks for future recommendations</li>
+                <li>Real-time WebSocket communication via Socket.IO</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 6: SEQUENCE DIAGRAM - ADD TRANSACTION -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>💰 Sequence Diagram - Add Transaction to Portfolio</h2>
+            <p>Transaction processing with portfolio updates and graph recording</p>
+        </div>
+
+        <div class="mermaid">
+sequenceDiagram
+    participant User as 👤 User
+    participant Frontend as ⚛️ Frontend
+    participant Backend as 🚀 Backend
+    participant PG as 🐘 PostgreSQL
+    participant Currency as 💱 Currency Service
+    participant Neo4j as 🔗 Neo4j
+    participant Market as 📊 Market API
+
+    User->>Frontend: Fill transaction form (BUY AAPL 10 shares @ $150)
+    Frontend->>Backend: POST /api/portfolios/:id/transactions
+
+    Backend->>PG: BEGIN TRANSACTION
+    Backend->>PG: Verify user owns portfolio
+
+    alt Foreign currency
+        Backend->>Currency: Get exchange rate (USD → ZAR)
+        Currency-->>Backend: Rate: 18.5
+    end
+
+    Backend->>PG: INSERT INTO transactions (...)
+    PG-->>Backend: Transaction ID: tx-789
+
+    Backend->>PG: SELECT * FROM portfolio_holdings WHERE symbol='AAPL'
+
+    alt Holding exists (BUY adds, SELL subtracts)
+        Backend->>Backend: Calculate new average cost
+        Backend->>PG: UPDATE portfolio_holdings SET quantity, averageCost
+    else New holding
+        Backend->>PG: INSERT INTO portfolio_holdings (symbol, quantity...)
+    end
+
+    Backend->>Market: GET /quote/AAPL (current price)
+    Market-->>Backend: Current price: $152
+
+    Backend->>Backend: Calculate portfolio totals
+    Backend->>PG: UPDATE portfolios SET totalValue, totalGainLoss
+
+    Backend->>Neo4j: CREATE (u:User)-[:INVESTED_IN {amount: 1500}]->(i:Investment)
+    Neo4j-->>Backend: Relationship recorded
+
+    Backend->>PG: COMMIT TRANSACTION
+    Backend-->>Frontend: 201 Created {transaction, updated holding}
+    Frontend-->>User: Show updated portfolio with new holding ✅
+        </div>
+
+        <div class="warning-box">
+            <h3>⚠️ Transaction Safety</h3>
+            <ul>
+                <li>Database transactions ensure atomicity (all-or-nothing)</li>
+                <li>Rollback on any error to maintain data consistency</li>
+                <li>Validates user owns portfolio before processing</li>
+                <li>Prevents negative quantities (no overselling)</li>
+                <li>Logs all transaction failures for debugging</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 7: STATE DIAGRAM - GOAL LIFECYCLE -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>🔄 State Diagram - Goal Lifecycle</h2>
+            <p>Financial goal states and transitions throughout its lifecycle</p>
+        </div>
+
+        <div class="mermaid">
+stateDiagram-v2
+    [*] --> Active : Goal Created
+
+    Active --> InProgress : First Contribution Made
+    Active --> Paused : User Pauses Goal
+    Active --> Cancelled : User Cancels
+
+    InProgress --> AtRisk : Progress < Expected<br/>(currentAmount/targetAmount < timeElapsed/totalTime)
+    InProgress --> OnTrack : Progress >= Expected
+    InProgress --> Paused : User Pauses
+    InProgress --> Cancelled : User Cancels
+    InProgress --> Completed : Target Amount Reached
+
+    OnTrack --> AtRisk : Falls Behind Schedule
+    OnTrack --> InProgress : Continue Progress
+    OnTrack --> Completed : Target Reached Early
+
+    AtRisk --> InProgress : Extra Contribution
+    AtRisk --> OnTrack : Back on Schedule
+    AtRisk --> Paused : User Pauses
+    AtRisk --> Cancelled : User Gives Up
+
+    Paused --> Active : Resume (no progress yet)
+    Paused --> InProgress : Resume (had progress)
+    Paused --> Cancelled : User Cancels
+
+    Completed --> [*] : Goal Achieved ✅
+    Cancelled --> [*] : Goal Abandoned
+
+    note right of Active
+        Initial state
+        No contributions yet
+        Recommendations generated
+    end note
+
+    note right of InProgress
+        Active contributions
+        Progress > 0%
+        Weekly progress tracking
+    end note
+
+    note right of AtRisk
+        Behind schedule
+        Send notification
+        Suggest increased contribution
+    end note
+
+    note right of Completed
+        Target reached
+        Celebrate achievement
+        Archive goal
+    end note
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th>Condition</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Active</strong></td>
+                    <td>Goal created, no contributions</td>
+                    <td>Show recommendations, prompt first contribution</td>
+                </tr>
+                <tr>
+                    <td><strong>InProgress</strong></td>
+                    <td>At least one contribution made</td>
+                    <td>Track progress, weekly notifications</td>
+                </tr>
+                <tr>
+                    <td><strong>OnTrack</strong></td>
+                    <td>Progress >= expected progress</td>
+                    <td>Positive reinforcement, maintain strategy</td>
+                </tr>
+                <tr>
+                    <td><strong>AtRisk</strong></td>
+                    <td>Progress < expected progress</td>
+                    <td>Alert user, suggest increased contributions</td>
+                </tr>
+                <tr>
+                    <td><strong>Paused</strong></td>
+                    <td>User manually paused</td>
+                    <td>No notifications, preserve data</td>
+                </tr>
+                <tr>
+                    <td><strong>Completed</strong></td>
+                    <td>currentAmount >= targetAmount</td>
+                    <td>Congratulate, archive, suggest new goal</td>
+                </tr>
+                <tr>
+                    <td><strong>Cancelled</strong></td>
+                    <td>User cancelled goal</td>
+                    <td>Archive, preserve history for analysis</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PAGE 8: STATE DIAGRAM - USER SESSION -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>🔄 State Diagram - User Session States</h2>
+            <p>User authentication session lifecycle with JWT tokens</p>
+        </div>
+
+        <div class="mermaid">
+stateDiagram-v2
+    [*] --> LoggedOut : Initial State
+
+    LoggedOut --> Authenticating : Login Attempt
+
+    Authenticating --> AuthFailed : Invalid Credentials
+    Authenticating --> TwoFactorRequired : Valid Credentials + 2FA Enabled
+    Authenticating --> Active : Valid Credentials (No 2FA)
+
+    AuthFailed --> LoggedOut : Return to Login
+    AuthFailed --> Authenticating : Retry Login
+
+    TwoFactorRequired --> Authenticating : Invalid 2FA Code
+    TwoFactorRequired --> Active : Valid 2FA Code
+    TwoFactorRequired --> LoggedOut : Cancel Login
+
+    Active --> Idle : No Activity 15 min
+    Active --> Active : User Activity
+    Active --> LoggedOut : Logout Button
+    Active --> Expired : JWT Expires (7 days)
+
+    Idle --> Active : User Activity
+    Idle --> Expired : JWT Expires
+    Idle --> LoggedOut : Manual Logout
+
+    Expired --> LoggedOut : Redirect to Login
+
+    note right of Authenticating
+        Verify email & password
+        Check 2FA status
+        Generate JWT if valid
+    end note
+
+    note right of Active
+        Valid JWT token
+        Full access to features
+        Token refreshed on activity
+    end note
+
+    note right of Idle
+        No activity detected
+        Session still valid
+        Show inactivity warning
+    end note
+
+    note right of Expired
+        JWT token expired
+        Must re-authenticate
+        Session data cleared
+    end note
+        </div>
+
+        <div class="info-box">
+            <h3>🔐 Session Management</h3>
+            <ul>
+                <li>JWT tokens valid for 7 days from login</li>
+                <li>Idle timeout warning after 15 minutes of inactivity</li>
+                <li>2FA required for high-risk actions (withdrawals, settings changes)</li>
+                <li>Automatic logout on token expiration</li>
+                <li>Session data cleared on logout for security</li>
+                <li>Multiple device sessions supported</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 9: ACTIVITY DIAGRAM - USER REGISTRATION -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>📝 Activity Diagram - User Registration Process</h2>
+            <p>Complete user registration workflow with validation and email verification</p>
+        </div>
+
+        <div class="mermaid">
+graph TD
+    Start([User Visits Registration]) --> FillForm[Fill Registration Form:<br/>Email, Password, Name, Country]
+
+    FillForm --> Submit[Submit Form]
+    Submit --> ValidateInput{Validate Input:<br/>Email format?<br/>Password strength?<br/>Required fields?}
+
+    ValidateInput -->|Invalid| ShowErrors[Display Validation Errors]
+    ShowErrors --> FillForm
+
+    ValidateInput -->|Valid| CheckEmail{Check Email<br/>Already Exists?}
+
+    CheckEmail -->|Exists| EmailError[Show: Email Already Registered]
+    EmailError --> FillForm
+
+    CheckEmail -->|New| HashPassword[Hash Password<br/>bcrypt 10 rounds]
+
+    HashPassword --> CreateUser[Create User in PostgreSQL]
+    CreateUser --> GenerateToken[Generate Email<br/>Verification Token]
+
+    GenerateToken --> ParallelStart{ }
+
+    ParallelStart --> SendEmail[Send Verification Email]
+    ParallelStart --> CreateNeo4j[Create User Node<br/>in Neo4j]
+    ParallelStart --> GenerateJWT[Generate JWT Token<br/>7d expiry]
+
+    SendEmail --> ParallelEnd{ }
+    CreateNeo4j --> ParallelEnd
+    GenerateJWT --> ParallelEnd
+
+    ParallelEnd --> ReturnSuccess[Return Success Response<br/>token + user]
+    ReturnSuccess --> StoreToken[Frontend: Store JWT<br/>in localStorage]
+
+    StoreToken --> Redirect[Redirect to Dashboard]
+    Redirect --> ShowVerifyBanner[Show: Please Verify Email]
+
+    ShowVerifyBanner --> End([User Registered ✅])
+
+    style Start fill:#90ee90
+    style End fill:#90ee90
+    style ValidateInput fill:#ffd93d
+    style CheckEmail fill:#ffd93d
+    style ParallelStart fill:#61dafb
+    style ParallelEnd fill:#61dafb
+    style ShowErrors fill:#ff6b6b
+    style EmailError fill:#ff6b6b
+        </div>
+
+        <div class="info-box">
+            <h3>✅ Validation Rules</h3>
+            <ul>
+                <li>Email: Valid format, unique in database</li>
+                <li>Password: Minimum 8 characters, 1 uppercase, 1 number</li>
+                <li>Name: Minimum 2 characters, no special characters</li>
+                <li>Country: Valid ISO country code</li>
+                <li>Phone: Optional, valid format if provided</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 10: ACTIVITY DIAGRAM - GOAL CREATION -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>📝 Activity Diagram - Goal Creation with AI</h2>
+            <p>Financial goal creation workflow with AI-powered recommendations</p>
+        </div>
+
+        <div class="mermaid">
+graph TD
+    Start([User Clicks Create Goal]) --> ShowForm[Display Goal Form]
+
+    ShowForm --> FillForm[User Fills Form:<br/>Title, Target Amount,<br/>Target Date, Goal Type,<br/>Risk Tolerance]
+
+    FillForm --> Calculate[Calculate Time Horizon:<br/>- Less than 2 years: Short<br/>- 2-5 years: Medium<br/>- More than 5 years: Long]
+
+    Calculate --> Validate{Validate Input:<br/>Amount > 0?<br/>Date in future?<br/>Required fields?}
+
+    Validate -->|Invalid| ShowErrors[Display Errors]
+    ShowErrors --> FillForm
+
+    Validate -->|Valid| CreateGoal[Create Goal in PostgreSQL]
+
+    CreateGoal --> Parallel1{ }
+
+    Parallel1 --> CreateNode[Create Goal Node<br/>in Neo4j]
+    Parallel1 --> GetProfile[Get User Profile<br/>from PostgreSQL]
+    Parallel1 --> GetSimilar[Query Neo4j:<br/>Similar users &<br/>popular investments]
+    Parallel1 --> GetMarket[Fetch Market Data<br/>from FMP API]
+
+    CreateNode --> Parallel2{ }
+    GetProfile --> Parallel2
+    GetSimilar --> Parallel2
+    GetMarket --> Parallel2
+
+    Parallel2 --> CallAI[Call Cohere AI:<br/>Generate Recommendations<br/>context: goal + profile + market]
+
+    CallAI --> ParseResponse[Parse AI Response:<br/>Extract investment symbols,<br/>advice, rationale]
+
+    ParseResponse --> UpdateGoal[Update Goal:<br/>Set recommendedInvestments<br/>JSONB field]
+
+    UpdateGoal --> CreateRelations[Create Neo4j Relationships:<br/>User-INTERESTED_IN-Investment<br/>for each recommendation]
+
+    CreateRelations --> Return[Return Goal with<br/>AI Recommendations]
+
+    Return --> Display[Display Goal Card:<br/>- Progress bar<br/>- Target date<br/>- Recommendations list]
+
+    Display --> End([Goal Created ✅])
+
+    style Start fill:#90ee90
+    style End fill:#90ee90
+    style Validate fill:#ffd93d
+    style Parallel1 fill:#61dafb
+    style Parallel2 fill:#61dafb
+    style CallAI fill:#ff6b6b
+    style ShowErrors fill:#ff6b6b
+        </div>
+
+        <div class="warning-box">
+            <h3>🤖 AI Recommendation Context</h3>
+            <ul>
+                <li>Goal details: type, amount, time horizon</li>
+                <li>User profile: risk tolerance, experience level</li>
+                <li>Similar user behavior: what others invested in</li>
+                <li>Current market conditions: prices, trends</li>
+                <li>South African focus: JSE-listed securities prioritized</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 11: ACTIVITY DIAGRAM - PORTFOLIO MANAGEMENT -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>📝 Activity Diagram - Portfolio Management</h2>
+            <p>Complete portfolio viewing and transaction workflow</p>
+        </div>
+
+        <div class="mermaid">
+graph TD
+    Start([Navigate to Portfolio]) --> LoadPortfolios[Load User's Portfolios<br/>from PostgreSQL]
+
+    LoadPortfolios --> Display[Display Portfolio List]
+
+    Display --> UserChoice{User Action?}
+
+    UserChoice -->|Create New| CreateForm[Show Create Form]
+    CreateForm --> CreatePort[Create Portfolio]
+    CreatePort --> Display
+
+    UserChoice -->|View| LoadHoldings[Load Portfolio Holdings]
+
+    LoadHoldings --> Parallel1{ }
+
+    Parallel1 --> FetchPrices[Fetch Current Prices<br/>from Market API]
+    Parallel1 --> GetRates[Get Exchange Rates<br/>for Foreign Stocks]
+    Parallel1 --> GetHistory[Load Historical<br/>Performance Data]
+
+    FetchPrices --> Parallel2{ }
+    GetRates --> Parallel2
+    GetHistory --> Parallel2
+
+    Parallel2 --> Calculate[Calculate Values:<br/>- Current price × quantity<br/>- Total value<br/>- Gain/Loss<br/>- Gain/Loss %]
+
+    Calculate --> UpdateDB[Update Holdings<br/>in PostgreSQL]
+
+    UpdateDB --> ShowPortfolio[Display Updated Portfolio:<br/>- Holdings table<br/>- Total value<br/>- Gain/Loss chart]
+
+    ShowPortfolio --> Action{User Action?}
+
+    Action -->|Add Transaction| TransForm[Show Transaction Form:<br/>Type BUY/SELL<br/>Symbol, Quantity, Price]
+
+    TransForm --> ValidateTrans{Validate:<br/>Symbol exists?<br/>Quantity > 0?<br/>Price > 0?}
+
+    ValidateTrans -->|Invalid| ShowTError[Display Error]
+    ShowTError --> TransForm
+
+    ValidateTrans -->|Valid| ProcessTrans[Process Transaction:<br/>- Create transaction<br/>- Update holding<br/>- Recalculate totals]
+
+    ProcessTrans --> RecordNeo[Record in Neo4j:<br/>INVESTED_IN relationship]
+
+    RecordNeo --> Refresh[Refresh Portfolio]
+    Refresh --> ShowPortfolio
+
+    Action -->|View History| ShowHistory[Display Transaction History]
+    ShowHistory --> ShowPortfolio
+
+    Action -->|Back| Display
+    Action -->|Export| Export[Export Portfolio Report<br/>PDF/CSV]
+    Export --> ShowPortfolio
+
+    UserChoice -->|Back| End([Exit])
+    Action -->|Logout| End
+
+    style Start fill:#90ee90
+    style End fill:#90ee90
+    style UserChoice fill:#ffd93d
+    style Action fill:#ffd93d
+    style ValidateTrans fill:#ffd93d
+    style Parallel1 fill:#61dafb
+    style Parallel2 fill:#61dafb
+    style ShowTError fill:#ff6b6b
+        </div>
+
+        <div class="info-box">
+            <h3>⚡ Real-Time Updates</h3>
+            <ul>
+                <li>Prices refresh every 15 minutes (when page is active)</li>
+                <li>WebSocket updates for real-time price changes</li>
+                <li>Background job updates all holdings daily</li>
+                <li>Currency conversion for foreign stocks (USD → ZAR)</li>
+                <li>Performance charts auto-update on new data</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 12: COMPONENT DIAGRAM - SYSTEM ARCHITECTURE -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>🏗️ Component Diagram - System Architecture</h2>
+            <p>Complete system architecture with all layers and components</p>
+        </div>
+
+        <div class="mermaid">
+graph TB
+    subgraph "Client Layer - Browser"
+        User[👤 User Browser]
+    end
+
+    subgraph "Frontend Application - Port 5173"
+        React[⚛️ React 18 SPA]
+        Router[React Router v6]
+        Store[Zustand State Management]
+
+        subgraph "Pages"
+            Dashboard[📊 Dashboard]
+            Goals[🎯 Goals]
+            Portfolio[💼 Portfolio]
+            Chat[💬 Chat]
+            Settings[⚙️ Settings]
+        end
+
+        subgraph "Services"
+            APIClient[Axios API Client]
+            SocketClient[Socket.IO Client]
+        end
+
+        React --> Router
+        Router --> Dashboard & Goals & Portfolio & Chat & Settings
+        Dashboard & Goals & Portfolio --> Store
+        React --> APIClient & SocketClient
+    end
+
+    subgraph "Backend Application - Port 5000"
+        Express[🚀 Express.js Server]
+        SocketServer[💬 Socket.IO Server]
+
+        subgraph "Middleware"
+            JWTAuth[🔑 JWT Authentication]
+            RateLimit[⏱️ Rate Limiter]
+            CORS[🛡️ CORS Protection]
+        end
+
+        subgraph "Routes"
+            AuthRoutes[/api/auth]
+            GoalRoutes[/api/goals]
+            PortRoutes[/api/portfolios]
+            ChatRoutes[/api/chat]
+            MarketRoutes[/api/market]
+        end
+
+        subgraph "Controllers"
+            AuthCtrl[Auth Controller]
+            GoalCtrl[Goal Controller]
+            PortCtrl[Portfolio Controller]
+            ChatCtrl[Chat Controller]
+        end
+
+        Express --> JWTAuth & RateLimit & CORS
+        Express --> AuthRoutes & GoalRoutes & PortRoutes & ChatRoutes & MarketRoutes
+        AuthRoutes --> AuthCtrl
+        GoalRoutes --> GoalCtrl
+        PortRoutes --> PortCtrl
+        ChatRoutes --> ChatCtrl
+    end
+
+    subgraph "Service Layer"
+        AIService[🤖 AI Service<br/>Cohere Integration]
+        MarketService[📈 Market Service<br/>FMP API]
+        EmailService[📧 Email Service<br/>SMTP]
+        CurrencyService[💱 Currency Service<br/>Exchange Rates]
+        GraphService[🔗 Graph Service<br/>Neo4j Queries]
+    end
+
+    subgraph "Data Layer"
+        PostgreSQL[(🐘 PostgreSQL<br/>Port 5432<br/>Users, Goals,<br/>Portfolios, Trans)]
+        MongoDB[(🍃 MongoDB<br/>Port 27017<br/>Chat, Articles,<br/>Market Cache)]
+        Neo4j[(🔗 Neo4j<br/>Port 7687<br/>Recommendations<br/>Graph)]
+    end
+
+    subgraph "External Services"
+        Cohere[🤖 Cohere AI API]
+        FMP[📊 Financial Modeling Prep]
+        SMTP[📧 Gmail SMTP]
+    end
+
+    User --> React
+    APIClient --> Express
+    SocketClient --> SocketServer
+    SocketServer --> ChatCtrl
+
+    AuthCtrl & GoalCtrl & PortCtrl --> PostgreSQL
+    ChatCtrl --> MongoDB & AIService & GraphService
+    GoalCtrl --> PostgreSQL & Neo4j & AIService & MarketService
+    PortCtrl --> PostgreSQL & Neo4j & MarketService & CurrencyService
+
+    AIService --> Cohere
+    MarketService --> FMP
+    EmailService --> SMTP
+    GraphService --> Neo4j
+
+    style User fill:#e1f5ff
+    style React fill:#61dafb
+    style Express fill:#90ee90
+    style PostgreSQL fill:#336791
+    style MongoDB fill:#4db33d
+    style Neo4j fill:#008cc1
+    style Cohere fill:#ff6b6b
+    style FMP fill:#ffd93d
+        </div>
+    </div>
+
+    <!-- PAGE 13: COMPONENT DIAGRAM - FRONTEND STRUCTURE -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>🧩 Component Diagram - Frontend Structure</h2>
+            <p>React frontend component hierarchy and data flow</p>
+        </div>
+
+        <div class="mermaid">
+graph TB
+    subgraph "Frontend Application"
+        App[App.jsx<br/>Root Component]
+
+        subgraph "Routing"
+            Router[React Router]
+            PrivateRoute[ProtectedRoute<br/>Auth Guard]
+        end
+
+        subgraph "Context Providers"
+            AuthContext[AuthContext<br/>User & Token]
+            PortfolioContext[PortfolioContext<br/>Portfolio State]
+            ChatContext[ChatContext<br/>Chat State]
+        end
+
+        subgraph "Page Components"
+            Login[Login.jsx]
+            Register[Register.jsx]
+            Dashboard[Dashboard.jsx]
+            Goals[Goals.jsx]
+            Portfolio[Portfolio.jsx]
+            Chat[Chat.jsx]
+            Settings[Settings.jsx]
+        end
+
+        subgraph "Shared Components"
+            Navbar[NavBar.jsx]
+            Sidebar[Sidebar.jsx]
+            GoalCard[GoalCard.jsx]
+            PortCard[PortfolioCard.jsx]
+            TransForm[TransactionForm.jsx]
+            ChatMsg[ChatMessage.jsx]
+            RecCard[RecommendationCard.jsx]
+            Chart[PerformanceChart.jsx]
+        end
+
+        subgraph "Services"
+            APIClient[api.js<br/>Axios Instance]
+            AuthService[authService.js]
+            GoalService[goalService.js]
+            PortService[portfolioService.js]
+            ChatService[chatService.js]
+            SocketService[socketService.js]
+        end
+
+        subgraph "Utilities"
+            Formatters[formatters.js<br/>Currency, Date]
+            Validators[validators.js]
+            Constants[constants.js]
+        end
+    end
+
+    App --> Router & AuthContext & PortfolioContext & ChatContext
+    Router --> PrivateRoute
+    PrivateRoute --> Dashboard & Goals & Portfolio & Chat & Settings
+    Router --> Login & Register
+
+    Dashboard & Goals & Portfolio & Chat --> Navbar & Sidebar
+    Goals --> GoalCard & RecCard
+    Portfolio --> PortCard & TransForm & Chart
+    Chat --> ChatMsg
+
+    Login & Register --> AuthService
+    Goals --> GoalService
+    Portfolio --> PortService
+    Chat --> ChatService & SocketService
+
+    AuthService & GoalService & PortService & ChatService --> APIClient
+
+    GoalCard & PortCard & TransForm --> Formatters & Validators
+
+    style App fill:#61dafb
+    style Router fill:#764abc
+    style AuthContext fill:#fcd34d
+    style Dashboard fill:#90ee90
+    style APIClient fill:#ff6b6b
+        </div>
+
+        <div class="info-box">
+            <h3>📦 Key Frontend Libraries</h3>
+            <ul>
+                <li>React 18 - Component-based UI framework</li>
+                <li>React Router v6 - Client-side routing</li>
+                <li>Zustand - Lightweight state management</li>
+                <li>Axios - HTTP client for API calls</li>
+                <li>Socket.IO Client - Real-time WebSocket communication</li>
+                <li>Tailwind CSS - Utility-first CSS framework</li>
+                <li>Recharts - Charting library for performance graphs</li>
+                <li>React Toastify - Toast notifications</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 14: DEPLOYMENT DIAGRAM - DOCKER ARCHITECTURE -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>🐳 Deployment Diagram - Docker Container Architecture</h2>
+            <p>Complete Docker deployment with containers, networks, and volumes</p>
+        </div>
+
+        <div class="mermaid">
+graph TB
+    subgraph "Host Machine - Windows"
+        subgraph "Docker Network: cleva-network"
+
+            Frontend[🌐 cleva-frontend<br/>nginx:alpine<br/>Port: 5173:80<br/>React Build Files]
+
+            Backend[🚀 cleva-backend<br/>node:18-alpine<br/>Port: 5000:5000<br/>Express + Socket.IO]
+
+            Postgres[(🐘 cleva-postgres<br/>postgres:15-alpine<br/>Port: 5432:5432<br/>Health: pg_isready)]
+
+            Mongo[(🍃 cleva-mongodb<br/>mongo:7-jammy<br/>Port: 27017:27017<br/>Health: db.ping)]
+
+            Neo[(🔗 cleva-neo4j<br/>neo4j:5-community<br/>Port: 7474:7474<br/>Port: 7687:7687<br/>Health: cypher-shell)]
+
+        end
+
+        subgraph "Docker Volumes"
+            PGVol[📦 postgres_data<br/>Persistent Storage]
+            MongoVol[📦 mongodb_data<br/>Persistent Storage]
+            NeoVol[📦 neo4j_data<br/>Persistent Storage]
+            NeoLogs[📦 neo4j_logs<br/>Log Files]
+        end
+
+        subgraph "External Services"
+            Cohere[🤖 Cohere AI<br/>api.cohere.ai]
+            FMP[📊 Financial Modeling Prep<br/>financialmodelingprep.com]
+            Gmail[📧 Gmail SMTP<br/>smtp.gmail.com:587]
+        end
+    end
+
+    Frontend -->|HTTP/HTTPS| Backend
+
+    Backend -->|PostgreSQL Protocol| Postgres
+    Backend -->|MongoDB Protocol| Mongo
+    Backend -->|Bolt Protocol| Neo
+
+    Postgres --> PGVol
+    Mongo --> MongoVol
+    Neo --> NeoVol & NeoLogs
+
+    Backend -->|HTTPS| Cohere
+    Backend -->|HTTPS| FMP
+    Backend -->|SMTP| Gmail
+
+    style Frontend fill:#61dafb
+    style Backend fill:#90ee90
+    style Postgres fill:#336791
+    style Mongo fill:#4db33d
+    style Neo fill:#008cc1
+    style PGVol fill:#fcd34d
+    style MongoVol fill:#fcd34d
+    style NeoVol fill:#fcd34d
+    style Cohere fill:#ff6b6b
+    style FMP fill:#ffd93d
+    style Gmail fill:#ea4335
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Container</th>
+                    <th>Image</th>
+                    <th>Ports</th>
+                    <th>Memory</th>
+                    <th>Volume</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>cleva-frontend</strong></td>
+                    <td>nginx:alpine</td>
+                    <td>5173:80</td>
+                    <td>~50MB</td>
+                    <td>N/A (build files)</td>
+                </tr>
+                <tr>
+                    <td><strong>cleva-backend</strong></td>
+                    <td>node:18-alpine</td>
+                    <td>5000:5000</td>
+                    <td>~200MB</td>
+                    <td>N/A (source code)</td>
+                </tr>
+                <tr>
+                    <td><strong>cleva-postgres</strong></td>
+                    <td>postgres:15-alpine</td>
+                    <td>5432:5432</td>
+                    <td>~100MB</td>
+                    <td>postgres_data</td>
+                </tr>
+                <tr>
+                    <td><strong>cleva-mongodb</strong></td>
+                    <td>mongo:7-jammy</td>
+                    <td>27017:27017</td>
+                    <td>~150MB</td>
+                    <td>mongodb_data</td>
+                </tr>
+                <tr>
+                    <td><strong>cleva-neo4j</strong></td>
+                    <td>neo4j:5-community</td>
+                    <td>7474:7474, 7687:7687</td>
+                    <td>~500MB</td>
+                    <td>neo4j_data, neo4j_logs</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PAGE 15: DEPLOYMENT DIAGRAM - STARTUP SEQUENCE -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>🐳 Deployment Diagram - Container Startup Sequence</h2>
+            <p>Docker Compose startup order with health checks and dependencies</p>
+        </div>
+
+        <div class="mermaid">
+graph TD
+    Start([docker-compose up -d]) --> StartDBs[Start Database Containers<br/>Parallel Execution]
+
+    StartDBs --> PGStart[🐘 PostgreSQL Starting...]
+    StartDBs --> MongoStart[🍃 MongoDB Starting...]
+    StartDBs --> NeoStart[🔗 Neo4j Starting...]
+
+    PGStart --> PGHealth{PostgreSQL<br/>Health Check:<br/>pg_isready}
+    MongoStart --> MongoHealth{MongoDB<br/>Health Check:<br/>db.ping}
+    NeoStart --> NeoHealth{Neo4j<br/>Health Check:<br/>cypher-shell}
+
+    PGHealth -->|Retry 5x<br/>10s interval| PGHealth
+    MongoHealth -->|Retry 5x<br/>10s interval| MongoHealth
+    NeoHealth -->|Retry 5x<br/>10s interval| NeoHealth
+
+    PGHealth -->|Healthy ✅| DBReady{All DBs<br/>Healthy?}
+    MongoHealth -->|Healthy ✅| DBReady
+    NeoHealth -->|Healthy ✅| DBReady
+
+    DBReady -->|Yes| StartBackend[🚀 Backend Starting...<br/>depends_on: service_healthy]
+
+    StartBackend --> ConnectDBs[Connect to:<br/>- PostgreSQL<br/>- MongoDB<br/>- Neo4j]
+
+    ConnectDBs --> InitSchema[Initialize:<br/>- Sequelize sync<br/>- Mongoose connect<br/>- Neo4j driver]
+
+    InitSchema --> BackendReady[Backend Ready ✅<br/>Listening on :5000]
+
+    BackendReady --> StartFrontend[🌐 Frontend Starting...<br/>depends_on: backend]
+
+    StartFrontend --> ServeBuild[Nginx Serves<br/>React Build Files]
+
+    ServeBuild --> FrontendReady[Frontend Ready ✅<br/>Accessible at :5173]
+
+    FrontendReady --> AllReady[All Services Running ✅]
+
+    AllReady --> End([System Ready<br/>Access: http://localhost:5173])
+
+    style Start fill:#90ee90
+    style End fill:#90ee90
+    style PGHealth fill:#ffd93d
+    style MongoHealth fill:#ffd93d
+    style NeoHealth fill:#ffd93d
+    style DBReady fill:#ffd93d
+    style AllReady fill:#10b981
+        </div>
+
+        <div class="info-box">
+            <h3>⚡ Health Check Configuration</h3>
+            <ul>
+                <li>PostgreSQL: pg_isready -U postgres (interval: 10s, timeout: 5s, retries: 5)</li>
+                <li>MongoDB: echo 'db.runCommand("ping").ok' | mongosh (interval: 10s)</li>
+                <li>Neo4j: cypher-shell -u neo4j -p cleva_neo4j_password 'RETURN 1'</li>
+                <li>Backend depends on all databases being healthy before starting</li>
+                <li>Frontend depends on backend being ready</li>
+                <li>Total startup time: ~30-60 seconds (cold start)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 16: DEPLOYMENT DIAGRAM - NETWORK & SECURITY -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>🔒 Deployment Diagram - Network & Security Configuration</h2>
+            <p>Network topology, port mappings, and security measures</p>
+        </div>
+
+        <div class="mermaid">
+graph TB
+    subgraph "External Network - Internet"
+        User[👤 User Browser]
+    end
+
+    subgraph "Host Machine - localhost"
+        subgraph "Docker Bridge Network: cleva-network"
+
+            subgraph "Frontend Container"
+                Nginx[Nginx Web Server<br/>Internal: 80<br/>External: 5173]
+            end
+
+            subgraph "Backend Container"
+                Express[Express Server<br/>Internal: 5000<br/>External: 5000]
+                Socket[Socket.IO<br/>Same Port]
+
+                subgraph "Security Middleware"
+                    JWT[🔑 JWT Verification]
+                    RateLimit[⏱️ Rate Limiter<br/>100 req/15min]
+                    CORS[🛡️ CORS<br/>Origin: localhost:5173]
+                    Helmet[⛑️ Helmet.js<br/>Security Headers]
+                end
+            end
+
+            subgraph "Database Containers"
+                PG[PostgreSQL<br/>Internal: 5432<br/>External: 5432<br/>Auth: Password]
+                Mongo[MongoDB<br/>Internal: 27017<br/>External: 27017<br/>Auth: None dev]
+                Neo[Neo4j<br/>Internal: 7474, 7687<br/>External: 7474, 7687<br/>Auth: neo4j/password]
+            end
+
+        end
+
+        subgraph "Environment Variables .env"
+            Secrets[🔐 Secrets:<br/>- JWT_SECRET<br/>- COHERE_API_KEY<br/>- FMP_API_KEY<br/>- DB_PASSWORDS<br/>- EMAIL_PASSWORD]
+        end
+    end
+
+    User -->|HTTP :5173| Nginx
+    Nginx -->|Proxy /api| Express
+    User -->|WebSocket| Socket
+
+    Express --> JWT & RateLimit & CORS & Helmet
+    Express --> PG & Mongo & Neo
+
+    Express -.->|Reads| Secrets
+
+    style User fill:#e1f5ff
+    style Nginx fill:#61dafb
+    style Express fill:#90ee90
+    style JWT fill:#fcd34d
+    style RateLimit fill:#fcd34d
+    style CORS fill:#fcd34d
+    style Helmet fill:#fcd34d
+    style PG fill:#336791
+    style Mongo fill:#4db33d
+    style Neo fill:#008cc1
+    style Secrets fill:#ff6b6b
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Security Layer</th>
+                    <th>Implementation</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>JWT Authentication</strong></td>
+                    <td>jsonwebtoken library</td>
+                    <td>Verify user identity on each API request</td>
+                </tr>
+                <tr>
+                    <td><strong>Password Hashing</strong></td>
+                    <td>bcryptjs (10 salt rounds)</td>
+                    <td>Secure password storage, never store plaintext</td>
+                </tr>
+                <tr>
+                    <td><strong>Rate Limiting</strong></td>
+                    <td>express-rate-limit</td>
+                    <td>Prevent brute force attacks (100 req/15min)</td>
+                </tr>
+                <tr>
+                    <td><strong>CORS Protection</strong></td>
+                    <td>cors middleware</td>
+                    <td>Allow only localhost:5173 origin in dev</td>
+                </tr>
+                <tr>
+                    <td><strong>Helmet.js</strong></td>
+                    <td>helmet middleware</td>
+                    <td>Set secure HTTP headers (XSS, CSP, etc.)</td>
+                </tr>
+                <tr>
+                    <td><strong>Environment Variables</strong></td>
+                    <td>.env file (not in git)</td>
+                    <td>Store secrets outside code</td>
+                </tr>
+                <tr>
+                    <td><strong>2FA Support</strong></td>
+                    <td>speakeasy + qrcode</td>
+                    <td>Two-factor authentication for high-security actions</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning-box">
+            <h3>⚠️ Production Security Checklist</h3>
+            <ul>
+                <li>Enable HTTPS with SSL/TLS certificates</li>
+                <li>Use Docker Secrets instead of .env files</li>
+                <li>Change all default passwords to strong, unique values</li>
+                <li>Enable MongoDB authentication</li>
+                <li>Configure firewall rules (allow only necessary ports)</li>
+                <li>Set up reverse proxy with Nginx for SSL termination</li>
+                <li>Enable database connection encryption</li>
+                <li>Implement API request logging and monitoring</li>
+                <li>Regular security audits and dependency updates</li>
+                <li>Configure CORS for production domain only</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- FINAL PAGE: SUMMARY -->
+    <div class="diagram-page">
+        <div class="diagram-header">
+            <h2>📋 Documentation Summary</h2>
+            <p>Phase 2 Modelling with Classes - Complete</p>
+        </div>
+
+        <div class="info-box">
+            <h3>✅ Diagrams Included (7 Types)</h3>
+            <ul>
+                <li><strong>Use Case Diagram:</strong> 30 use cases across 6 functional areas with primary and secondary actors</li>
+                <li><strong>Class Diagrams:</strong> PostgreSQL entities, MongoDB documents, Neo4j graph service</li>
+                <li><strong>Sequence Diagrams:</strong> Authentication, goal creation, AI chat, transactions</li>
+                <li><strong>State Diagrams:</strong> Goal lifecycle, user session states</li>
+                <li><strong>Activity Diagrams:</strong> User registration, goal creation, portfolio management</li>
+                <li><strong>Component Diagrams:</strong> System architecture, frontend structure</li>
+                <li><strong>Deployment Diagrams:</strong> Docker containers, startup sequence, network & security</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>🎯 Key Architecture Decisions</h3>
+            <ul>
+                <li><strong>Multi-Database Strategy:</strong> PostgreSQL (ACID transactions), MongoDB (flexible documents), Neo4j (graph relationships)</li>
+                <li><strong>Microservices Approach:</strong> Separate containers for each database and service</li>
+                <li><strong>AI Integration:</strong> Cohere API for personalized investment recommendations</li>
+                <li><strong>Real-Time Communication:</strong> Socket.IO for instant chat responses</li>
+                <li><strong>Containerization:</strong> Docker Compose for easy deployment and scaling</li>
+                <li><strong>Security First:</strong> JWT auth, bcrypt hashing, rate limiting, CORS, Helmet.js</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>📊 System Statistics</h3>
+            <ul>
+                <li>30 Use Cases across 6 functional areas (Auth, Goals, Portfolio, Chat, Market, Profile)</li>
+                <li>5 Actors (1 primary: User/Investor + 4 secondary: AI, Market API, Email, Neo4j)</li>
+                <li>5 Docker Containers (Frontend, Backend, PostgreSQL, MongoDB, Neo4j)</li>
+                <li>48 API Endpoints across 6 route modules</li>
+                <li>5 PostgreSQL tables with 50+ total columns</li>
+                <li>3 MongoDB collections for unstructured data</li>
+                <li>3 Neo4j relationship types for recommendations</li>
+                <li>2 External AI/Market APIs (Cohere, FMP)</li>
+                <li>15 Frontend pages and 30+ reusable components</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <h3>🚀 Next Steps</h3>
+            <ul>
+                <li>Implement comprehensive unit and integration tests</li>
+                <li>Set up CI/CD pipeline (GitHub Actions)</li>
+                <li>Configure production environment with SSL</li>
+                <li>Implement logging and monitoring (Winston, Prometheus)</li>
+                <li>Add performance optimization (caching, CDN)</li>
+                <li>Create mobile app (React Native)</li>
+                <li>Expand AI capabilities (predictive analytics)</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p><strong>Cleva Investment Platform - Phase 2 Documentation</strong></p>
+            <p>Version 2.0 | January 2026</p>
+            <p>AI-Powered Investment Advisory Platform for South African Investors</p>
+            <p style="margin-top: 20px;">📧 For support: Refer to DATABASE_ACCESS_GUIDE.md and README.md</p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Mermaid with optimal settings
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            themeVariables: {
+                fontSize: '14px',
+                fontFamily: 'Segoe UI, sans-serif',
+                primaryColor: '#667eea',
+                primaryTextColor: '#1f2937',
+                primaryBorderColor: '#764ba2',
+                lineColor: '#94a3b8',
+                secondaryColor: '#f3f4f6',
+                tertiaryColor: '#fef3c7'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 20
+            },
+            sequence: {
+                diagramMarginX: 50,
+                diagramMarginY: 10,
+                actorMargin: 80,
+                width: 150,
+                height: 65,
+                boxMargin: 10,
+                boxTextMargin: 5,
+                noteMargin: 10,
+                messageMargin: 35
+            },
+            class: {
+                useMaxWidth: true
+            },
+            stateDiagram: {
+                useMaxWidth: true
+            }
+        });
+
+        // Render all diagrams after page load
+        window.addEventListener('load', () => {
+            mermaid.run();
+        });
+    </script>
+</body>
+</html>

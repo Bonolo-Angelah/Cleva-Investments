@@ -1,0 +1,32 @@
+{
+  "name": "cleva-investment",
+  "version": "1.0.0",
+  "description": "AI-powered investment advisory platform",
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:rebuild": "docker-compose down && docker-compose build && docker-compose up -d"
+  },
+  "keywords": [
+    "investment",
+    "ai",
+    "chatbot",
+    "financial-advisory",
+    "neo4j",
+    "mongodb",
+    "postgresql"
+  ],
+  "author": "Cleva Investment Team",
+  "license": "MIT",
+  "devDependencies": {
+    "archiver": "^7.0.1",
+    "concurrently": "^8.2.2",
+    "docx": "^9.5.1",
+    "md-to-pdf": "^5.2.4"
+  }
+}

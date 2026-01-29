@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Cleva Investment - Phase 1 Proposal</title>
+    <style>
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            margin: 1in;
+            max-width: 8.5in;
+        }
+        h1 {
+            font-size: 24pt;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 24pt;
+            margin-bottom: 12pt;
+            color: #2E5090;
+            border-bottom: 3px solid #2E5090;
+            padding-bottom: 6pt;
+        }
+        h2 {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-top: 18pt;
+            margin-bottom: 10pt;
+            color: #2E5090;
+            border-bottom: 2px solid #CCCCCC;
+            padding-bottom: 4pt;
+        }
+        h3 {
+            font-size: 13pt;
+            font-weight: bold;
+            margin-top: 14pt;
+            margin-bottom: 8pt;
+            color: #1F3864;
+        }
+        h4 {
+            font-size: 11pt;
+            font-weight: bold;
+            margin-top: 12pt;
+            margin-bottom: 6pt;
+            color: #1F3864;
+        }
+        p {
+            margin-top: 6pt;
+            margin-bottom: 6pt;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-top: 6pt;
+            margin-bottom: 6pt;
+        }
+        li {
+            margin-bottom: 4pt;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 12pt;
+            margin-bottom: 12pt;
+            font-size: 10pt;
+        }
+        th {
+            background-color: #2E5090;
+            color: white;
+            padding: 8pt;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #2E5090;
+        }
+        td {
+            padding: 6pt;
+            border: 1px solid #CCCCCC;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background-color: #F5F5F5;
+        }
+        .cover-page {
+            text-align: center;
+            page-break-after: always;
+            margin-top: 200pt;
+        }
+        .cover-title {
+            font-size: 36pt;
+            font-weight: bold;
+            color: #2E5090;
+            margin-bottom: 24pt;
+        }
+        .cover-subtitle {
+            font-size: 18pt;
+            color: #1F3864;
+            margin-bottom: 12pt;
+        }
+        .cover-info {
+            font-size: 12pt;
+            margin-top: 48pt;
+        }
+        .section-break {
+            page-break-before: always;
+        }
+        .highlight {
+            background-color: #FFFFCC;
+            padding: 2pt 4pt;
+        }
+        .formula {
+            font-family: 'Courier New', monospace;
+            background-color: #F0F0F0;
+            padding: 8pt;
+            margin: 8pt 0;
+            border-left: 4px solid #2E5090;
+        }
+        .disclaimer {
+            background-color: #FFF3CD;
+            border: 1px solid #FFE69C;
+            padding: 12pt;
+            margin: 12pt 0;
+            border-radius: 4pt;
+        }
+    </style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover-page">
+    <div class="cover-title">PHASE 1 PROPOSAL</div>
+    <div class="cover-subtitle">Cleva Investment Platform</div>
+    <div class="cover-subtitle">AI-Powered Investment Advisory System</div>
+
+    <div class="cover-info">
+        <p><strong>Prepared by:</strong> Cleva Investment Development Team</p>
+        <p><strong>Date:</strong> January 15, 2026</p>
+        <p><strong>Version:</strong> 1.0</p>
+        <p><strong>Status:</strong> Proposal for Approval</p>
+    </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="section-break">
+<h1>TABLE OF CONTENTS</h1>
+<ol>
+    <li>Name of the Project</li>
+    <li>Domain Analysis</li>
+    <li>Define the Problem</li>
+    <li>Define the Scope</li>
+    <li>Vision and Objectives</li>
+    <li>Users of the System</li>
+    <li>Mandatory Functions</li>
+    <li>Functional Requirements</li>
+    <li>Non-Functional Requirements</li>
+    <li>Use Case Diagrams and Descriptions</li>
+    <li>Tools and Technologies to be Used</li>
+</ol>
+</div>
+
+<!-- SECTION 1: NAME OF THE PROJECT -->
+<div class="section-break">
+<h1>1. NAME OF THE PROJECT</h1>
+<p style="text-align: center; font-size: 14pt; font-weight: bold; color: #2E5090;">
+    Cleva Investment - AI-Powered Investment Advisory Platform
+</p>
+</div>
+
+<!-- SECTION 2: DOMAIN ANALYSIS -->
+<div class="section-break">
+<h1>2. DOMAIN ANALYSIS</h1>
+
+<h2>2.1 General Field of Business</h2>
+<p>Cleva Investment operates in the <strong>Financial Technology (FinTech)</strong> domain, specifically in the <strong>Investment Advisory and Wealth Management</strong> sector. The platform provides AI-powered personalized investment recommendations to individual investors seeking to build wealth through strategic portfolio management.</p>
+
+<h2>2.2 Terminology and Glossary</h2>
+<table>
+    <tr>
+        <th style="width: 25%;">Term</th>
+        <th>Definition</th>
+    </tr>
+    <tr>
+        <td><strong>Portfolio</strong></td>
+        <td>A collection of financial investments (stocks, bonds, ETFs) held by an investor</td>
+    </tr>
+    <tr>
+        <td><strong>Risk Tolerance</strong></td>
+        <td>An investor's ability to withstand market volatility (conservative, moderate, aggressive)</td>
+    </tr>
+    <tr>
+        <td><strong>Financial Goal</strong></td>
+        <td>A specific monetary target with a timeline (e.g., retirement, house purchase)</td>
+    </tr>
+    <tr>
+        <td><strong>Market Data</strong></td>
+        <td>Real-time or historical information about stock prices, volumes, and trends</td>
+    </tr>
+    <tr>
+        <td><strong>Investment Experience</strong></td>
+        <td>Investor's level of expertise (beginner, intermediate, advanced)</td>
+    </tr>
+    <tr>
+        <td><strong>AI Chatbot</strong></td>
+        <td>Conversational interface powered by artificial intelligence for investment guidance</td>
+    </tr>
+    <tr>
+        <td><strong>Graph Database</strong></td>
+        <td>Neo4j database storing relationships between users and investment preferences</td>
+    </tr>
+    <tr>
+        <td><strong>Collaborative Filtering</strong></td>
+        <td>Recommendation technique based on similar users' investment behaviors</td>
+    </tr>
+    <tr>
+        <td><strong>Holdings</strong></td>
+        <td>Specific assets owned within a portfolio</td>
+    </tr>
+    <tr>
+        <td><strong>Transaction</strong></td>
+        <td>Buy, sell, or dividend action in an investment account</td>
+    </tr>
+</table>
+
+<h2>2.3 Business Environment Understanding</h2>
+<p>The investment advisory industry has traditionally been dominated by:</p>
+<ul>
+    <li>Human financial advisors charging 1-2% annual fees</li>
+    <li>Robo-advisors providing algorithmic portfolio management</li>
+    <li>Self-directed trading platforms requiring significant expertise</li>
+    <li>Limited accessibility for small investors (minimum investment requirements)</li>
+</ul>
+
+<h3>Current Market Trends:</h3>
+<ul>
+    <li>Democratization of investing through mobile apps</li>
+    <li>AI-powered personalized recommendations</li>
+    <li>Goal-based investing approach</li>
+    <li>Real-time market data accessibility</li>
+    <li>Multi-asset portfolio diversification</li>
+</ul>
+
+<h2>2.4 Tasks and Procedures Currently Performed</h2>
+<p>Traditional investment advisory involves:</p>
+<ol>
+    <li><strong>Initial Consultation:</strong> Advisor meets client to understand goals and risk tolerance</li>
+    <li><strong>Portfolio Construction:</strong> Manual selection of investments based on client profile</li>
+    <li><strong>Ongoing Monitoring:</strong> Periodic reviews of portfolio performance</li>
+    <li><strong>Rebalancing:</strong> Adjusting asset allocation to maintain target risk levels</li>
+    <li><strong>Reporting:</strong> Quarterly or annual performance reports to clients</li>
+    <li><strong>Market Research:</strong> Advisors analyze market trends and news</li>
+</ol>
+
+<h2>2.5 Customers and Users</h2>
+<h3>Target Users:</h3>
+<ul>
+    <li><strong>Beginner Investors:</strong> Individuals new to investing seeking guidance</li>
+    <li><strong>Intermediate Investors:</strong> Those with some experience wanting AI-powered insights</li>
+    <li><strong>Goal-Oriented Savers:</strong> People saving for specific life events (education, retirement, home)</li>
+    <li><strong>South African Market:</strong> Primary focus on ZAR (South African Rand) currency users</li>
+    <li><strong>Age Range:</strong> 25-55 years old, digitally literate individuals</li>
+</ul>
+
+<h3>User Demographics:</h3>
+<ul>
+    <li>Middle-income earners seeking wealth building</li>
+    <li>Tech-savvy individuals comfortable with digital platforms</li>
+    <li>Users seeking lower-cost alternatives to traditional advisors</li>
+</ul>
+
+<h2>2.6 Competing Software</h2>
+<table>
+    <tr>
+        <th>Competitor</th>
+        <th>Type</th>
+        <th>Key Features</th>
+        <th>Limitations</th>
+    </tr>
+    <tr>
+        <td><strong>Betterment</strong></td>
+        <td>Robo-advisor</td>
+        <td>Automated portfolio management</td>
+        <td>Limited personalization, US-focused</td>
+    </tr>
+    <tr>
+        <td><strong>Wealthfront</strong></td>
+        <td>Robo-advisor</td>
+        <td>Tax-loss harvesting, financial planning</td>
+        <td>High minimum balances</td>
+    </tr>
+    <tr>
+        <td><strong>Personal Capital</strong></td>
+        <td>Wealth Management</td>
+        <td>Portfolio tracking, retirement planning</td>
+        <td>No AI chatbot</td>
+    </tr>
+    <tr>
+        <td><strong>Robinhood</strong></td>
+        <td>Trading Platform</td>
+        <td>Commission-free trading</td>
+        <td>No advisory services</td>
+    </tr>
+    <tr>
+        <td><strong>EasyEquities (SA)</strong></td>
+        <td>Trading Platform</td>
+        <td>South African market access</td>
+        <td>Limited AI recommendations</td>
+    </tr>
+    <tr>
+        <td><strong>22seven (SA)</strong></td>
+        <td>Budget Tracker</td>
+        <td>Expense tracking</td>
+        <td>No investment recommendations</td>
+    </tr>
+</table>
+
+<h3>Competitive Advantages of Cleva:</h3>
+<ul>
+    <li>AI-powered conversational interface (chatbot with voice input)</li>
+    <li>Multi-database architecture for advanced recommendations</li>
+    <li>Graph database for collaborative filtering</li>
+    <li>Goal-centric approach</li>
+    <li>South African Rand (ZAR) support</li>
+    <li>Free or low-cost access</li>
+</ul>
+
+<h2>2.7 Similarities to Other Domains</h2>
+<ul>
+    <li><strong>E-commerce Recommendation Engines:</strong> Similar collaborative filtering (Amazon, Netflix)</li>
+    <li><strong>Healthcare Decision Support Systems:</strong> AI-driven personalized recommendations</li>
+    <li><strong>Educational Platforms:</strong> Personalized learning paths based on user goals</li>
+    <li><strong>Dating Apps:</strong> Matching algorithms using graph databases</li>
+</ul>
+</div>
+
+<!-- SECTION 3: DEFINE THE PROBLEM -->
+<div class="section-break">
+<h1>3. DEFINE THE PROBLEM</h1>
+
+<h2>3.1 Problem Statement</h2>
+<h3>Difficulty to Solve:</h3>
+<p>Many individual investors in South Africa and emerging markets face significant barriers to effective wealth building:</p>
+<ol>
+    <li><strong>High Advisory Costs:</strong> Traditional financial advisors charge 1-2% annual fees, making professional advice unaffordable for small investors</li>
+    <li><strong>Information Overload:</strong> Thousands of investment options overwhelm beginners</li>
+    <li><strong>Lack of Personalization:</strong> Generic advice doesn't account for individual goals, risk tolerance, and timelines</li>
+    <li><strong>Limited Accessibility:</strong> Geographic and time constraints prevent access to in-person advisors</li>
+    <li><strong>Knowledge Gap:</strong> Complex financial jargon and concepts intimidate new investors</li>
+    <li><strong>Delayed Decisions:</strong> Fear of making wrong choices leads to analysis paralysis and missed opportunities</li>
+    <li><strong>Currency Limitations:</strong> Most platforms focus on USD, not local currencies like ZAR</li>
+</ol>
+
+<h2>3.2 Opportunity</h2>
+<p>By leveraging AI and multi-database architecture, Cleva Investment can:</p>
+<ul>
+    <li><strong>Democratize Investment Advice:</strong> Provide professional-grade recommendations to everyone</li>
+    <li><strong>Reduce Costs:</strong> Eliminate high advisor fees through automation</li>
+    <li><strong>Improve Productivity:</strong> Enable users to make informed decisions in minutes, not weeks</li>
+    <li><strong>Increase Financial Literacy:</strong> Interactive chatbot educates while recommending</li>
+    <li><strong>Drive Sales/Adoption:</strong> Attract users seeking modern, accessible investment solutions</li>
+    <li><strong>Localized Solutions:</strong> Support South African Rand and local market conditions</li>
+</ul>
+
+<h3>Expected Benefits:</h3>
+<ul>
+    <li>Users save 1-2% annually in advisory fees</li>
+    <li>Faster decision-making (3 minutes vs. 3 weeks for traditional advisory)</li>
+    <li>Increased investment participation among younger demographics</li>
+    <li>Better goal achievement rates through personalized tracking</li>
+</ul>
+</div>
+
+<!-- SECTION 4: DEFINE THE SCOPE -->
+<div class="section-break">
+<h1>4. DEFINE THE SCOPE</h1>
+
+<h2>4.1 Narrow Scope Definition</h2>
+<h3>Precise Problem:</h3>
+<p>Develop an AI-powered web application that enables individual investors to:</p>
+<ul>
+    <li>Create and track financial goals</li>
+    <li>Receive personalized investment recommendations</li>
+    <li>Interact with an intelligent chatbot for investment guidance</li>
+    <li>Manage investment portfolios</li>
+    <li>Access real-time market data</li>
+</ul>
+
+<h2>4.2 Integrated Result-Based Management (IRBM) Framework</h2>
+
+<h3>INPUTS</h3>
+<ul>
+    <li>User profile data (age, income, goals, risk tolerance)</li>
+    <li>Real-time market data from Financial Modeling Prep API</li>
+    <li>AI models (Cohere AI for conversational intelligence)</li>
+    <li>Historical investment patterns stored in Neo4j graph database</li>
+    <li>Financial news and articles</li>
+    <li>User queries and interactions</li>
+</ul>
+
+<h3>ACTIVITIES</h3>
+<ol>
+    <li>User registration and profile creation</li>
+    <li>Financial goal setting and configuration</li>
+    <li>AI analysis of user profiles and goals</li>
+    <li>Real-time market data fetching and caching</li>
+    <li>Collaborative filtering through graph database</li>
+    <li>AI-powered recommendation generation</li>
+    <li>Portfolio tracking and performance monitoring</li>
+    <li>Interactive chatbot conversations</li>
+    <li>Market news aggregation and analysis</li>
+</ol>
+
+<h3>OUTPUTS</h3>
+<ul>
+    <li>Personalized investment recommendations</li>
+    <li>Portfolio performance reports</li>
+    <li>AI chatbot responses and guidance</li>
+    <li>Goal progress tracking dashboards</li>
+    <li>Market insights and news summaries</li>
+    <li>Transaction history records</li>
+    <li>Risk-adjusted portfolio suggestions</li>
+</ul>
+
+<h3>OUTCOMES</h3>
+<ul>
+    <li>Users gain confidence in investment decisions</li>
+    <li>Reduced time to create diversified portfolios (from weeks to minutes)</li>
+    <li>Improved financial literacy among users</li>
+    <li>Lower barrier to entry for beginner investors</li>
+    <li>Informed investment choices based on goals and risk tolerance</li>
+    <li>Accessible 24/7 advisory support through AI chatbot</li>
+</ul>
+
+<h3>IMPACT</h3>
+<ul>
+    <li><strong>Community Impact:</strong> Increased financial inclusion and wealth-building opportunities in South Africa</li>
+    <li><strong>Economic Impact:</strong> Democratization of investment advice, enabling wealth creation among middle-income earners</li>
+    <li><strong>Social Impact:</strong> Improved financial security and retirement readiness</li>
+    <li><strong>Educational Impact:</strong> Enhanced financial literacy and investment knowledge</li>
+    <li><strong>Long-term Impact:</strong> Generation of sustainable wealth for users and their families</li>
+</ul>
+
+<h2>4.3 IRBM Assessment Questions</h2>
+
+<h3>Assess: What is the current situation?</h3>
+<ul>
+    <li>Many South Africans lack access to affordable, personalized investment advice</li>
+    <li>High advisory fees (1-2% annually) exclude small investors</li>
+    <li>Existing platforms are either too complex (trading platforms) or too generic (robo-advisors)</li>
+    <li>Limited local currency (ZAR) support in global platforms</li>
+    <li>Investment decision-making is time-consuming and intimidating for beginners</li>
+</ul>
+
+<h3>Think: What caused it? Who is involved?</h3>
+<h4>Causes:</h4>
+<ul>
+    <li>Traditional financial advisory model built on high-fee structures</li>
+    <li>Complexity of financial markets and investment products</li>
+    <li>Lack of digital transformation in wealth management</li>
+    <li>Information asymmetry between advisors and investors</li>
+    <li>Limited AI adoption in financial services</li>
+</ul>
+
+<h4>Who is Involved:</h4>
+<ul>
+    <li>Individual investors (primary beneficiaries)</li>
+    <li>Financial advisors (potential partners or competitors)</li>
+    <li>Financial institutions and banks</li>
+    <li>Regulatory bodies (Financial Sector Conduct Authority - FSCA in South Africa)</li>
+    <li>Technology providers (API vendors, cloud services)</li>
+</ul>
+
+<h3>Envision: What are we going to achieve?</h3>
+<ul>
+    <li>Provide free/low-cost AI-powered investment advisory to 10,000+ users in Year 1</li>
+    <li>Enable users to create personalized investment plans in under 5 minutes</li>
+    <li>Achieve 85%+ user satisfaction with AI recommendations</li>
+    <li>Reduce average portfolio creation time by 90% compared to traditional methods</li>
+    <li>Support 50+ South African and international investment options</li>
+    <li>Deliver real-time market insights and news to inform decisions</li>
+</ul>
+
+<h3>Plan: How are we going to do it? With whom? When? With what resources?</h3>
+
+<h4>How:</h4>
+<ul>
+    <li>Build web application using React (frontend) and Node.js (backend)</li>
+    <li>Integrate Cohere AI for intelligent chatbot conversations</li>
+    <li>Implement multi-database architecture (PostgreSQL, MongoDB, Neo4j)</li>
+    <li>Connect to Financial Modeling Prep API for real-time market data</li>
+    <li>Deploy using Docker for scalability</li>
+</ul>
+
+<h4>With Whom:</h4>
+<ul>
+    <li>Development team: Full-stack developers, AI/ML specialists</li>
+    <li>Domain experts: Financial advisors for validation</li>
+    <li>Users: Beta testers for feedback</li>
+    <li>Technology partners: Cohere AI, Financial Modeling Prep, cloud providers</li>
+</ul>
+
+<h4>When:</h4>
+<ul>
+    <li><strong>Phase 1 (Months 1-2):</strong> Core platform development, user authentication, goal management</li>
+    <li><strong>Phase 2 (Months 3-4):</strong> AI chatbot integration, recommendation engine, portfolio tracking</li>
+    <li><strong>Phase 3 (Months 5-6):</strong> Testing, refinement, beta launch</li>
+    <li><strong>Phase 4 (Month 7+):</strong> Public launch, user acquisition, continuous improvement</li>
+</ul>
+
+<h4>With What Resources:</h4>
+<ul>
+    <li><strong>Human Resources:</strong> 2-3 developers, 1 UX/UI designer, 1 project manager</li>
+    <li><strong>Technology:</strong> Cloud hosting (AWS/Azure), API subscriptions (Cohere, FMP)</li>
+    <li><strong>Financial:</strong> Development budget for infrastructure, APIs, testing</li>
+    <li><strong>Tools:</strong> GitHub (version control), Docker (containerization), CI/CD pipelines</li>
+</ul>
+</div>
+
+<!-- SECTION 5: VISION AND OBJECTIVES -->
+<div class="section-break">
+<h1>5. VISION AND OBJECTIVES</h1>
+
+<h2>5.1 Vision Statement</h2>
+<p style="background-color: #E8F4F8; padding: 12pt; border-left: 4px solid #2E5090; font-style: italic;">
+    "To become the leading AI-powered investment advisory platform in South Africa, empowering every individual to build wealth through intelligent, personalized, and accessible financial guidance."
+</p>
+
+<h2>5.2 Mission Statement</h2>
+<p style="background-color: #E8F4F8; padding: 12pt; border-left: 4px solid #2E5090; font-style: italic;">
+    "Democratize investment advice by providing free, AI-driven, goal-oriented recommendations that help users achieve financial security and independence."
+</p>
+
+<h2>5.3 SMART Objectives</h2>
+
+<h3>Objective 1: User Acquisition</h3>
+<table>
+    <tr>
+        <th style="width: 25%;">SMART Criteria</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><strong>Specific</strong></td>
+        <td>Onboard 10,000 registered users to the Cleva Investment platform</td>
+    </tr>
+    <tr>
+        <td><strong>Measurable</strong></td>
+        <td>Track user registrations via PostgreSQL database</td>
+    </tr>
+    <tr>
+        <td><strong>Achievable</strong></td>
+        <td>Through digital marketing, social media, and partnerships</td>
+    </tr>
+    <tr>
+        <td><strong>Relevant</strong></td>
+        <td>Critical mass needed to validate collaborative filtering algorithm</td>
+    </tr>
+    <tr>
+        <td><strong>Time-bound</strong></td>
+        <td>Within 12 months of public launch</td>
+    </tr>
+</table>
+
+<h3>Objective 2: AI Recommendation Accuracy</h3>
+<table>
+    <tr>
+        <th style="width: 25%;">SMART Criteria</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><strong>Specific</strong></td>
+        <td>Achieve 85% user satisfaction rate with AI-generated investment recommendations</td>
+    </tr>
+    <tr>
+        <td><strong>Measurable</strong></td>
+        <td>Conduct monthly user surveys and track recommendation acceptance rates</td>
+    </tr>
+    <tr>
+        <td><strong>Achievable</strong></td>
+        <td>Through continuous AI model training and user feedback integration</td>
+    </tr>
+    <tr>
+        <td><strong>Relevant</strong></td>
+        <td>Core value proposition depends on recommendation quality</td>
+    </tr>
+    <tr>
+        <td><strong>Time-bound</strong></td>
+        <td>By end of Month 9 post-launch</td>
+    </tr>
+</table>
+
+<h3>Objective 3: Goal Achievement Rate</h3>
+<table>
+    <tr>
+        <th style="width: 25%;">SMART Criteria</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><strong>Specific</strong></td>
+        <td>Enable 70% of active users to achieve or stay on track for their financial goals</td>
+    </tr>
+    <tr>
+        <td><strong>Measurable</strong></td>
+        <td>Track goal progress in PostgreSQL database, compare actual vs. target savings</td>
+    </tr>
+    <tr>
+        <td><strong>Achievable</strong></td>
+        <td>Through personalized recommendations and regular progress monitoring</td>
+    </tr>
+    <tr>
+        <td><strong>Relevant</strong></td>
+        <td>Demonstrates platform effectiveness in helping users build wealth</td>
+    </tr>
+    <tr>
+        <td><strong>Time-bound</strong></td>
+        <td>Within 18 months of goal creation</td>
+    </tr>
+</table>
+
+<h3>Objective 4: Platform Performance</h3>
+<table>
+    <tr>
+        <th style="width: 25%;">SMART Criteria</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><strong>Specific</strong></td>
+        <td>Maintain 99.5% uptime and sub-2-second page load times</td>
+    </tr>
+    <tr>
+        <td><strong>Measurable</strong></td>
+        <td>Use monitoring tools (e.g., New Relic, Datadog) to track availability and performance</td>
+    </tr>
+    <tr>
+        <td><strong>Achievable</strong></td>
+        <td>Through robust Docker-based deployment and scalable architecture</td>
+    </tr>
+    <tr>
+        <td><strong>Relevant</strong></td>
+        <td>User experience depends on reliability and speed</td>
+    </tr>
+    <tr>
+        <td><strong>Time-bound</strong></td>
+        <td>Continuously maintained from launch onward</td>
+    </tr>
+</table>
+
+<h3>Objective 5: Market Data Integration</h3>
+<table>
+    <tr>
+        <th style="width: 25%;">SMART Criteria</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><strong>Specific</strong></td>
+        <td>Provide real-time data for 500+ stocks, ETFs, and investment instruments</td>
+    </tr>
+    <tr>
+        <td><strong>Measurable</strong></td>
+        <td>Count unique symbols with fresh data (&lt;5 minutes old) in MongoDB cache</td>
+    </tr>
+    <tr>
+        <td><strong>Achievable</strong></td>
+        <td>Through Financial Modeling Prep API integration and efficient caching</td>
+    </tr>
+    <tr>
+        <td><strong>Relevant</strong></td>
+        <td>Users need current market information for informed decisions</td>
+    </tr>
+    <tr>
+        <td><strong>Time-bound</strong></td>
+        <td>By Month 6 of development</td>
+    </tr>
+</table>
+
+<h3>Objective 6: Chatbot Engagement</h3>
+<table>
+    <tr>
+        <th style="width: 25%;">SMART Criteria</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><strong>Specific</strong></td>
+        <td>Achieve an average of 10+ chatbot interactions per active user per month</td>
+    </tr>
+    <tr>
+        <td><strong>Measurable</strong></td>
+        <td>Track message counts in MongoDB chat history collection</td>
+    </tr>
+    <tr>
+        <td><strong>Achievable</strong></td>
+        <td>Through intuitive UX and valuable AI responses</td>
+    </tr>
+    <tr>
+        <td><strong>Relevant</strong></td>
+        <td>High engagement indicates users find chatbot helpful</td>
+    </tr>
+    <tr>
+        <td><strong>Time-bound</strong></td>
+        <td>By Month 12 post-launch</td>
+    </tr>
+</table>
+</div>
+
+<!-- SECTION 6: USERS OF THE SYSTEM -->
+<div class="section-break">
+<h1>6. USERS OF THE SYSTEM</h1>
+
+<h2>6.1 User Roles and Responsibilities</h2>
+<table>
+    <tr>
+        <th style="width: 20%;">User Role</th>
+        <th style="width: 30%;">Description</th>
+        <th style="width: 25%;">Responsibilities</th>
+        <th style="width: 25%;">Permissions</th>
+    </tr>
+    <tr>
+        <td><strong>Investor<br/>(Primary User)</strong></td>
+        <td>Individual seeking investment advice and portfolio management</td>
+        <td>
+            • Create and manage financial goals<br/>
+            • Interact with AI chatbot<br/>
+            • Build and track investment portfolios<br/>
+            • View market data and recommendations<br/>
+            • Execute investment decisions
+        </td>
+        <td>
+            • Full CRUD access to own data<br/>
+            • Read-only access to market data<br/>
+            • Chatbot interaction<br/>
+            • Profile management
+        </td>
+    </tr>
+    <tr>
+        <td><strong>System Administrator</strong></td>
+        <td>Technical staff managing platform operations</td>
+        <td>
+            • Monitor system health and performance<br/>
+            • Manage database backups<br/>
+            • Handle technical issues and bugs<br/>
+            • Deploy updates and patches<br/>
+            • Manage API keys and integrations
+        </td>
+        <td>
+            • Full system access<br/>
+            • Database administration<br/>
+            • User account management<br/>
+            • System configuration<br/>
+            • Log access
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Financial Advisor<br/>(Future Role)</strong></td>
+        <td>Licensed professionals providing oversight (planned feature)</td>
+        <td>
+            • Review AI recommendations<br/>
+            • Provide human oversight for complex cases<br/>
+            • Conduct compliance checks<br/>
+            • Offer premium consultation services
+        </td>
+        <td>
+            • View user profiles (with consent)<br/>
+            • Access recommendation history<br/>
+            • Provide manual advice<br/>
+            • Flag regulatory concerns
+        </td>
+    </tr>
+    <tr>
+        <td><strong>AI Chatbot<br/>(System Actor)</strong></td>
+        <td>Automated conversational agent</td>
+        <td>
+            • Respond to user queries<br/>
+            • Provide investment guidance<br/>
+            • Analyze user goals and generate recommendations<br/>
+            • Learn from user interactions
+        </td>
+        <td>
+            • Read user profiles and goals<br/>
+            • Access market data<br/>
+            • Generate recommendations<br/>
+            • Store conversation history
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Guest User</strong></td>
+        <td>Unauthenticated visitor exploring the platform</td>
+        <td>
+            • View landing page and features<br/>
+            • Access public educational content<br/>
+            • Register for an account
+        </td>
+        <td>
+            • Read-only access to public content<br/>
+            • Account creation
+        </td>
+    </tr>
+</table>
+
+<h2>6.2 User Personas</h2>
+
+<h3>Persona 1: Thabo (Beginner Investor)</h3>
+<ul>
+    <li><strong>Age:</strong> 28, Software Developer in Johannesburg</li>
+    <li><strong>Goal:</strong> Save R500,000 for house down payment in 5 years</li>
+    <li><strong>Risk Tolerance:</strong> Moderate</li>
+    <li><strong>Needs:</strong> Simple guidance, educational support, ZAR-based investments</li>
+</ul>
+
+<h3>Persona 2: Sarah (Intermediate Investor)</h3>
+<ul>
+    <li><strong>Age:</strong> 42, Marketing Manager in Cape Town</li>
+    <li><strong>Goal:</strong> Build R5 million retirement fund in 20 years</li>
+    <li><strong>Risk Tolerance:</strong> Conservative</li>
+    <li><strong>Needs:</strong> Portfolio diversification, performance tracking, goal monitoring</li>
+</ul>
+
+<h3>Persona 3: David (Advanced Investor)</h3>
+<ul>
+    <li><strong>Age:</strong> 35, Business Owner in Durban</li>
+    <li><strong>Goal:</strong> Grow R2 million investment for children's education</li>
+    <li><strong>Risk Tolerance:</strong> Aggressive</li>
+    <li><strong>Needs:</strong> AI insights, market trends, advanced analytics</li>
+</ul>
+</div>
+
+<!-- SECTION 7: MANDATORY FUNCTIONS -->
+<div class="section-break">
+<h1>7. MANDATORY FUNCTIONS (CRUD OPERATIONS)</h1>
+
+<p>The Cleva Investment platform implements full <strong>Create, Read, Update, Delete (CRUD)</strong> functionality across all core data entities:</p>
+
+<h2>7.1 User Management</h2>
+<ul>
+    <li><strong>Create:</strong> Register new user account with email, password, and profile details</li>
+    <li><strong>Read:</strong> View user profile, authentication status, and account settings</li>
+    <li><strong>Update:</strong> Modify profile information (name, contact, risk tolerance, experience)</li>
+    <li><strong>Delete:</strong> Deactivate or permanently delete user account</li>
+</ul>
+
+<h2>7.2 Financial Goals</h2>
+<ul>
+    <li><strong>Create:</strong> Define new financial goal with target amount, timeline, and type</li>
+    <li><strong>Read:</strong> View all goals, individual goal details, and progress tracking</li>
+    <li><strong>Update:</strong> Modify goal parameters (target amount, date, priority, status)</li>
+    <li><strong>Delete:</strong> Remove goals that are no longer relevant</li>
+</ul>
+
+<h2>7.3 Portfolios</h2>
+<ul>
+    <li><strong>Create:</strong> Establish new investment portfolio with name and description</li>
+    <li><strong>Read:</strong> View portfolio details, holdings, performance metrics, and history</li>
+    <li><strong>Update:</strong> Modify portfolio information, add/remove holdings, update values</li>
+    <li><strong>Delete:</strong> Remove portfolio and associated holdings</li>
+</ul>
+
+<h2>7.4 Transactions</h2>
+<ul>
+    <li><strong>Create:</strong> Record buy, sell, or dividend transactions</li>
+    <li><strong>Read:</strong> View transaction history with filters (date, type, symbol)</li>
+    <li><strong>Update:</strong> Correct transaction details (quantity, price, date)</li>
+    <li><strong>Delete:</strong> Remove erroneous transactions</li>
+</ul>
+
+<h2>7.5 Chat Sessions</h2>
+<ul>
+    <li><strong>Create:</strong> Initiate new conversation session with AI chatbot</li>
+    <li><strong>Read:</strong> View chat history, previous conversations, and AI responses</li>
+    <li><strong>Update:</strong> Continue existing conversations, add new messages</li>
+    <li><strong>Delete:</strong> Clear chat history or end active sessions</li>
+</ul>
+
+<h2>7.6 Database CRUD Implementation</h2>
+<table>
+    <tr>
+        <th>Entity</th>
+        <th>Database</th>
+        <th>Create API</th>
+        <th>Read API</th>
+        <th>Update API</th>
+        <th>Delete API</th>
+    </tr>
+    <tr>
+        <td><strong>Users</strong></td>
+        <td>PostgreSQL</td>
+        <td>POST /api/auth/register</td>
+        <td>GET /api/auth/profile</td>
+        <td>PUT /api/auth/profile</td>
+        <td>DELETE /api/auth/profile</td>
+    </tr>
+    <tr>
+        <td><strong>Goals</strong></td>
+        <td>PostgreSQL</td>
+        <td>POST /api/goals</td>
+        <td>GET /api/goals/:id</td>
+        <td>PUT /api/goals/:id</td>
+        <td>DELETE /api/goals/:id</td>
+    </tr>
+    <tr>
+        <td><strong>Portfolios</strong></td>
+        <td>PostgreSQL</td>
+        <td>POST /api/portfolios</td>
+        <td>GET /api/portfolios/:id</td>
+        <td>PUT /api/portfolios/:id</td>
+        <td>DELETE /api/portfolios/:id</td>
+    </tr>
+    <tr>
+        <td><strong>Transactions</strong></td>
+        <td>PostgreSQL</td>
+        <td>POST /api/portfolios/:id/transactions</td>
+        <td>GET /api/portfolios/:id/transactions</td>
+        <td>PUT /api/transactions/:id</td>
+        <td>DELETE /api/transactions/:id</td>
+    </tr>
+    <tr>
+        <td><strong>Chat History</strong></td>
+        <td>MongoDB</td>
+        <td>POST /api/chat/message</td>
+        <td>GET /api/chat/history</td>
+        <td>PUT /api/chat/session/:id</td>
+        <td>DELETE /api/chat/session/:id</td>
+    </tr>
+</table>
+</div>
+
+<!-- SECTION 8: FUNCTIONAL REQUIREMENTS -->
+<div class="section-break">
+<h1>8. FUNCTIONAL REQUIREMENTS</h1>
+
+<h2>FR-1: User Authentication and Authorization</h2>
+<ul>
+    <li><strong>FR-1.1:</strong> System shall allow users to register with email, password, first name, and last name</li>
+    <li><strong>FR-1.2:</strong> System shall validate email uniqueness and password strength (minimum 8 characters)</li>
+    <li><strong>FR-1.3:</strong> System shall authenticate users using JWT tokens with 7-day expiration</li>
+    <li><strong>FR-1.4:</strong> System shall support email verification through verification tokens</li>
+    <li><strong>FR-1.5:</strong> System shall enable password reset via email link</li>
+    <li><strong>FR-1.6:</strong> System shall support Two-Factor Authentication (2FA) using TOTP</li>
+</ul>
+
+<h2>FR-2: Financial Goal Management</h2>
+<ul>
+    <li><strong>FR-2.1:</strong> System shall allow users to create financial goals with:
+        <ul>
+            <li>Title, description</li>
+            <li>Target amount (in ZAR)</li>
+            <li>Target date</li>
+            <li>Time horizon (short/medium/long term)</li>
+            <li>Goal type (retirement, education, home, emergency, other)</li>
+            <li>Priority (low, medium, high)</li>
+            <li>Risk tolerance (conservative, moderate, aggressive)</li>
+            <li>Investment experience (beginner, intermediate, advanced)</li>
+            <li>Monthly contribution amount</li>
+        </ul>
+    </li>
+    <li><strong>FR-2.2:</strong> System shall track current amount saved toward each goal</li>
+    <li><strong>FR-2.3:</strong> System shall calculate progress percentage: (currentAmount / targetAmount) × 100</li>
+    <li><strong>FR-2.4:</strong> System shall update goal status automatically (pending, in_progress, achieved, at_risk)</li>
+    <li><strong>FR-2.5:</strong> System shall store AI-generated investment recommendations in JSONB format</li>
+</ul>
+
+<h2>FR-3: AI Chatbot Functionality</h2>
+<ul>
+    <li><strong>FR-3.1:</strong> System shall provide real-time chat interface using Socket.IO</li>
+    <li><strong>FR-3.2:</strong> System shall integrate Cohere AI API for natural language understanding</li>
+    <li><strong>FR-3.3:</strong> System shall maintain conversation context across messages</li>
+    <li><strong>FR-3.4:</strong> System shall access user profile and goals to personalize responses</li>
+    <li><strong>FR-3.5:</strong> System shall provide investment advice based on:
+        <ul>
+            <li>User risk tolerance</li>
+            <li>Investment experience</li>
+            <li>Financial goals</li>
+            <li>Current market conditions</li>
+        </ul>
+    </li>
+    <li><strong>FR-3.6:</strong> System shall support voice input using Web Speech API</li>
+    <li><strong>FR-3.7:</strong> System shall store complete chat history in MongoDB</li>
+    <li><strong>FR-3.8:</strong> System shall respond within 3 seconds for 95% of queries</li>
+</ul>
+
+<h2>FR-4: Investment Recommendation Engine</h2>
+<ul>
+    <li><strong>FR-4.1:</strong> System shall generate personalized recommendations using AI analysis</li>
+    <li><strong>FR-4.2:</strong> System shall implement collaborative filtering using Neo4j graph database</li>
+    <li><strong>FR-4.3:</strong> System shall identify similar users based on:
+        <ul>
+            <li>Risk tolerance</li>
+            <li>Investment experience</li>
+            <li>Goal types</li>
+            <li>Investment patterns</li>
+        </ul>
+    </li>
+    <li><strong>FR-4.4:</strong> System shall recommend investments popular among similar users</li>
+    <li><strong>FR-4.5:</strong> System shall consider investment suitability based on:
+        <ul>
+            <li>Time horizon</li>
+            <li>Risk level</li>
+            <li>Sector diversification</li>
+        </ul>
+    </li>
+    <li><strong>FR-4.6:</strong> System shall provide recommendation confidence scores</li>
+    <li><strong>FR-4.7:</strong> System shall update recommendations when user goals or profile changes</li>
+</ul>
+
+<h2>FR-5: Portfolio Management</h2>
+<ul>
+    <li><strong>FR-5.1:</strong> System shall allow users to create multiple portfolios</li>
+    <li><strong>FR-5.2:</strong> System shall track holdings with:
+        <ul>
+            <li>Symbol, name</li>
+            <li>Quantity</li>
+            <li>Average cost</li>
+            <li>Current price</li>
+            <li>Total cost and current value</li>
+            <li>Gain/loss (amount and percentage)</li>
+            <li>Sector classification</li>
+        </ul>
+    </li>
+    <li><strong>FR-5.3:</strong> System shall calculate portfolio totals</li>
+    <li><strong>FR-5.4:</strong> System shall record transactions with complete details</li>
+    <li><strong>FR-5.5:</strong> System shall update holdings automatically when transactions are added</li>
+    <li><strong>FR-5.6:</strong> System shall refresh current prices on demand</li>
+</ul>
+
+<div class="formula">
+<strong>Portfolio Calculations:</strong><br/>
+Total Value = Σ(Quantity × Current Price)<br/>
+Total Cost = Σ(Quantity × Average Cost)<br/>
+Total Gain/Loss = Total Value - Total Cost<br/>
+Gain/Loss % = (Gain/Loss / Total Cost) × 100
+</div>
+
+<h2>FR-6: Market Data Integration</h2>
+<ul>
+    <li><strong>FR-6.1:</strong> System shall fetch real-time stock quotes from Financial Modeling Prep API</li>
+    <li><strong>FR-6.2:</strong> System shall provide search functionality for stocks, ETFs, and companies</li>
+    <li><strong>FR-6.3:</strong> System shall cache market data in MongoDB for 5 minutes</li>
+    <li><strong>FR-6.4:</strong> System shall display: current price, price change, volume, market cap, sector</li>
+    <li><strong>FR-6.5:</strong> System shall fetch trending stocks and top gainers</li>
+    <li><strong>FR-6.6:</strong> System shall aggregate news articles related to specific symbols</li>
+    <li><strong>FR-6.7:</strong> System shall provide market overview (indices, sector performance)</li>
+</ul>
+
+<h2>FR-7: User Profile Management</h2>
+<ul>
+    <li><strong>FR-7.1:</strong> System shall store comprehensive user profile data</li>
+    <li><strong>FR-7.2:</strong> System shall allow users to update profile information</li>
+    <li><strong>FR-7.3:</strong> System shall display currency in South African Rands (R)</li>
+</ul>
+
+<h2>8.1 System Inputs and Outputs</h2>
+
+<h3>System Inputs:</h3>
+<ol>
+    <li>User registration data (email, password, name)</li>
+    <li>Financial goal parameters (amount, date, risk, type)</li>
+    <li>Chat messages (text or voice)</li>
+    <li>Portfolio transactions (buy/sell details)</li>
+    <li>Market data search queries</li>
+    <li>Profile updates</li>
+</ol>
+
+<h3>System Outputs:</h3>
+<ol>
+    <li>JWT authentication tokens</li>
+    <li>AI-generated investment recommendations</li>
+    <li>Chatbot responses (text)</li>
+    <li>Portfolio performance reports (value, gain/loss, ROI)</li>
+    <li>Goal progress dashboards (percentage complete, timeline status)</li>
+    <li>Real-time stock quotes and market data</li>
+    <li>News articles and market insights</li>
+</ol>
+
+<h2>8.2 Key Computations</h2>
+
+<div class="formula">
+<strong>1. Goal Progress Calculation:</strong><br/>
+Progress (%) = (Current Amount / Target Amount) × 100
+</div>
+
+<div class="formula">
+<strong>2. Portfolio Gain/Loss:</strong><br/>
+Total Value = Σ(Quantity × Current Price)<br/>
+Total Cost = Σ(Quantity × Average Cost)<br/>
+Gain/Loss = Total Value - Total Cost<br/>
+ROI (%) = (Gain/Loss / Total Cost) × 100
+</div>
+
+<div class="formula">
+<strong>3. Average Cost Per Share:</strong><br/>
+Average Cost = Total Cost / Total Quantity
+</div>
+
+<div class="formula">
+<strong>4. Time to Goal:</strong><br/>
+Months Remaining = (Target Date - Current Date) / 30 days<br/>
+Required Monthly Savings = (Target Amount - Current Amount) / Months Remaining
+</div>
+
+<h2>8.3 Timing and Synchronization</h2>
+
+<h3>Real-time Events (Immediate):</h3>
+<ul>
+    <li>Chat message sending/receiving (Socket.IO)</li>
+    <li>User authentication (JWT validation)</li>
+    <li>UI updates (React state changes)</li>
+</ul>
+
+<h3>Near Real-time (5-minute cache):</h3>
+<ul>
+    <li>Market data fetching and display</li>
+    <li>Stock price updates</li>
+    <li>News article retrieval</li>
+</ul>
+
+<h3>Periodic Updates (Daily/Scheduled):</h3>
+<ul>
+    <li>Portfolio valuation refresh (nightly cron job)</li>
+    <li>Goal status assessment</li>
+    <li>Market data cache cleanup</li>
+</ul>
+
+<h3>Background Processing:</h3>
+<ul>
+    <li>Neo4j graph relationship updates</li>
+    <li>AI recommendation regeneration</li>
+    <li>Email notifications (future feature)</li>
+</ul>
+</div>
+
+<!-- SECTION 9: NON-FUNCTIONAL REQUIREMENTS -->
+<div class="section-break">
+<h1>9. NON-FUNCTIONAL REQUIREMENTS</h1>
+
+<h2>NFR-1: Authentication and Security</h2>
+
+<h3>Authentication (Login/Logout)</h3>
+<ul>
+    <li><strong>NFR-1.1:</strong> System shall hash all passwords using bcryptjs with 10 salt rounds</li>
+    <li><strong>NFR-1.2:</strong> System shall generate JWT tokens containing user ID, email, and issuance timestamp</li>
+    <li><strong>NFR-1.3:</strong> System shall expire JWT tokens after 7 days</li>
+    <li><strong>NFR-1.4:</strong> System shall validate JWT tokens on every protected API request</li>
+    <li><strong>NFR-1.5:</strong> System shall clear authentication tokens on logout</li>
+    <li><strong>NFR-1.6:</strong> System shall implement rate limiting: maximum 100 requests per 15 minutes per IP</li>
+    <li><strong>NFR-1.7:</strong> System shall enforce HTTPS in production environments</li>
+    <li><strong>NFR-1.8:</strong> System shall implement CORS restrictions to allow only approved frontend origins</li>
+    <li><strong>NFR-1.9:</strong> System shall use Helmet.js for security headers (XSS protection, CSP, etc.)</li>
+    <li><strong>NFR-1.10:</strong> System shall validate and sanitize all user inputs using express-validator</li>
+</ul>
+
+<h3>Two-Factor Authentication (2FA)</h3>
+<ul>
+    <li><strong>NFR-1.11:</strong> System shall support TOTP-based 2FA using Speakeasy library</li>
+    <li><strong>NFR-1.12:</strong> System shall generate QR codes for 2FA setup using QRCode library</li>
+    <li><strong>NFR-1.13:</strong> System shall require 6-digit TOTP codes for 2FA-enabled accounts</li>
+</ul>
+
+<h2>NFR-2: Availability and Reliability</h2>
+<ul>
+    <li><strong>NFR-2.1:</strong> System shall maintain 99.5% uptime (maximum 3.6 hours downtime per month)</li>
+    <li><strong>NFR-2.2:</strong> System shall use Docker containers with restart policy "unless-stopped"</li>
+    <li><strong>NFR-2.3:</strong> System shall implement health check endpoints for all services</li>
+    <li><strong>NFR-2.4:</strong> System shall automatically restart failed containers</li>
+    <li><strong>NFR-2.5:</strong> System shall persist data using Docker volumes (postgres_data, mongodb_data, neo4j_data)</li>
+    <li><strong>NFR-2.6:</strong> System shall implement database connection pooling for PostgreSQL</li>
+    <li><strong>NFR-2.7:</strong> System shall gracefully handle API failures with fallback responses</li>
+</ul>
+
+<h2>NFR-3: Performance</h2>
+<ul>
+    <li><strong>NFR-3.1:</strong> System shall load web pages in under 2 seconds on standard broadband (5 Mbps)</li>
+    <li><strong>NFR-3.2:</strong> System shall respond to API requests in under 200ms for 90% of requests</li>
+    <li><strong>NFR-3.3:</strong> System shall generate AI chatbot responses in under 3 seconds for 95% of queries</li>
+    <li><strong>NFR-3.4:</strong> System shall execute database queries in under 50ms for 95% of operations</li>
+    <li><strong>NFR-3.5:</strong> System shall cache market data in MongoDB for 5 minutes to reduce API calls</li>
+    <li><strong>NFR-3.6:</strong> System shall support concurrent users: minimum 100 simultaneous connections</li>
+    <li><strong>NFR-3.7:</strong> System shall use Vite build tool for optimized frontend bundling</li>
+</ul>
+
+<h2>NFR-4: Scalability</h2>
+<ul>
+    <li><strong>NFR-4.1:</strong> System shall be containerized using Docker for horizontal scaling</li>
+    <li><strong>NFR-4.2:</strong> System shall use stateless backend architecture to enable load balancing</li>
+    <li><strong>NFR-4.3:</strong> System shall support database sharding for PostgreSQL (future enhancement)</li>
+    <li><strong>NFR-4.4:</strong> System shall implement connection pooling for Neo4j driver</li>
+</ul>
+
+<h2>NFR-5: Usability</h2>
+<ul>
+    <li><strong>NFR-5.1:</strong> System shall provide responsive design supporting desktop, tablet, and mobile devices</li>
+    <li><strong>NFR-5.2:</strong> System shall use intuitive UI components with clear labels and instructions</li>
+    <li><strong>NFR-5.3:</strong> System shall display currency in ZAR (R symbol) consistently</li>
+    <li><strong>NFR-5.4:</strong> System shall provide visual feedback (toasts, notifications) for all user actions</li>
+    <li><strong>NFR-5.5:</strong> System shall use colorful gradient backgrounds and smooth animations</li>
+    <li><strong>NFR-5.6:</strong> System shall support voice input for chatbot on compatible browsers</li>
+</ul>
+
+<h2>NFR-6: Maintainability</h2>
+<ul>
+    <li><strong>NFR-6.1:</strong> System shall use modular architecture with separation of concerns (Routes, Controllers, Models, Services)</li>
+    <li><strong>NFR-6.2:</strong> System shall use environment variables for configuration (.env files)</li>
+    <li><strong>NFR-6.3:</strong> System shall implement centralized logging using Winston library</li>
+    <li><strong>NFR-6.4:</strong> System shall use Sequelize ORM for PostgreSQL (type-safe queries)</li>
+    <li><strong>NFR-6.5:</strong> System shall use Mongoose ODM for MongoDB (schema validation)</li>
+</ul>
+
+<h2>NFR-7: Compatibility</h2>
+<ul>
+    <li><strong>NFR-7.1:</strong> Frontend shall support modern browsers: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+</li>
+    <li><strong>NFR-7.2:</strong> System shall run on Node.js 18.x or higher</li>
+    <li><strong>NFR-7.3:</strong> System shall be compatible with Windows, macOS, and Linux operating systems</li>
+    <li><strong>NFR-7.4:</strong> Voice input shall work on browsers supporting Web Speech API (Chrome, Edge, Safari)</li>
+</ul>
+
+<h2>NFR-8: Data Integrity</h2>
+<ul>
+    <li><strong>NFR-8.1:</strong> System shall use ACID-compliant PostgreSQL for transactional data</li>
+    <li><strong>NFR-8.2:</strong> System shall enforce foreign key constraints in PostgreSQL</li>
+    <li><strong>NFR-8.3:</strong> System shall validate data types at API and database levels</li>
+    <li><strong>NFR-8.4:</strong> System shall backup databases daily (production environment)</li>
+    <li><strong>NFR-8.5:</strong> System shall use UUIDs for primary keys to ensure global uniqueness</li>
+</ul>
+
+<h2>NFR-9: Compliance and Privacy</h2>
+<ul>
+    <li><strong>NFR-9.1:</strong> System shall comply with POPIA (Protection of Personal Information Act) in South Africa</li>
+    <li><strong>NFR-9.2:</strong> System shall never log sensitive data (passwords, tokens) in plain text</li>
+    <li><strong>NFR-9.3:</strong> System shall provide disclaimer: "This is educational software. Consult licensed advisors before investing."</li>
+    <li><strong>NFR-9.4:</strong> System shall allow users to delete their accounts and associated data (GDPR-style right to erasure)</li>
+</ul>
+
+<div class="disclaimer">
+    <strong>⚠️ IMPORTANT DISCLAIMER:</strong> This platform is designed for educational purposes. Users should consult with licensed financial advisors before making investment decisions. Past performance does not guarantee future results.
+</div>
+</div>
+
+<!-- SECTION 10: USE CASES -->
+<div class="section-break">
+<h1>10. USE CASE DIAGRAMS AND DESCRIPTIONS</h1>
+
+<h2>10.1 Use Case Diagram Overview</h2>
+<p style="text-align: center; font-family: monospace; background-color: #F5F5F5; padding: 20pt; border: 1px solid #CCCCCC;">
+<strong>Cleva Investment Platform - Use Case Diagram</strong><br/><br/>
+[Investor] ----&gt; (Register Account)<br/>
+[Investor] ----&gt; (Login)<br/>
+[Investor] ----&gt; (Create Financial Goal)<br/>
+[Investor] ----&gt; (Chat with AI Chatbot)<br/>
+[Investor] ----&gt; (View Market Data)<br/>
+[Investor] ----&gt; (Build &amp; Track Portfolio)<br/>
+[Investor] ----&gt; (Add Transaction)<br/>
+[System] ----&gt; (Generate AI Recommendations)<br/>
+[System] ----&gt; (Update Portfolio Values)
+</p>
+
+<h2>10.2 Use Case 1: Create Financial Goal</h2>
+
+<table>
+    <tr>
+        <th style="width: 30%;">Use Case Element</th>
+        <th>Details</th>
+    </tr>
+    <tr>
+        <td><strong>Use Case ID</strong></td>
+        <td>UC-001</td>
+    </tr>
+    <tr>
+        <td><strong>Use Case Name</strong></td>
+        <td>Create Financial Goal</td>
+    </tr>
+    <tr>
+        <td><strong>Primary Actor</strong></td>
+        <td>Investor</td>
+    </tr>
+    <tr>
+        <td><strong>Goal</strong></td>
+        <td>User creates a new financial goal to receive personalized investment recommendations</td>
+    </tr>
+    <tr>
+        <td><strong>Preconditions</strong></td>
+        <td>• User is registered and authenticated<br/>• User is logged into the system</td>
+    </tr>
+</table>
+
+<h3>Main Flow:</h3>
+<ol>
+    <li>User navigates to "Goals" section from dashboard</li>
+    <li>System displays "Create New Goal" button</li>
+    <li>User clicks "Create New Goal"</li>
+    <li>System displays goal creation form with fields:
+        <ul>
+            <li>Title (text input)</li>
+            <li>Description (textarea)</li>
+            <li>Target Amount in ZAR (number input)</li>
+            <li>Target Date (date picker)</li>
+            <li>Time Horizon (dropdown: short-term/medium-term/long-term)</li>
+            <li>Goal Type (dropdown: retirement/education/home/emergency/other)</li>
+            <li>Priority (dropdown: low/medium/high)</li>
+            <li>Risk Tolerance (radio: conservative/moderate/aggressive)</li>
+            <li>Investment Experience (radio: beginner/intermediate/advanced)</li>
+            <li>Monthly Contribution (number input, optional)</li>
+        </ul>
+    </li>
+    <li>User fills in all required fields</li>
+    <li>User clicks "Create Goal" button</li>
+    <li>System validates input data</li>
+    <li>System saves goal to PostgreSQL database</li>
+    <li>System calls AI service to analyze goal</li>
+    <li>AI service generates investment recommendations using Cohere API</li>
+    <li>System stores recommendations in goal's recommendedInvestments JSONB field</li>
+    <li>System creates user node in Neo4j (if not exists)</li>
+    <li>System creates relationships in Neo4j for recommended investments</li>
+    <li>System redirects user to goal detail page</li>
+    <li>System displays success message: "Goal created successfully!"</li>
+    <li>System shows AI-generated recommendations on goal detail page</li>
+</ol>
+
+<h3>Postconditions:</h3>
+<ul>
+    <li>Goal is saved in PostgreSQL database with status "pending"</li>
+    <li>AI recommendations are stored in JSONB format</li>
+    <li>Neo4j graph relationships are created</li>
+    <li>User can view and track goal progress</li>
+</ul>
+
+<h3>Alternative Flows:</h3>
+
+<h4>Alt-1: Validation Error</h4>
+<ul>
+    <li>At step 7, if validation fails:
+        <ul>
+            <li>System displays error messages next to invalid fields</li>
+            <li>User corrects errors</li>
+            <li>Return to step 5</li>
+        </ul>
+    </li>
+</ul>
+
+<h4>Alt-2: AI Service Unavailable</h4>
+<ul>
+    <li>At step 10, if Cohere API fails:
+        <ul>
+            <li>System saves goal without recommendations</li>
+            <li>System displays warning: "Recommendations will be generated shortly"</li>
+            <li>System queues goal for later processing</li>
+            <li>User can view goal but recommendations are pending</li>
+        </ul>
+    </li>
+</ul>
+
+<h4>Alt-3: User Cancels</h4>
+<ul>
+    <li>At any point before step 6:
+        <ul>
+            <li>User clicks "Cancel" button</li>
+            <li>System discards form data</li>
+            <li>System returns user to goals list page</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>Business Rules:</h3>
+<ul>
+    <li>Target amount must be positive number</li>
+    <li>Target date must be in the future</li>
+    <li>Monthly contribution cannot exceed (Target Amount / Months Remaining) × 2</li>
+</ul>
+
+<h2>10.3 Use Case 2: Chat with AI Chatbot</h2>
+
+<table>
+    <tr>
+        <th style="width: 30%;">Use Case Element</th>
+        <th>Details</th>
+    </tr>
+    <tr>
+        <td><strong>Use Case ID</strong></td>
+        <td>UC-002</td>
+    </tr>
+    <tr>
+        <td><strong>Use Case Name</strong></td>
+        <td>Interact with AI Investment Advisor Chatbot</td>
+    </tr>
+    <tr>
+        <td><strong>Primary Actor</strong></td>
+        <td>Investor</td>
+    </tr>
+    <tr>
+        <td><strong>Goal</strong></td>
+        <td>User asks investment questions and receives personalized AI-powered guidance</td>
+    </tr>
+    <tr>
+        <td><strong>Preconditions</strong></td>
+        <td>• User is registered and authenticated<br/>• User has at least one financial goal created<br/>• WebSocket connection is established</td>
+    </tr>
+</table>
+
+<h3>Main Flow:</h3>
+<ol>
+    <li>User navigates to "Chat" section from dashboard</li>
+    <li>System establishes Socket.IO connection to backend</li>
+    <li>System retrieves user's active chat session from MongoDB</li>
+    <li>System displays chat interface with message history, text input, voice button, and send button</li>
+    <li>User types message in text input field (e.g., "What should I invest in for my retirement goal?")</li>
+    <li>User clicks "Send" button</li>
+    <li>System sends message via Socket.IO event send_message</li>
+    <li>System displays user's message in chat window with timestamp</li>
+    <li>System shows "AI is typing..." indicator</li>
+    <li>Backend receives message via Socket.IO</li>
+    <li>Backend retrieves user profile from PostgreSQL (risk tolerance, experience)</li>
+    <li>Backend retrieves user's financial goals from PostgreSQL</li>
+    <li>Backend queries Neo4j for user's investment relationships and similar users</li>
+    <li>Backend constructs context-rich prompt including user data and market conditions</li>
+    <li>Backend sends prompt to Cohere AI API</li>
+    <li>Cohere AI generates personalized response</li>
+    <li>Backend saves message exchange to MongoDB ChatHistory collection</li>
+    <li>Backend sends AI response via Socket.IO event message_response</li>
+    <li>System displays AI response in chat window with timestamp</li>
+    <li>System hides "AI is typing..." indicator</li>
+    <li>User reads AI response</li>
+</ol>
+
+<h3>Postconditions:</h3>
+<ul>
+    <li>Message exchange is saved in MongoDB</li>
+    <li>User gains investment insight</li>
+    <li>Conversation context is maintained for follow-up questions</li>
+    <li>Neo4j relationships may be updated based on expressed interests</li>
+</ul>
+
+<h3>Alternative Flows:</h3>
+
+<h4>Alt-1: Voice Input</h4>
+<ul>
+    <li>At step 5, user clicks microphone button instead of typing:
+        <ul>
+            <li>System activates Web Speech API</li>
+            <li>User speaks message</li>
+            <li>System converts speech to text</li>
+            <li>System displays transcribed text in input field</li>
+            <li>User reviews text and clicks "Send"</li>
+            <li>Continue to step 7</li>
+        </ul>
+    </li>
+</ul>
+
+<h4>Alt-2: Cohere API Failure</h4>
+<ul>
+    <li>At step 16, if Cohere API times out or returns error:
+        <ul>
+            <li>Backend generates fallback response: "I'm having trouble connecting right now. Please consult a licensed financial advisor for personalized advice."</li>
+            <li>System displays error toast: "AI service temporarily unavailable"</li>
+            <li>Continue to step 18 with fallback response</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>Business Rules:</h3>
+<ul>
+    <li>AI responses must include disclaimer: "This is educational information, not financial advice"</li>
+    <li>Messages longer than 500 characters are truncated with warning</li>
+    <li>Chat sessions expire after 24 hours of inactivity</li>
+</ul>
+
+<h2>10.4 Use Case 3: Add Transaction to Portfolio</h2>
+
+<table>
+    <tr>
+        <th style="width: 30%;">Use Case Element</th>
+        <th>Details</th>
+    </tr>
+    <tr>
+        <td><strong>Use Case ID</strong></td>
+        <td>UC-003</td>
+    </tr>
+    <tr>
+        <td><strong>Use Case Name</strong></td>
+        <td>Add Transaction to Portfolio</td>
+    </tr>
+    <tr>
+        <td><strong>Primary Actor</strong></td>
+        <td>Investor</td>
+    </tr>
+    <tr>
+        <td><strong>Goal</strong></td>
+        <td>User records an investment transaction (buy/sell) to track portfolio performance</td>
+    </tr>
+    <tr>
+        <td><strong>Preconditions</strong></td>
+        <td>• User is registered and authenticated<br/>• User has created at least one portfolio</td>
+    </tr>
+</table>
+
+<h3>Main Flow:</h3>
+<ol>
+    <li>User navigates to "Portfolios" section from dashboard</li>
+    <li>System retrieves all user portfolios from PostgreSQL</li>
+    <li>System displays portfolio list with summary cards</li>
+    <li>User selects a portfolio to view details</li>
+    <li>System displays portfolio detail page showing holdings, performance chart, and "Add Transaction" button</li>
+    <li>User clicks "Add Transaction" button</li>
+    <li>System displays transaction form</li>
+    <li>User starts typing stock symbol (e.g., "AAPL")</li>
+    <li>System calls GET /api/market/search?q=AAPL</li>
+    <li>System displays autocomplete dropdown with matching stocks</li>
+    <li>User selects stock from dropdown (e.g., "AAPL - Apple Inc.")</li>
+    <li>User fills in quantity: 10 shares</li>
+    <li>User fills in price: $150.00</li>
+    <li>User selects transaction date</li>
+    <li>User clicks "Add Transaction" button</li>
+    <li>System validates input data</li>
+    <li>System calculates total amount: Quantity × Price + Fees</li>
+    <li>System saves transaction to PostgreSQL Transactions table</li>
+    <li>System updates or creates holding in PortfolioHoldings table</li>
+    <li>System fetches current price for symbol from Financial Modeling Prep API</li>
+    <li>System calculates current value and gain/loss</li>
+    <li>System updates portfolio totals in Portfolios table</li>
+    <li>System redirects to portfolio detail page</li>
+    <li>System displays success message: "Transaction added successfully!"</li>
+    <li>System shows updated holdings with new values and gain/loss</li>
+</ol>
+
+<h3>Postconditions:</h3>
+<ul>
+    <li>Transaction is recorded in database</li>
+    <li>Portfolio holdings are updated</li>
+    <li>Portfolio total value and gain/loss are recalculated</li>
+    <li>User can view updated portfolio performance</li>
+</ul>
+
+<h3>Business Rules:</h3>
+<ul>
+    <li>Quantity must be positive integer for Buy/Sell transactions</li>
+    <li>Price must be positive number</li>
+    <li>Transaction date cannot be in the future</li>
+    <li>Average cost calculation for buys: ((Old Qty × Old Avg Cost) + (New Qty × New Price)) / Total Qty</li>
+    <li>Selling reduces quantity; if quantity reaches 0, holding is marked inactive but not deleted (for history)</li>
+</ul>
+</div>
+
+<!-- SECTION 11: TOOLS AND TECHNOLOGIES -->
+<div class="section-break">
+<h1>11. TOOLS AND TECHNOLOGIES TO BE USED</h1>
+
+<h2>11.1 Frontend Technologies</h2>
+<table>
+    <tr>
+        <th style="width: 20%;">Technology</th>
+        <th style="width: 10%;">Version</th>
+        <th style="width: 25%;">Purpose</th>
+        <th>Justification</th>
+    </tr>
+    <tr>
+        <td><strong>React</strong></td>
+        <td>18.x</td>
+        <td>UI Framework</td>
+        <td>Component-based architecture, virtual DOM for performance, large ecosystem</td>
+    </tr>
+    <tr>
+        <td><strong>Vite</strong></td>
+        <td>Latest</td>
+        <td>Build Tool</td>
+        <td>Fast hot module replacement (HMR), optimized bundling, modern development experience</td>
+    </tr>
+    <tr>
+        <td><strong>React Router</strong></td>
+        <td>6.x</td>
+        <td>Routing</td>
+        <td>Client-side routing, nested routes, URL parameter handling</td>
+    </tr>
+    <tr>
+        <td><strong>Zustand</strong></td>
+        <td>Latest</td>
+        <td>State Management</td>
+        <td>Lightweight alternative to Redux, simple API, minimal boilerplate</td>
+    </tr>
+    <tr>
+        <td><strong>Tailwind CSS</strong></td>
+        <td>3.x</td>
+        <td>Styling Framework</td>
+        <td>Utility-first CSS, rapid UI development, consistent design system</td>
+    </tr>
+    <tr>
+        <td><strong>Socket.IO Client</strong></td>
+        <td>Latest</td>
+        <td>Real-time Communication</td>
+        <td>WebSocket-based chat, bi-directional messaging with backend</td>
+    </tr>
+    <tr>
+        <td><strong>Axios</strong></td>
+        <td>Latest</td>
+        <td>HTTP Client</td>
+        <td>Promise-based HTTP requests, interceptors for auth tokens, error handling</td>
+    </tr>
+    <tr>
+        <td><strong>React Toastify</strong></td>
+        <td>Latest</td>
+        <td>Notifications</td>
+        <td>User-friendly toast notifications for success/error messages</td>
+    </tr>
+    <tr>
+        <td><strong>React Icons</strong></td>
+        <td>Latest</td>
+        <td>Icon Library</td>
+        <td>Comprehensive icon sets (FontAwesome, Material, etc.)</td>
+    </tr>
+    <tr>
+        <td><strong>Recharts</strong></td>
+        <td>Latest</td>
+        <td>Data Visualization</td>
+        <td>Composable charting library for portfolio performance graphs</td>
+    </tr>
+    <tr>
+        <td><strong>Web Speech API</strong></td>
+        <td>Native</td>
+        <td>Voice Input</td>
+        <td>Browser-based speech-to-text for hands-free chatbot interaction</td>
+    </tr>
+</table>
+
+<h2>11.2 Backend Technologies</h2>
+<table>
+    <tr>
+        <th style="width: 20%;">Technology</th>
+        <th style="width: 10%;">Version</th>
+        <th style="width: 25%;">Purpose</th>
+        <th>Justification</th>
+    </tr>
+    <tr>
+        <td><strong>Node.js</strong></td>
+        <td>18.x</td>
+        <td>Runtime Environment</td>
+        <td>JavaScript runtime, non-blocking I/O, large package ecosystem</td>
+    </tr>
+    <tr>
+        <td><strong>Express.js</strong></td>
+        <td>4.x</td>
+        <td>Web Framework</td>
+        <td>Minimalist framework, middleware support, RESTful API development</td>
+    </tr>
+    <tr>
+        <td><strong>Socket.IO</strong></td>
+        <td>4.x</td>
+        <td>WebSocket Server</td>
+        <td>Real-time bidirectional communication for chatbot</td>
+    </tr>
+    <tr>
+        <td><strong>Sequelize</strong></td>
+        <td>6.x</td>
+        <td>PostgreSQL ORM</td>
+        <td>Type-safe queries, migrations, model relationships</td>
+    </tr>
+    <tr>
+        <td><strong>Mongoose</strong></td>
+        <td>8.x</td>
+        <td>MongoDB ODM</td>
+        <td>Schema validation, query building, middleware hooks</td>
+    </tr>
+    <tr>
+        <td><strong>Neo4j Driver</strong></td>
+        <td>5.x</td>
+        <td>Graph Database Driver</td>
+        <td>Official Neo4j JavaScript driver for Cypher queries</td>
+    </tr>
+    <tr>
+        <td><strong>bcryptjs</strong></td>
+        <td>Latest</td>
+        <td>Password Hashing</td>
+        <td>Secure password hashing with configurable salt rounds</td>
+    </tr>
+    <tr>
+        <td><strong>jsonwebtoken</strong></td>
+        <td>Latest</td>
+        <td>JWT Authentication</td>
+        <td>Token generation and verification for stateless auth</td>
+    </tr>
+    <tr>
+        <td><strong>Helmet</strong></td>
+        <td>7.x</td>
+        <td>Security Headers</td>
+        <td>Middleware for setting secure HTTP headers</td>
+    </tr>
+    <tr>
+        <td><strong>CORS</strong></td>
+        <td>Latest</td>
+        <td>Cross-Origin Requests</td>
+        <td>Enable frontend (port 5173) to access backend (port 5000)</td>
+    </tr>
+    <tr>
+        <td><strong>express-rate-limit</strong></td>
+        <td>7.x</td>
+        <td>Rate Limiting</td>
+        <td>Prevent brute-force attacks, API abuse prevention</td>
+    </tr>
+    <tr>
+        <td><strong>express-validator</strong></td>
+        <td>7.x</td>
+        <td>Input Validation</td>
+        <td>Request validation and sanitization</td>
+    </tr>
+    <tr>
+        <td><strong>Winston</strong></td>
+        <td>3.x</td>
+        <td>Logging</td>
+        <td>Structured logging to files and console</td>
+    </tr>
+    <tr>
+        <td><strong>Nodemailer</strong></td>
+        <td>6.x</td>
+        <td>Email Service</td>
+        <td>Send verification emails, password resets</td>
+    </tr>
+    <tr>
+        <td><strong>Speakeasy</strong></td>
+        <td>2.x</td>
+        <td>2FA (TOTP)</td>
+        <td>Time-based one-time password generation</td>
+    </tr>
+    <tr>
+        <td><strong>QRCode</strong></td>
+        <td>1.x</td>
+        <td>QR Code Generation</td>
+        <td>Generate QR codes for 2FA setup</td>
+    </tr>
+    <tr>
+        <td><strong>node-cron</strong></td>
+        <td>3.x</td>
+        <td>Scheduled Tasks</td>
+        <td>Daily portfolio valuation updates, cache cleanup</td>
+    </tr>
+    <tr>
+        <td><strong>dotenv</strong></td>
+        <td>16.x</td>
+        <td>Environment Variables</td>
+        <td>Load configuration from .env files</td>
+    </tr>
+</table>
+
+<h2>11.3 Database Technologies</h2>
+<table>
+    <tr>
+        <th style="width: 20%;">Database</th>
+        <th style="width: 15%;">Version</th>
+        <th style="width: 30%;">Purpose</th>
+        <th>Justification</th>
+    </tr>
+    <tr>
+        <td><strong>PostgreSQL</strong></td>
+        <td>15 Alpine</td>
+        <td>Relational Database</td>
+        <td>ACID compliance, complex queries, relational data (users, goals, portfolios)</td>
+    </tr>
+    <tr>
+        <td><strong>MongoDB</strong></td>
+        <td>7 Jammy</td>
+        <td>Document Database</td>
+        <td>Flexible schema for chat history and market data caching, fast reads</td>
+    </tr>
+    <tr>
+        <td><strong>Neo4j</strong></td>
+        <td>5 Community</td>
+        <td>Graph Database</td>
+        <td>Relationship-focused storage for collaborative filtering recommendations</td>
+    </tr>
+</table>
+
+<h2>11.4 External APIs</h2>
+<table>
+    <tr>
+        <th style="width: 25%;">Service</th>
+        <th style="width: 35%;">Purpose</th>
+        <th style="width: 20%;">Free Tier</th>
+        <th>Cost Structure</th>
+    </tr>
+    <tr>
+        <td><strong>Cohere AI</strong></td>
+        <td>Chatbot natural language processing</td>
+        <td>25 req/min</td>
+        <td>Free tier sufficient for MVP</td>
+    </tr>
+    <tr>
+        <td><strong>Financial Modeling Prep</strong></td>
+        <td>Real-time market data, stock quotes, company profiles</td>
+        <td>250 req/day</td>
+        <td>$14/month for 750 req/day (production upgrade)</td>
+    </tr>
+</table>
+
+<h2>11.5 DevOps & Deployment</h2>
+<table>
+    <tr>
+        <th style="width: 25%;">Tool</th>
+        <th style="width: 35%;">Purpose</th>
+        <th>Justification</th>
+    </tr>
+    <tr>
+        <td><strong>Docker</strong></td>
+        <td>Containerization</td>
+        <td>Consistent environments across dev/staging/prod, easy deployment</td>
+    </tr>
+    <tr>
+        <td><strong>Docker Compose</strong></td>
+        <td>Multi-container Orchestration</td>
+        <td>Define and run all services (frontend, backend, databases) with single command</td>
+    </tr>
+    <tr>
+        <td><strong>Git</strong></td>
+        <td>Version Control</td>
+        <td>Code versioning, collaboration, branch management</td>
+    </tr>
+    <tr>
+        <td><strong>GitHub</strong></td>
+        <td>Code Repository</td>
+        <td>Remote repository hosting, issue tracking, pull requests</td>
+    </tr>
+    <tr>
+        <td><strong>Docker Hub</strong></td>
+        <td>Container Registry</td>
+        <td>Store and distribute Docker images</td>
+    </tr>
+</table>
+
+<h2>11.6 Development Tools</h2>
+<table>
+    <tr>
+        <th style="width: 30%;">Tool</th>
+        <th>Purpose</th>
+    </tr>
+    <tr>
+        <td><strong>VS Code</strong></td>
+        <td>Code Editor</td>
+    </tr>
+    <tr>
+        <td><strong>Postman</strong></td>
+        <td>API Testing</td>
+    </tr>
+    <tr>
+        <td><strong>pgAdmin</strong></td>
+        <td>PostgreSQL Database Management</td>
+    </tr>
+    <tr>
+        <td><strong>MongoDB Compass</strong></td>
+        <td>MongoDB Database Management</td>
+    </tr>
+    <tr>
+        <td><strong>Neo4j Browser</strong></td>
+        <td>Neo4j Graph Visualization</td>
+    </tr>
+    <tr>
+        <td><strong>Chrome DevTools</strong></td>
+        <td>Frontend Debugging</td>
+    </tr>
+    <tr>
+        <td><strong>Nodemon</strong></td>
+        <td>Auto-restart backend on file changes</td>
+    </tr>
+</table>
+
+<h2>11.7 Technology Stack Architecture</h2>
+<p style="font-family: monospace; background-color: #F5F5F5; padding: 20pt; border: 1px solid #CCCCCC;">
+┌─────────────────────────────────────────────────────────┐<br/>
+│                     FRONTEND LAYER                      │<br/>
+│  React 18 + Vite + TailwindCSS + Zustand + Socket.IO   │<br/>
+│                    Port: 5173                           │<br/>
+└─────────────────────────────────────────────────────────┘<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ HTTP/WebSocket<br/>
+┌─────────────────────────────────────────────────────────┐<br/>
+│                     BACKEND LAYER                       │<br/>
+│  Express.js + Socket.IO + JWT + Rate Limiting          │<br/>
+│                    Port: 5000                           │<br/>
+└─────────────────────────────────────────────────────────┘<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┌───────────────────┼───────────────────┐<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br/>
+┌────────────┐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┌────────────┐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┌────────────┐<br/>
+│ PostgreSQL │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;MongoDB&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;Neo4j&nbsp;&nbsp;&nbsp;&nbsp;│<br/>
+│ Port: 5432 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ Port: 27017│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ Port: 7687 │<br/>
+│ Users      │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ Chat       │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ Graph      │<br/>
+│ Goals      │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ Market     │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ Relations  │<br/>
+│ Portfolios │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ Articles   │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│            │<br/>
+└────────────┘&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└────────────┘&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└────────────┘
+</p>
+
+<h2>11.8 Technology Selection Rationale</h2>
+<ol>
+    <li><strong>React + Vite:</strong> Modern frontend stack with fast development experience, hot module replacement</li>
+    <li><strong>Express.js:</strong> Lightweight, flexible backend framework with middleware ecosystem</li>
+    <li><strong>Multi-Database:</strong> Each database serves specific purpose (relational, document, graph)</li>
+    <li><strong>Socket.IO:</strong> Enables real-time chat without complex WebSocket management</li>
+    <li><strong>Docker:</strong> Ensures consistent environments, simplifies deployment, enables easy scaling</li>
+    <li><strong>JWT:</strong> Stateless authentication suitable for RESTful APIs and mobile apps (future)</li>
+    <li><strong>Cohere AI:</strong> Free tier sufficient for MVP, good documentation, cost-effective</li>
+    <li><strong>Financial Modeling Prep:</strong> Reliable market data, generous free tier, comprehensive API</li>
+</ol>
+</div>
+
+<!-- CONCLUSION -->
+<div class="section-break">
+<h1>CONCLUSION</h1>
+
+<p>The Cleva Investment platform addresses a critical gap in the South African investment advisory market by providing AI-powered, personalized investment guidance at no cost to users. Through a multi-database architecture leveraging PostgreSQL, MongoDB, and Neo4j, combined with Cohere AI and real-time market data, the platform democratizes access to professional-grade investment advice.</p>
+
+<h2>Key Highlights:</h2>
+
+<table>
+    <tr>
+        <th style="width: 30%;">Aspect</th>
+        <th>Summary</th>
+    </tr>
+    <tr>
+        <td><strong>Problem Definition</strong></td>
+        <td>High advisory costs (1-2% annually) and limited accessibility prevent small investors from receiving personalized investment guidance</td>
+    </tr>
+    <tr>
+        <td><strong>Solution</strong></td>
+        <td>AI-powered platform providing free, personalized recommendations through chatbot, goal tracking, and collaborative filtering</td>
+    </tr>
+    <tr>
+        <td><strong>Measurable Objectives</strong></td>
+        <td>10,000 users, 85% satisfaction, 99.5% uptime, 500+ investment instruments, 10+ chatbot interactions/month</td>
+    </tr>
+    <tr>
+        <td><strong>Technology Stack</strong></td>
+        <td>React 18, Node.js 18, PostgreSQL 15, MongoDB 7, Neo4j 5, Cohere AI, Financial Modeling Prep API</td>
+    </tr>
+    <tr>
+        <td><strong>Core Features</strong></td>
+        <td>Goal management, AI chatbot, portfolio tracking, real-time market data, collaborative filtering recommendations</td>
+    </tr>
+    <tr>
+        <td><strong>Impact</strong></td>
+        <td>Financial inclusion, wealth-building opportunities, improved financial literacy for South African investors</td>
+    </tr>
+</table>
+
+<h2>Next Steps:</h2>
+<ol>
+    <li><strong>Approval:</strong> Review and approve this Phase 1 Proposal</li>
+    <li><strong>Development:</strong> Begin Phase 1 implementation (Months 1-2)</li>
+    <li><strong>Testing:</strong> Conduct user acceptance testing with beta users</li>
+    <li><strong>Launch:</strong> Public launch and user acquisition (Month 7+)</li>
+</ol>
+
+<div style="background-color: #E8F4F8; padding: 15pt; border-left: 4px solid #2E5090; margin-top: 20pt;">
+    <p><strong>By following SMART principles and implementing comprehensive CRUD operations across all entities, Cleva Investment is strategically positioned to achieve its vision of becoming South Africa's leading AI-powered investment advisory platform.</strong></p>
+</div>
+
+<div class="disclaimer" style="margin-top: 20pt;">
+    <strong>⚠️ DISCLAIMER:</strong> This platform is designed for educational purposes. Users should consult with licensed financial advisors before making investment decisions. The system complies with POPIA (Protection of Personal Information Act) and includes appropriate disclaimers throughout the user experience.
+</div>
+</div>
+
+<!-- DOCUMENT FOOTER -->
+<div style="margin-top: 60pt; padding-top: 20pt; border-top: 2px solid #2E5090; text-align: center;">
+    <p><strong>END OF PHASE 1 PROPOSAL</strong></p>
+    <p>Cleva Investment - AI-Powered Investment Advisory Platform</p>
+    <p>Prepared by: Cleva Investment Development Team | Date: January 15, 2026 | Version: 1.0</p>
+</div>
+
+</body>
+</html>

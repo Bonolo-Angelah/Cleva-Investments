@@ -1,0 +1,114 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: cleva-postgres
+    environment:
+      POSTGRES_DB: cleva_investment
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: cleva_postgres_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - cleva-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # MongoDB Database
+  mongodb:
+    image: mongo:7-jammy
+    container_name: cleva-mongodb
+    environment:
+      MONGO_INITDB_DATABASE: cleva_investment
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - cleva-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Neo4j Graph Database
+  neo4j:
+    image: neo4j:5-community
+    container_name: cleva-neo4j
+    environment:
+      NEO4J_AUTH: neo4j/cleva_neo4j_password
+      NEO4J_PLUGINS: '["apoc"]'
+      NEO4J_dbms_security_procedures_unrestricted: apoc.*
+    ports:
+      - "7474:7474"  # HTTP
+      - "7687:7687"  # Bolt
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+    networks:
+      - cleva-network
+    healthcheck:
+      test: ["CMD-SHELL", "cypher-shell -u neo4j -p cleva_neo4j_password 'RETURN 1'"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: cleva-backend
+    env_file:
+      - ./backend/.env
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      MONGODB_URI: mongodb://mongodb:27017/cleva_investment
+      NEO4J_URI: bolt://neo4j:7687
+    ports:
+      - "5000:5000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
+    networks:
+      - cleva-network
+    restart: unless-stopped
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: cleva-frontend
+    environment:
+      VITE_API_URL: http://localhost:5000/api
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    networks:
+      - cleva-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  mongodb_data:
+  neo4j_data:
+  neo4j_logs:
+
+networks:
+  cleva-network:
+    driver: bridge
